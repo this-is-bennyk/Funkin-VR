@@ -1,7 +1,7 @@
 
 # Godot-specific ignores
 .import/
-.test/
+test/
 export.cfg
 export_presets.cfg
 
