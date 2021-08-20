@@ -15,6 +15,7 @@ const DEATH_MATERIAL = preload("res://assets/models/chars/bf/Death_Material.tres
 const DEFAULT_DEATH_MUSIC = preload("res://assets/music/fnf/gameOver.ogg")
 const DEFAULT_DEATH_SOUND = preload("res://assets/sounds/fnf_loss_sfx.ogg")
 const DEFAULT_RETRY_SOUND = preload("res://assets/music/fnf/gameOverEnd.ogg")
+const RETURN_TO_MAIN_MENU_SOUND = preload("res://assets/sounds/cancelMenu.ogg")
 
 # Amount of rumble initially set doesn't seem to matter for Quest 2 on PC
 const NOTE_RUMBLE = 0.25
@@ -261,13 +262,13 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 	var dropped_mic_final_xform = Transform(Basis(Quat(Vector3(0, -PI / 2, 0))).scaled(dropped_mic.global_transform.basis.get_scale()),
 											dropped_mic.global_transform.origin * Vector3(1, 0, 1))
 	
-	if !(left_hand_trigger_continued_press || right_hand_trigger_continued_press):
+	if !_retry_or_quit_pressed():
 		death_sfx_player.stream = death_sound if death_sound else DEFAULT_DEATH_SOUND
 		death_sfx_player.play()
 		
 		yield(get_tree().create_timer(0.65), "timeout")
 		
-		if !(left_hand_trigger_continued_press || right_hand_trigger_continued_press):
+		if !_retry_or_quit_pressed():
 			death_tween.interpolate_property(dropped_mic, "global_transform",
 											 dropped_mic.global_transform,
 											 dropped_mic_final_xform,
@@ -288,7 +289,7 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 				Conductor.play_song(DEFAULT_DEATH_MUSIC, 100)
 	
 			# TODO: replace this
-			while !(left_hand_trigger_continued_press || right_hand_trigger_continued_press):
+			while !_retry_or_quit_pressed():
 				yield(get_tree(), "idle_frame")
 			
 			Conductor.stop_song()
@@ -303,30 +304,54 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 	# TODO: Finish this shit
 	Conductor.stop_song()
 	
-	dropped_mic.hide()
-	
-	retry_text.show() # if we haven't already
-	retry_info.hide()
-	retry_text.bumping = false
-	retry_text.material_override.set_shader_param("frequency", 0.0)
-	retry_text.material_override.set_shader_param("amplitude", 0.0)
-	retry_text_anim.play("Confirm")
-	blue_balls.bumping = false
-	
-	death_sfx_player.stream = retry_sound if retry_sound else DEFAULT_RETRY_SOUND
-	death_sfx_player.play()
-	yield(get_tree().create_timer(0.7), "timeout")
-	
-	play_transition(Transition.DEATH_FADE)
-	yield(screen_anim, "animation_finished")
-	
-	retry_text.hide()
-	death_menu.hide()
-	death_sfx_player.stop()
-	
-	switch_materials()
-	play_transition(Transition.FADE_IN)
-	emit_signal("retry")
+	if left_hand_trigger_continued_press || right_hand_trigger_continued_press:
+		dropped_mic.hide()
+		
+		retry_text.show() # if we haven't already
+		retry_info.hide()
+		retry_text.bumping = false
+		retry_text.material_override.set_shader_param("frequency", 0.0)
+		retry_text.material_override.set_shader_param("amplitude", 0.0)
+		retry_text_anim.play("Confirm")
+		blue_balls.bumping = false
+		
+		death_sfx_player.stream = retry_sound if retry_sound else DEFAULT_RETRY_SOUND
+		death_sfx_player.play()
+		yield(get_tree().create_timer(0.7), "timeout")
+		
+		play_transition(Transition.DEATH_FADE)
+		yield(screen_anim, "animation_finished")
+		
+		retry_text.hide()
+		death_menu.hide()
+		death_sfx_player.stop()
+		
+		switch_materials()
+		play_transition(Transition.FADE_IN)
+		emit_signal("retry")
+	else:
+		dropped_mic.hide()
+		retry_text.hide()
+		retry_text_anim.stop()
+		retry_info.hide()
+		death_menu.hide()
+		
+		death_sfx_player.stream = RETURN_TO_MAIN_MENU_SOUND
+		death_sfx_player.play()
+		
+		play_transition(Transition.FADE_OUT)
+		yield(screen_anim, "animation_finished")
+
+		var main_vp = get_tree().root
+		main_vp.get_child(main_vp.get_child_count() - 1).load_scene("res://prototypes/menus/main_menu/Main_Menu.tscn")
+
+func _retry_or_quit_pressed():
+	return GDScriptX.xor(left_hand_trigger_continued_press || right_hand_trigger_continued_press, 
+						 left_hand.is_button_pressed(JOY_OPENVR_MENU) || left_hand.is_button_pressed(JOY_OCULUS_MENU) || \
+						 right_hand.is_button_pressed(JOY_OPENVR_MENU) || right_hand.is_button_pressed(JOY_OCULUS_MENU))
+#	return (left_hand_trigger_continued_press || right_hand_trigger_continued_press || \
+#			left_hand.is_button_pressed(JOY_OPENVR_MENU) || left_hand.is_button_pressed(JOY_OCULUS_MENU) || \
+#			right_hand.is_button_pressed(JOY_OPENVR_MENU) || right_hand.is_button_pressed(JOY_OCULUS_MENU))
 
 # VR Functions
 
@@ -459,7 +484,7 @@ func on_controller_button_detected(button, is_right_hand, pressed):
 #		else:
 #			get(hand_name + "_hand_model").get_node("AnimationPlayer").play("Point" + anim_suffix)
 	
-	if (button == JOY_OPENVR_MENU || button == JOY_OCULUS_MENU) && !pressed:
+	if (button == JOY_OPENVR_MENU || button == JOY_OCULUS_MENU) && can_pause && !pressed:
 		if !get_tree().paused:
 			set_pause(true)
 		else:
