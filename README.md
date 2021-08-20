@@ -2,12 +2,14 @@
 
 # Friday Night Funkin' VR
 ## What the funk is this?
-Friday Night Funkin' VR (FNFVR for short) is a fanmade VR port of Friday Night Funkin' (FNF), a rhythm game originally created for Ludum Dare 47 "Stuck in a Loop".  
+Friday Night Funkin' VR (FNFVR for short) is a unofficial / fanmade standalone VR port of Friday Night Funkin' (FNF), a rhythm game originally created for Ludum Dare 47 "Stuck in a Loop".  
 You can find the original FNF on [itch.io](https://ninja-muffin24.itch.io/funkin), [Newgrounds](https://www.newgrounds.com/portal/view/770371), and [GitHub](https://github.com/ninjamuffin99/Funkin).  
   
-FNFVR is an unofficial standalone VR version of FNF, built from the ground up in the [Godot game engine](https://godotengine.org/).  
+Seeing as HaxeFlixel was not built for VR, FNFVR is built from the ground up in the [Godot game engine](https://godotengine.org/), using open source plug-ins to manage both PCVR and Quest standalone VR (although the PC version is superior in every way lol).  
 This is **NOT** a modification of FNF, but it will follow the same licenses as if it were one.  
+
 Follow the [FNFVR Twitter](https://twitter.com/FunkinVR) for quick updates!
+And join the [FNFVR Discord](discord.gg/fnfvr) to talk about the game with other people!
   
 ## What's it all about?
 * **A fresh new take on the FNF formula!** Hit the notes with your hands with a layout reminiscent of games like Guitar Hero and face your opponent head-on... literally!  
