@@ -6,7 +6,14 @@ var intro_already_done = false
 var logo_bumped_right = true
 var freaky_menu = preload("res://assets/music/fnf/freakyMenu.ogg")
 
+var funny_lines: PoolStringArray
+
 func _ready():
+	var file = File.new()
+	file.open("res://assets/data/intro_text.txt", File.READ)
+	funny_lines = file.get_as_text().split("\n")
+	file.close()
+	
 	Conductor.connect("quarter_hit", self, "on_quarter_hit")
 	Conductor.play_song(freaky_menu, 102)
 	gf.start()
@@ -34,6 +41,12 @@ func on_quarter_hit(quarter):
 			7:
 				$FNF_Dev_Msg.hide()
 			8:
+				var intro_text = funny_lines[randi() % len(funny_lines)].split("--")
+				
+				$Funny_Quote/Quote_VP/Label.text = intro_text[0]
+				$Funny_Quote/Quote_VP/Label2.text = "\n\n" + intro_text[1]
+				$Funny_Quote/Quote_VP/Label3.text = "- " + intro_text[2]
+				
 				$Funny_Quote.show()
 			10:
 				$Funny_Quote/Quote_VP/Label2.show()

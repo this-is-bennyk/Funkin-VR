@@ -15,6 +15,8 @@ var interactive_loader: ResourceInteractiveLoader
 func _ready():
 	# TODO: Find a way to make it so that I don't have to use the 3D physics server either
 	Physics2DServer.set_active(false)
+	randomize()
+	
 	if Settings.get_setting("player", "in_game_height") == -999:
 		add_child(preload("res://prototypes/menus/Height_Adjuster.tscn").instance())
 	else:
