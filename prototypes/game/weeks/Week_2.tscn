@@ -1,0 +1,542 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://assets/models/chars/spooky_kids/Spooky_Kids.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/game/weeks/week_2/spooky_clouds.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/game/weeks/week_2/spooky_tree.png" type="Texture" id=3]
+[ext_resource path="res://prototypes/game/Level.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/models/chars/monster/Monster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/chars/gf/costume/Girlfriend_WK2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/game/weeks/Week_2.gd" type="Script" id=7]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.141176, 0.137255, 0.211765, 1 )
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 20, 30 )
+
+[sub_resource type="QuadMesh" id=3]
+size = Vector2( 20, 10 )
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 10, 30 )
+
+[sub_resource type="QuadMesh" id=5]
+size = Vector2( 2, 30 )
+
+[sub_resource type="QuadMesh" id=6]
+size = Vector2( 7, 11.25 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+albedo_color = Color( 0.141176, 0.137255, 0.211765, 1 )
+
+[sub_resource type="QuadMesh" id=8]
+size = Vector2( 0.5, 7.5 )
+
+[sub_resource type="QuadMesh" id=9]
+size = Vector2( 0.5, 5.5 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.196078, 0.196078, 0.352941, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="CylinderMesh" id=12]
+
+[sub_resource type="SphereMesh" id=13]
+
+[sub_resource type="ProceduralSky" id=14]
+sun_color = Color( 0.756863, 0.380392, 0.658824, 1 )
+
+[sub_resource type="Environment" id=15]
+background_mode = 1
+background_sky = SubResource( 14 )
+background_color = Color( 0.239216, 0.239216, 0.772549, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_unshaded = true
+albedo_color = Color( 0.756863, 0.380392, 0.658824, 1 )
+
+[sub_resource type="SphereMesh" id=17]
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 0, 284, 430, 106 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 451, 111 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 0, 390, 452, 85 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 0, 111, 410, 173 )
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_transparent = true
+flags_unshaded = true
+params_blend_mode = 1
+params_depth_draw_mode = 1
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="QuadMesh" id=23]
+
+[sub_resource type="Animation" id=24]
+length = 0.875
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thunder_Flash:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.875 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.854902 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.875 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.807843, 0.807843, 0.807843, 1 ), Color( 0.0705882, 0.0705882, 0.239216, 1 ), Color( 0.0313726, 0.0313726, 0.215686, 1 ), Color( 0.423529, 0.423529, 0.588235, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpotLight:light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.875 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0.831373, 0.831373, 1, 1 ), Color( 0.239216, 0.239216, 0.772549, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.875
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thunder_Flash:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.875 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.854902 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GLES2_Light:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833334, 0.875001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.831373, 0.831373, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.831373, 0.831373, 1, 1 ), Color( 0.239216, 0.239216, 0.772549, 1 ) ]
+}
+
+[node name="Level" instance=ExtResource( 4 )]
+script = ExtResource( 7 )
+
+[node name="Girlfriend" parent="." index="4" instance=ExtResource( 6 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 2.7, 0, -1.5 )
+
+[node name="Spooky_Kids" parent="." index="5" instance=ExtResource( 1 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+
+[node name="Monster" parent="." index="6" instance=ExtResource( 5 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+visible = false
+
+[node name="Spooky_House" type="Spatial" parent="." index="7"]
+
+[node name="Floor" type="MeshInstance" parent="Spooky_House" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -1.75 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Ceiling" type="MeshInstance" parent="Spooky_House" index="1"]
+transform = Transform( -1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, 10, -1.75 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Short_Wall" type="MeshInstance" parent="Spooky_House" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -16.75 )
+material_override = SubResource( 1 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Short_Wall2" type="MeshInstance" parent="Spooky_House" index="3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 13.25 )
+material_override = SubResource( 1 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Long_Wall" type="MeshInstance" parent="Spooky_House" index="4"]
+transform = Transform( 1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -10, 5, -1.75 )
+material_override = SubResource( 1 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Window_Walls" type="Spatial" parent="Spooky_House" index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, -1.75 )
+
+[node name="Window_Wall" type="MeshInstance" parent="Spooky_House/Window_Walls" index="0"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, -4, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Window_Wall2" type="MeshInstance" parent="Spooky_House/Window_Walls" index="1"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 4, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Window_Wall3" type="MeshInstance" parent="Spooky_House/Window_Walls" index="2"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -9.375 )
+material_override = SubResource( 1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Window_Wall4" type="MeshInstance" parent="Spooky_House/Window_Walls" index="3"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 9.375 )
+material_override = SubResource( 1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Shadow_Window_Walls" type="Spatial" parent="Spooky_House" index="6"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.02, 5, -1.75 )
+
+[node name="Window_Wall" type="MeshInstance" parent="Spooky_House/Shadow_Window_Walls" index="0"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, -4, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Window_Wall2" type="MeshInstance" parent="Spooky_House/Shadow_Window_Walls" index="1"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 4, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Window_Wall3" type="MeshInstance" parent="Spooky_House/Shadow_Window_Walls" index="2"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -9.375 )
+material_override = SubResource( 1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Window_Wall4" type="MeshInstance" parent="Spooky_House/Shadow_Window_Walls" index="3"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 9.375 )
+material_override = SubResource( 1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Window" type="Spatial" parent="Spooky_House" index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, -1.75 )
+
+[node name="Frame1" type="MeshInstance" parent="Spooky_House/Window" index="0"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, -2.75, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Frame2" type="MeshInstance" parent="Spooky_House/Window" index="1"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 2.75, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Frame3" type="MeshInstance" parent="Spooky_House/Window" index="2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame4" type="MeshInstance" parent="Spooky_House/Window" index="3"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame5" type="MeshInstance" parent="Spooky_House/Window" index="4"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame6" type="MeshInstance" parent="Spooky_House/Window" index="5"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Shadow_Window" type="Spatial" parent="Spooky_House" index="8"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.02, 5, -1.75 )
+
+[node name="Frame1" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="0"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, -2.75, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Frame2" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="1"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 2.75, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Frame3" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame4" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="3"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame5" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="4"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Frame6" type="MeshInstance" parent="Spooky_House/Shadow_Window" index="5"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Staircase" type="Spatial" parent="Spooky_House" index="9"]
+
+[node name="Riser" type="MeshInstance" parent="Spooky_House/Staircase" index="0"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 15, -7.5, 0.5, 7.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser2" type="MeshInstance" parent="Spooky_House/Staircase" index="1"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 14, -7.5, 1.5, 8 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser3" type="MeshInstance" parent="Spooky_House/Staircase" index="2"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 13, -7.5, 2.5, 8.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser4" type="MeshInstance" parent="Spooky_House/Staircase" index="3"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 12, -7.5, 3.5, 9 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser5" type="MeshInstance" parent="Spooky_House/Staircase" index="4"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 11, -7.5, 4.5, 9.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser6" type="MeshInstance" parent="Spooky_House/Staircase" index="5"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, -7.5, 5.5, 10 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser7" type="MeshInstance" parent="Spooky_House/Staircase" index="6"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 9, -7.5, 6.5, 10.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Riser8" type="MeshInstance" parent="Spooky_House/Staircase" index="7"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 8, -7.5, 7.5, 11 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Newel" type="MeshInstance" parent="Spooky_House/Staircase" index="8"]
+transform = Transform( 0.25, 0, 0, 0, 1.824, 0, 0, 0, 0.25, -5.3, 2.5, 0.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="Baluster" type="MeshInstance" parent="Spooky_House/Staircase" index="9"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 3, 1.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster2" type="MeshInstance" parent="Spooky_House/Staircase" index="10"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 4, 2.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster3" type="MeshInstance" parent="Spooky_House/Staircase" index="11"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 5, 3.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster4" type="MeshInstance" parent="Spooky_House/Staircase" index="12"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 6, 4.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster5" type="MeshInstance" parent="Spooky_House/Staircase" index="13"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 7, 5.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster6" type="MeshInstance" parent="Spooky_House/Staircase" index="14"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 8, 6.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Baluster7" type="MeshInstance" parent="Spooky_House/Staircase" index="15"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, -5.3, 9, 7.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Handrail" type="MeshInstance" parent="Spooky_House/Staircase" index="16"]
+transform = Transform( 0.2, 0, 0, 0, 4.00505, -0.141421, 0, 4.00505, 0.141421, -5.3, 7, 4.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="Knob_Thing" type="MeshInstance" parent="Spooky_House/Staircase" index="17"]
+transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -5.3, 4.25, 0.5 )
+material_override = SubResource( 10 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="Door" type="Spatial" parent="Spooky_House" index="10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 13.25 )
+
+[node name="Frame" type="MeshInstance" parent="Spooky_House/Door" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 1, 1.25, 0 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Frame2" type="MeshInstance" parent="Spooky_House/Door" index="1"]
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, -1, 1.25, 0 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Frame3" type="MeshInstance" parent="Spooky_House/Door" index="2"]
+transform = Transform( -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, 0, 0, 0.5, 0, 2.75, 0 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Handle" type="MeshInstance" parent="Spooky_House/Door" index="3"]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.5, 1.25, 0 )
+material_override = SubResource( 10 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="Handle2" type="MeshInstance" parent="Spooky_House/Door" index="4"]
+transform = Transform( 0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0.5, 1.25, -0.15 )
+material_override = SubResource( 10 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="Spooky_Environment" type="Spatial" parent="." index="8"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Spooky_Environment" index="0"]
+environment = SubResource( 15 )
+
+[node name="Sun" type="MeshInstance" parent="Spooky_Environment" index="1"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 20.4762, 11.8088, -5.46217 )
+material_override = SubResource( 16 )
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="Cloud1" type="Sprite3D" parent="Spooky_Environment" index="2"]
+transform = Transform( -8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 14.7025, 8.36945, -5.66743 )
+texture = SubResource( 18 )
+
+[node name="Cloud2" type="Sprite3D" parent="Spooky_Environment" index="3"]
+transform = Transform( -8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 14.7025, 10.4284, -0.546902 )
+texture = SubResource( 19 )
+
+[node name="Cloud3" type="Sprite3D" parent="Spooky_Environment" index="4"]
+transform = Transform( -8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 14.7025, 7.79286, 0.226832 )
+texture = SubResource( 20 )
+
+[node name="Cloud4" type="Sprite3D" parent="Spooky_Environment" index="5"]
+transform = Transform( -8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 14.7025, 3.67036, -7.10617 )
+texture = SubResource( 21 )
+
+[node name="Tree" type="Sprite3D" parent="Spooky_Environment" index="6"]
+transform = Transform( -8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 11.8464, 4.87704, -1.75525 )
+texture = ExtResource( 3 )
+
+[node name="Thunder_Flash" type="MeshInstance" parent="Spooky_Environment" index="7"]
+transform = Transform( -3.08515e-07, 0, -1, 0, 5.21, 0, 7.058, 0, -4.37114e-08, 10.01, 5, -1.75 )
+material_override = SubResource( 22 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Spooky_Environment" index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, 5, -1.75 )
+light_color = Color( 0.423529, 0.423529, 0.588235, 1 )
+light_energy = 8.0
+omni_range = 16.0
+
+[node name="SpotLight" type="SpotLight" parent="Spooky_Environment" index="9"]
+transform = Transform( -4.37114e-08, -0.766044, 0.642788, 0, 0.642788, 0.766044, -1, 3.34849e-08, -2.80972e-08, 14.045, 9.61953, -1.75 )
+light_color = Color( 0.239216, 0.239216, 0.772549, 1 )
+light_energy = 15.32
+shadow_enabled = true
+spot_range = 39.2
+spot_angle = 36.4
+
+[node name="GLES2_Light" type="DirectionalLight" parent="Spooky_Environment" index="10"]
+transform = Transform( -3.74593e-08, -0.515367, 0.856969, -2.25274e-08, 0.856969, 0.515367, -1, 0, -4.37114e-08, 0, 0, 0 )
+visible = false
+light_color = Color( 0.239216, 0.239216, 0.772549, 1 )
+light_energy = 3.09
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spooky_Environment" index="11"]
+anims/Thunder = SubResource( 24 )
+anims/Thunder_GLES2 = SubResource( 25 )
+
+[node name="Thunder" type="AudioStreamPlayer" parent="." index="9"]
+bus = "SFX"

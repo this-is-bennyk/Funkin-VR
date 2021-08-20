@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/models/note/materials/Up_Sustain_Middle.tres" type="Material" id=1]
+[ext_resource path="res://assets/models/note/materials/Up_Sustain_Outer.tres" type="Material" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.075
+bottom_radius = 0.075
+height = 1.0
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 1.0
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="SphereMesh" id=5]
+radius = 0.075
+height = 0.075
+is_hemisphere = true
+
+[sub_resource type="SphereMesh" id=6]
+radius = 0.08
+height = 0.08
+is_hemisphere = true
+
+[sub_resource type="SphereMesh" id=7]
+radius = 0.1
+height = 0.1
+is_hemisphere = true
+
+[node name="Sustain_Part" type="Spatial"]
+
+[node name="Sustain_Length" type="Spatial" parent="."]
+
+[node name="Inner" type="MeshInstance" parent="Sustain_Length"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0.5, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Middle" type="MeshInstance" parent="Sustain_Length"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0.5, 0 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Outer" type="MeshInstance" parent="Sustain_Length"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0.5, 0 )
+material_override = ExtResource( 2 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Sustain_Endcap" type="Spatial" parent="."]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Inner" type="MeshInstance" parent="Sustain_Endcap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Middle" type="MeshInstance" parent="Sustain_Endcap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0, 0 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Outer" type="MeshInstance" parent="Sustain_Endcap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.285, 0, 0, 0 )
+material_override = ExtResource( 2 )
+mesh = SubResource( 7 )
+material/0 = null

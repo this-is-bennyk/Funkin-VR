@@ -1,0 +1,7 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+resource_local_to_scene = true
+flags_unshaded = true
+params_blend_mode = 1
+albedo_color = Color( 0.0823529, 0.258824, 0.717647, 1 )

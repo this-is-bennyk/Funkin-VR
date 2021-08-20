@@ -1,0 +1,498 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/models/chars/bf/regular/Boyfriend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shaders/Transition.shader" type="Shader" id=3]
+[ext_resource path="res://assets/graphics/transitions/vertical_b_to_w_transition.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/transitions/vertical_w_to_b_transition.png" type="Texture" id=5]
+[ext_resource path="res://assets/models/chars/bf/BF_Hand.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/shaders/Transition3D.shader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/cutoff = 1.0
+shader_param/smoothness = 0.5
+shader_param/mask = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="SphereMesh" id=3]
+flip_faces = true
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 7 )
+shader_param/transition_color = Color( 0, 0, 0, 1 )
+shader_param/cutoff = 1.0
+shader_param/smoothness = 0.5
+shader_param/mask = ExtResource( 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Death_Fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Flash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Death_Fade_GLES2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Flash_GLES2:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Flash_GLES2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe_GLES2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Wipe:material:shader_param/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Wipe:material:shader_param/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Screen_Wipe:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Wipe_GLES2:material_override:shader_param/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Wipe_GLES2:material_override:shader_param/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe_GLES2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Screen_Flash_GLES2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Wipe:material:shader_param/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Wipe:material:shader_param/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Screen_Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Wipe_GLES2:material_override:shader_param/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1.41421 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Wipe_GLES2:material_override:shader_param/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe_GLES2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Screen_Flash_GLES2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Flash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Screen_Flash_GLES2:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Screen_Flash_GLES2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Screen_Wipe_GLES2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpatialMaterial" id=13]
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.2
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+next_pass = SubResource( 13 )
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=15]
+
+[node name="Player_Model" type="ARVROrigin"]
+pause_mode = 2
+
+[node name="ARVRCamera" type="ARVRCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+cull_mask = 1048571
+fov = 5.6
+far = 200.0
+
+[node name="Screen_Flash" type="ColorRect" parent="ARVRCamera"]
+visible = false
+margin_right = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen_Wipe" type="ColorRect" parent="ARVRCamera"]
+visible = false
+material = SubResource( 1 )
+margin_right = 500.0
+margin_bottom = 500.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen_Flash_GLES2" type="MeshInstance" parent="ARVRCamera"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+visible = false
+material_override = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Screen_Wipe_GLES2" type="MeshInstance" parent="ARVRCamera"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+visible = false
+material_override = SubResource( 4 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Screen_Anim" type="AnimationPlayer" parent="ARVRCamera"]
+anims/Death_Fade = SubResource( 5 )
+anims/Death_Fade_GLES2 = SubResource( 6 )
+anims/Fade_In = SubResource( 7 )
+anims/Fade_In_GLES2 = SubResource( 8 )
+anims/Fade_Out = SubResource( 9 )
+anims/Fade_Out_GLES2 = SubResource( 10 )
+anims/Flash = SubResource( 11 )
+anims/Flash_GLES2 = SubResource( 12 )
+
+[node name="Left_Hand" type="ARVRController" parent="."]
+transform = Transform( 1, -7.45058e-09, -2.663e-09, 0, 1, -2.32831e-10, 2.53203e-09, 2.32831e-10, 1, -0.602, 0.735, 0.066 )
+
+[node name="Hand_Model" parent="Left_Hand" instance=ExtResource( 6 )]
+transform = Transform( 3.0598e-10, -0.007, -4.22218e-26, 0.007, 3.0598e-10, -9.65924e-19, -9.65924e-19, -2.20881e-32, -0.007, -0.02, 0, 0.05 )
+
+[node name="RayCast" type="RayCast" parent="Left_Hand"]
+transform = Transform( 1, 6.20029e-19, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_to = Vector3( 0, -10, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ray_Collision_Indicator" type="MeshInstance" parent="Left_Hand"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+material_override = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="Tween" type="Tween" parent="Left_Hand"]
+
+[node name="Right_Hand" type="ARVRController" parent="."]
+transform = Transform( 1, 0, 1.96451e-09, -7.45058e-09, 1, 0, 9.8953e-10, -6.98492e-10, 1, 0.602, 0.735, 0.066 )
+controller_id = 2
+
+[node name="Hand_Model" parent="Right_Hand" instance=ExtResource( 6 )]
+transform = Transform( 3.0598e-10, 0.007, 1.05697e-09, 0.007, -3.0598e-10, 1.47389e-23, 4.62017e-17, 1.05697e-09, -0.007, 0.02, 0, 0.05 )
+
+[node name="RayCast" type="RayCast" parent="Right_Hand"]
+transform = Transform( 1, 6.20029e-19, 0, -1.44835e-26, 1, 0, 0, 0, 1, 0, 0, 0 )
+cast_to = Vector3( 0, -10, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ray_Collision_Indicator" type="MeshInstance" parent="Right_Hand"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0 )
+material_override = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="Tween" type="Tween" parent="Right_Hand"]
+
+[node name="Boyfriend" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.011, 0, 3.58426e-09, 0, 0.011, 0, -3.58426e-09, 0, -0.011, 0, 0, 0 )

@@ -1,0 +1,1991 @@
+[gd_scene load_steps=121 format=2]
+
+[ext_resource path="res://assets/shaders/Checkerboard_3D.shader" type="Shader" id=1]
+[ext_resource path="res://assets/graphics/menus/fading_circle.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/menus/checkerboard_pattern.png" type="Texture" id=3]
+[ext_resource path="res://prototypes/menus/main_menu/Options_GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/menus/main_menu/Options_Menu.gd" type="Script" id=5]
+[ext_resource path="res://prototypes/game/Step_Zone.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/mask_color_1 = Color( 1, 1, 1, 1 )
+shader_param/desired_color_1 = Color( 0, 0.886275, 0.552941, 1 )
+shader_param/mask_color_2 = Color( 0, 0, 0, 1 )
+shader_param/desired_color_2 = Color( 0, 1, 0.694118, 1 )
+shader_param/scroll_speed = Vector2( 0.03, 0.03 )
+shader_param/tex = ExtResource( 3 )
+
+[sub_resource type="SphereMesh" id=2]
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Options_VP")
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.094, 0.124, 0.01 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Master_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/Music_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Down/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page1/SFX_Up/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 0.105, 0.15, 0.01 )
+
+[sub_resource type="Animation" id=24]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Thousandth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Thousandth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Thousandth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=27]
+extents = Vector3( 0.151, 0.206, 0.01 )
+
+[sub_resource type="Animation" id=28]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Hundredth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Hundredth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Down_Hundredth/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Hundredth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Hundredth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Hundredth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Thousandth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Thousandth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Height_Up_Thousandth/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 0.53, 0.09, 1 )
+
+[sub_resource type="Animation" id=38]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Reset_Height_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Reset_Height_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page2/Reset_Height_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=41]
+extents = Vector3( 0.055, 0.079, 0.01 )
+
+[sub_resource type="Animation" id=42]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=45]
+extents = Vector3( 0.074, 0.11, 0.01 )
+
+[sub_resource type="Animation" id=46]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/XPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=60]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=61]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=63]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=64]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=65]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=66]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/YPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=67]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=68]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=69]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=70]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=71]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=72]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=73]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=75]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=78]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/ZPos_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=80]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=81]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=82]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=83]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Down_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=85]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=87]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_W/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=88]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=89]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=90]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Angle_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=91]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=92]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=93]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_H/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=95]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Down_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=97]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=98]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=99]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_T/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=100]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=101]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=102]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../../Options_VP/Options_GUI/Page3/Scale_Up_H/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=103]
+extents = Vector3( 0.118, 0.167, 0.01 )
+
+[sub_resource type="Animation" id=104]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=105]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=106]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Prev_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=107]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Hover" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=108]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Normal" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=109]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Options_VP/Options_GUI/Next_Btn/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Selected" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="BoxShape" id=110]
+extents = Vector3( 0.12, 0.119, 0.01 )
+
+[sub_resource type="Animation" id=111]
+length = 0.1
+
+[sub_resource type="Animation" id=112]
+length = 0.1
+
+[sub_resource type="Animation" id=113]
+length = 0.5
+
+[sub_resource type="SpatialMaterial" id=114]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 0.501961 )
+
+[node name="Options_Menu" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Abstract_Sky" type="MeshInstance" parent="."]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Floor" type="Sprite3D" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+modulate = Color( 0, 0.576471, 0.443137, 1 )
+axis = 1
+texture = ExtResource( 2 )
+
+[node name="Options_VP" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Options_GUI" parent="Options_VP" instance=ExtResource( 4 )]
+
+[node name="Options" type="Sprite3D" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 1.25, -2 )
+texture = SubResource( 3 )
+
+[node name="Page1_Buttons" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, -2 )
+
+[node name="Master_Down" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09679, 0.330562, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/Master_Down"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/Master_Down/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/Master_Down"]
+anims/Hover = SubResource( 5 )
+anims/Normal = SubResource( 6 )
+anims/Selected = SubResource( 7 )
+
+[node name="Master_Up" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642542, 0.330562, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/Master_Up"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/Master_Up/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/Master_Up"]
+anims/Hover = SubResource( 8 )
+anims/Normal = SubResource( 9 )
+anims/Selected = SubResource( 10 )
+
+[node name="Music_Down" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09679, 0.0298835, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/Music_Down"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/Music_Down/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/Music_Down"]
+anims/Hover = SubResource( 11 )
+anims/Normal = SubResource( 12 )
+anims/Selected = SubResource( 13 )
+
+[node name="Music_Up" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642542, 0.0298835, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/Music_Up"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/Music_Up/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/Music_Up"]
+anims/Hover = SubResource( 14 )
+anims/Normal = SubResource( 15 )
+anims/Selected = SubResource( 16 )
+
+[node name="SFX_Down" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09679, -0.268193, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/SFX_Down"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/SFX_Down/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/SFX_Down"]
+anims/Hover = SubResource( 17 )
+anims/Normal = SubResource( 18 )
+anims/Selected = SubResource( 19 )
+
+[node name="SFX_Up" type="Spatial" parent="Page1_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6425, -0.26825, 0 )
+
+[node name="Area" type="Area" parent="Page1_Buttons/SFX_Up"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page1_Buttons/SFX_Up/Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page1_Buttons/SFX_Up"]
+anims/Hover = SubResource( 20 )
+anims/Normal = SubResource( 21 )
+anims/Selected = SubResource( 22 )
+
+[node name="Page2_Buttons" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, -2 )
+
+[node name="Height_Down_Thousandth" type="Spatial" parent="Page2_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.454507, 0.0206598, 0 )
+
+[node name="Area" type="Area" parent="Page2_Buttons/Height_Down_Thousandth"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page2_Buttons/Height_Down_Thousandth/Area"]
+shape = SubResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page2_Buttons/Height_Down_Thousandth"]
+anims/Hover = SubResource( 24 )
+anims/Normal = SubResource( 25 )
+anims/Selected = SubResource( 26 )
+
+[node name="Height_Down_Hundredth" type="Spatial" parent="Page2_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17033, 0.0206598, 0 )
+
+[node name="Area" type="Area" parent="Page2_Buttons/Height_Down_Hundredth"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page2_Buttons/Height_Down_Hundredth/Area"]
+shape = SubResource( 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page2_Buttons/Height_Down_Hundredth"]
+anims/Hover = SubResource( 28 )
+anims/Normal = SubResource( 29 )
+anims/Selected = SubResource( 30 )
+
+[node name="Height_Up_Hundredth" type="Spatial" parent="Page2_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17025, 0.02075, 0 )
+
+[node name="Area" type="Area" parent="Page2_Buttons/Height_Up_Hundredth"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page2_Buttons/Height_Up_Hundredth/Area"]
+shape = SubResource( 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page2_Buttons/Height_Up_Hundredth"]
+anims/Hover = SubResource( 31 )
+anims/Normal = SubResource( 32 )
+anims/Selected = SubResource( 33 )
+
+[node name="Height_Up_Thousandth" type="Spatial" parent="Page2_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4545, 0.02075, 0 )
+
+[node name="Area" type="Area" parent="Page2_Buttons/Height_Up_Thousandth"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page2_Buttons/Height_Up_Thousandth/Area"]
+shape = SubResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page2_Buttons/Height_Up_Thousandth"]
+anims/Hover = SubResource( 34 )
+anims/Normal = SubResource( 35 )
+anims/Selected = SubResource( 36 )
+
+[node name="Reset_Height" type="Spatial" parent="Page2_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39149, 0 )
+
+[node name="Area" type="Area" parent="Page2_Buttons/Reset_Height"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page2_Buttons/Reset_Height/Area"]
+shape = SubResource( 37 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page2_Buttons/Reset_Height"]
+anims/Hover = SubResource( 38 )
+anims/Normal = SubResource( 39 )
+anims/Selected = SubResource( 40 )
+
+[node name="Page3_Buttons" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, -2 )
+
+[node name="XPos_Down_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720543, 0.42525, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/XPos_Down_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/XPos_Down_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/XPos_Down_H"]
+anims/Hover = SubResource( 42 )
+anims/Normal = SubResource( 43 )
+anims/Selected = SubResource( 44 )
+
+[node name="XPos_Down_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878875, 0.42525, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/XPos_Down_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/XPos_Down_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/XPos_Down_T"]
+anims/Hover = SubResource( 46 )
+anims/Normal = SubResource( 47 )
+anims/Selected = SubResource( 48 )
+
+[node name="XPos_Up_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831198, 0.42525, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/XPos_Up_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/XPos_Up_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/XPos_Up_T"]
+anims/Hover = SubResource( 49 )
+anims/Normal = SubResource( 50 )
+anims/Selected = SubResource( 51 )
+
+[node name="XPos_Up_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975298, 0.42525, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/XPos_Up_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/XPos_Up_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/XPos_Up_H"]
+anims/Hover = SubResource( 52 )
+anims/Normal = SubResource( 53 )
+anims/Selected = SubResource( 54 )
+
+[node name="YPos_Down_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720543, 0.188601, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/YPos_Down_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/YPos_Down_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/YPos_Down_H"]
+anims/Hover = SubResource( 55 )
+anims/Normal = SubResource( 56 )
+anims/Selected = SubResource( 57 )
+
+[node name="YPos_Down_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878875, 0.188601, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/YPos_Down_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/YPos_Down_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/YPos_Down_T"]
+anims/Hover = SubResource( 58 )
+anims/Normal = SubResource( 59 )
+anims/Selected = SubResource( 60 )
+
+[node name="YPos_Up_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831198, 0.188601, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/YPos_Up_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/YPos_Up_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/YPos_Up_T"]
+anims/Hover = SubResource( 61 )
+anims/Normal = SubResource( 62 )
+anims/Selected = SubResource( 63 )
+
+[node name="YPos_Up_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975298, 0.188601, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/YPos_Up_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/YPos_Up_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/YPos_Up_H"]
+anims/Hover = SubResource( 64 )
+anims/Normal = SubResource( 65 )
+anims/Selected = SubResource( 66 )
+
+[node name="ZPos_Down_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720543, -0.0492465, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/ZPos_Down_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/ZPos_Down_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/ZPos_Down_H"]
+anims/Hover = SubResource( 67 )
+anims/Normal = SubResource( 68 )
+anims/Selected = SubResource( 69 )
+
+[node name="ZPos_Down_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878875, -0.0492465, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/ZPos_Down_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/ZPos_Down_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/ZPos_Down_T"]
+anims/Hover = SubResource( 70 )
+anims/Normal = SubResource( 71 )
+anims/Selected = SubResource( 72 )
+
+[node name="ZPos_Up_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831198, -0.0492465, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/ZPos_Up_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/ZPos_Up_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/ZPos_Up_T"]
+anims/Hover = SubResource( 73 )
+anims/Normal = SubResource( 74 )
+anims/Selected = SubResource( 75 )
+
+[node name="ZPos_Up_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975298, -0.0492465, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/ZPos_Up_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/ZPos_Up_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/ZPos_Up_H"]
+anims/Hover = SubResource( 76 )
+anims/Normal = SubResource( 77 )
+anims/Selected = SubResource( 78 )
+
+[node name="Angle_Down_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720543, -0.286927, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Angle_Down_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Angle_Down_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Angle_Down_H"]
+anims/Hover = SubResource( 79 )
+anims/Normal = SubResource( 80 )
+anims/Selected = SubResource( 81 )
+
+[node name="Angle_Down_W" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878875, -0.286927, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Angle_Down_W"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Angle_Down_W/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Angle_Down_W"]
+anims/Hover = SubResource( 82 )
+anims/Normal = SubResource( 83 )
+anims/Selected = SubResource( 84 )
+
+[node name="Angle_Up_W" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831198, -0.286927, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Angle_Up_W"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Angle_Up_W/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Angle_Up_W"]
+anims/Hover = SubResource( 85 )
+anims/Normal = SubResource( 86 )
+anims/Selected = SubResource( 87 )
+
+[node name="Angle_Up_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975298, -0.286927, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Angle_Up_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Angle_Up_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Angle_Up_H"]
+anims/Hover = SubResource( 88 )
+anims/Normal = SubResource( 89 )
+anims/Selected = SubResource( 90 )
+
+[node name="Scale_Down_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720543, -0.524775, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Scale_Down_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Scale_Down_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Scale_Down_H"]
+anims/Hover = SubResource( 91 )
+anims/Normal = SubResource( 92 )
+anims/Selected = SubResource( 93 )
+
+[node name="Scale_Down_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0878875, -0.524775, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Scale_Down_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Scale_Down_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Scale_Down_T"]
+anims/Hover = SubResource( 94 )
+anims/Normal = SubResource( 95 )
+anims/Selected = SubResource( 96 )
+
+[node name="Scale_Up_T" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831198, -0.524775, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Scale_Up_T"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Scale_Up_T/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, 0 )
+shape = SubResource( 45 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Scale_Up_T"]
+anims/Hover = SubResource( 97 )
+anims/Normal = SubResource( 98 )
+anims/Selected = SubResource( 99 )
+
+[node name="Scale_Up_H" type="Spatial" parent="Page3_Buttons"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975298, -0.524775, 0 )
+
+[node name="Area" type="Area" parent="Page3_Buttons/Scale_Up_H"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Page3_Buttons/Scale_Up_H/Area"]
+shape = SubResource( 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Page3_Buttons/Scale_Up_H"]
+anims/Hover = SubResource( 100 )
+anims/Normal = SubResource( 101 )
+anims/Selected = SubResource( 102 )
+
+[node name="Prev_Page" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40325, 1.25, -2 )
+
+[node name="Area" type="Area" parent="Prev_Page"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000305176, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Prev_Page/Area"]
+shape = SubResource( 103 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Prev_Page"]
+anims/Hover = SubResource( 104 )
+anims/Normal = SubResource( 105 )
+anims/Selected = SubResource( 106 )
+
+[node name="Next_Page" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40325, 1.25, -2 )
+
+[node name="Area" type="Area" parent="Next_Page"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Next_Page/Area"]
+shape = SubResource( 103 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Next_Page"]
+anims/Hover = SubResource( 107 )
+anims/Normal = SubResource( 108 )
+anims/Selected = SubResource( 109 )
+
+[node name="Back" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47325, 2.0225, -2 )
+
+[node name="Area" type="Area" parent="Back"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000199795, 8.24928e-05, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Back/Area"]
+shape = SubResource( 110 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Back"]
+anims/Hover = SubResource( 111 )
+anims/Normal = SubResource( 112 )
+anims/Selected = SubResource( 113 )
+
+[node name="Height_Ring" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+radius = 0.5
+height = 0.05
+sides = 20
+material = SubResource( 114 )
+
+[node name="Ring_Hole" type="CSGCylinder" parent="Height_Ring"]
+operation = 2
+radius = 0.4
+height = 0.12
+sides = 20
+material = SubResource( 114 )
+
+[node name="Test_Step_Zone" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.65, 9.86753e-09, -5.59615e-08, 0, 0.640125, 0.112871, 5.68248e-08, 0.112871, -0.640125, 0, 0.65, -0.25 )
+test_step_zone = true
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
+
+[editable path="Options_VP/Options_GUI"]
+[editable path="Options_VP/Options_GUI/Page1/Master_Down"]
+[editable path="Options_VP/Options_GUI/Page1/Music_Down"]
+[editable path="Options_VP/Options_GUI/Page1/SFX_Down"]
+[editable path="Options_VP/Options_GUI/Page1/Master_Up"]
+[editable path="Options_VP/Options_GUI/Page1/Music_Up"]
+[editable path="Options_VP/Options_GUI/Page1/SFX_Up"]
+[editable path="Options_VP/Options_GUI/Page2/Height_Down_Hundredth/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page2/Height_Down_Thousandth/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page2/Height_Up_Hundredth/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page2/Height_Up_Thousandth/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/XPos_Down_H/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/XPos_Down_T"]
+[editable path="Options_VP/Options_GUI/Page3/XPos_Up_T"]
+[editable path="Options_VP/Options_GUI/Page3/XPos_Up_H/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/YPos_Down_H/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/YPos_Down_T"]
+[editable path="Options_VP/Options_GUI/Page3/YPos_Up_T"]
+[editable path="Options_VP/Options_GUI/Page3/YPos_Up_H/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/ZPos_Down_H/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/ZPos_Down_T"]
+[editable path="Options_VP/Options_GUI/Page3/ZPos_Up_T"]
+[editable path="Options_VP/Options_GUI/Page3/ZPos_Up_H/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/Angle_Down_H/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/Angle_Down_W"]
+[editable path="Options_VP/Options_GUI/Page3/Angle_Up_W"]
+[editable path="Options_VP/Options_GUI/Page3/Angle_Up_H/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/Scale_Down_H/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Page3/Scale_Down_T"]
+[editable path="Options_VP/Options_GUI/Page3/Scale_Up_T"]
+[editable path="Options_VP/Options_GUI/Page3/Scale_Up_H/Next_Btn"]
+[editable path="Options_VP/Options_GUI/Prev_Btn"]
+[editable path="Options_VP/Options_GUI/Next_Btn"]

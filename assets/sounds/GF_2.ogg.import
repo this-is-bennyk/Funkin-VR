@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GF_2.ogg-ab2924bf5832baf08a19202f915368aa.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/GF_2.ogg"
+dest_files=[ "res://.import/GF_2.ogg-ab2924bf5832baf08a19202f915368aa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

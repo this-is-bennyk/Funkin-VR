@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-e5728d44cb293afc77b4c5f8bf1796ff.oggstr"
+
+[deps]
+
+source_file="res://assets/music/fnf/tutorial/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-e5728d44cb293afc77b4c5f8bf1796ff.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/shaders/Y_Deformation.shader" type="Shader" id=1]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stagecurtains.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stageback.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stage_cylinder.png" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.25, 0.15, 0.333 )
+uv1_offset = Vector3( 0.25, 0.156, 0.333 )
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+albedo_color = Color( 0.964706, 0.952941, 0.47451, 1 )
+
+[sub_resource type="SphereMesh" id=4]
+flip_faces = true
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=6]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="PlaneMesh" id=8]
+size = Vector2( 25.6, 14 )
+
+[sub_resource type="ShaderMaterial" id=9]
+render_priority = -1
+shader = ExtResource( 1 )
+shader_param/radius = -5.0
+shader_param/image = ExtResource( 2 )
+
+[sub_resource type="PlaneMesh" id=10]
+size = Vector2( 1.829, 1 )
+subdivide_width = 60
+
+[sub_resource type="ProceduralSky" id=11]
+
+[sub_resource type="Environment" id=12]
+background_mode = 1
+background_sky = SubResource( 11 )
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_depth_begin = 5.0
+fog_depth_end = 12.0
+fog_transmit_enabled = true
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( -10, 0, -6.55671e-07, 0, 1, 0, 8.74228e-07, 0, -7.5, 0, -1, -5 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Round_Light" type="MeshInstance" parent="Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0, 1, -1 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Floor/Round_Light"]
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Floor/Round_Light"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light2" type="MeshInstance" parent="Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0.574429, 1, -0.82195 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Floor/Round_Light2"]
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Floor/Round_Light2"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light3" type="MeshInstance" parent="Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0.950079, 1, -0.320464 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Floor/Round_Light3"]
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Floor/Round_Light3"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 12.0
+
+[node name="Round_Light4" type="MeshInstance" parent="Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, -0.574, 1, -0.822 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Floor/Round_Light4"]
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Floor/Round_Light4"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light5" type="MeshInstance" parent="Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, -0.95, 1, -0.32 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Floor/Round_Light5"]
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Floor/Round_Light5"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 12.0
+
+[node name="Wall" type="MeshInstance" parent="."]
+transform = Transform( 1, 4.9738e-14, 1.69407e-21, 0, -4.37114e-08, -1, 2.13163e-14, 1, -4.37114e-08, 0.205, 1.617, -3.892 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Curtains" type="MeshInstance" parent="."]
+transform = Transform( 14, 4.9738e-14, -1.35525e-20, 0, -4.37114e-08, -14, -2.27374e-13, 1, -6.11959e-07, 0.349, 2.642, 1.116 )
+material_override = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.741906, 0.670504, 0, -0.670504, 0.741906, 0, 4.76479, 0 )

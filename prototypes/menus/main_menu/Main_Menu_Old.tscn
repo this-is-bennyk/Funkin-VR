@@ -1,0 +1,1025 @@
+[gd_scene load_steps=104 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://assets/shaders/Y_Deformation.shader" type="Shader" id=2]
+[ext_resource path="res://assets/fonts/vcr/vcr.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/graphics/menus/main_menu/freeplay_normal_3.tres" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/menus/main_menu/freeplay_normal_2.tres" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/menus/main_menu/options_normal_3.tres" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/campaign/week_2.tres" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_pressed_1.tres" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_normal_3.tres" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/menus/main_menu/options_normal_1.tres" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_pressed_3.tres" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_normal_1.tres" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/menus/campaign/easy.tres" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/menus/main_menu/freeplay_normal_1.tres" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/menus/campaign/week_3.tres" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/menus/campaign/right_arrow.tres" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_pressed_2.tres" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/menus/campaign/left_arrow.tres" type="Texture" id=18]
+[ext_resource path="res://assets/graphics/menus/campaign/left_arrow_hover.tres" type="Texture" id=19]
+[ext_resource path="res://assets/graphics/menus/main_menu/options_normal_2.tres" type="Texture" id=20]
+[ext_resource path="res://assets/graphics/menus/campaign/hard.tres" type="Texture" id=21]
+[ext_resource path="res://assets/graphics/menus/campaign/week_4.tres" type="Texture" id=22]
+[ext_resource path="res://assets/graphics/menus/campaign/normal.tres" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/menus/campaign/right_arrow_hover.tres" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/menus/campaign/week_1.tres" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/menus/main_menu/story_mode_normal_2.tres" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_7.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_9.png" type="Texture" id=28]
+[ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=29]
+[ext_resource path="res://scripts/Main_Menu.gd" type="Script" id=31]
+[ext_resource path="res://scripts/libraries/godot_extensions/AnimSpriteButton3D.gd" type="Script" id=32]
+[ext_resource path="res://scripts/libraries/godot_extensions/SpriteButton3D.gd" type="Script" id=33]
+[ext_resource path="res://scripts/menus/main_menu/Title_Logo.gd" type="Script" id=34]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_1.png" type="Texture" id=35]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_14.png" type="Texture" id=36]
+[ext_resource path="res://assets/graphics/menus/campaign/week_l.png" type="Texture" id=37]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_17.png" type="Texture" id=40]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_3.png" type="Texture" id=44]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_11.png" type="Texture" id=46]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_15.png" type="Texture" id=47]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stagecurtains.png" type="Texture" id=48]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stage_cylinder.png" type="Texture" id=49]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=50]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_12.png" type="Texture" id=53]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_8.png" type="Texture" id=54]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_4.png" type="Texture" id=56]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_6.png" type="Texture" id=57]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_13.png" type="Texture" id=60]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_2.png" type="Texture" id=61]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo.png" type="Texture" id=62]
+[ext_resource path="res://assets/graphics/game/weeks/week_1/stageback.png" type="Texture" id=63]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_10.png" type="Texture" id=64]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_16.png" type="Texture" id=65]
+[ext_resource path="res://assets/graphics/logo/fnfvr_logo_anim_5.png" type="Texture" id=66]
+[ext_resource path="res://assets/models/chars/gf/regular/Girlfriend.tscn" type="PackedScene" id=67]
+[ext_resource path="res://prototypes/Void_Sphere.tscn" type="PackedScene" id=68]
+[ext_resource path="res://assets/models/chars/luigi/Luigi.tscn" type="PackedScene" id=69]
+[ext_resource path="res://assets/models/chars/spooky_kids/Spooky_Kids.tscn" type="PackedScene" id=70]
+[ext_resource path="res://assets/models/chars/dad/Dad.tscn" type="PackedScene" id=71]
+[ext_resource path="res://assets/models/chars/pico/Pico.tscn" type="PackedScene" id=72]
+[ext_resource path="res://assets/models/chars/mom/Mom_Bounce.tscn" type="PackedScene" id=73]
+[ext_resource path="res://assets/fonts/vcr/VCR.tres" type="DynamicFont" id=74]
+
+[sub_resource type="World" id=1]
+environment = ExtResource( 1 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform vec4 first_color : hint_color;
+uniform vec4 second_color : hint_color;
+uniform float speed = 1.0;
+
+void fragment() {
+	vec4 new_color = mix(first_color, second_color, cos(TIME * speed));
+	COLOR = vec4(new_color.rgb, texture(TEXTURE, UV).a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/first_color = Color( 0.2, 1, 1, 1 )
+shader_param/second_color = Color( 0.2, 0.2, 0.8, 1 )
+shader_param/speed = 2.0
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Title_Screen/Press_Start_Text")
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1.2, 0.2, 0.2 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 26 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "0",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "2",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 17 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "1",
+"speed": 24.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 20 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.5, 0.158, 0.2 )
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.6, 0.6, 1 ) ]
+}
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 0.727648, 0.158, 0.2 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.6, 0.6, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.5, 0.5, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.6, 0.6, 1 ) ]
+}
+
+[sub_resource type="World" id=24]
+environment = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="ViewportTexture" id=27]
+viewport_path = NodePath("Readme_Text")
+
+[sub_resource type="ProceduralSky" id=28]
+
+[sub_resource type="Environment" id=29]
+background_mode = 1
+background_sky = SubResource( 28 )
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_depth_begin = 5.0
+fog_depth_end = 12.0
+fog_transmit_enabled = true
+
+[sub_resource type="SpatialMaterial" id=30]
+albedo_texture = ExtResource( 49 )
+uv1_scale = Vector3( 0.25, 0.15, 0.333 )
+uv1_offset = Vector3( 0.25, 0.156, 0.333 )
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id=31]
+
+[sub_resource type="SpatialMaterial" id=32]
+flags_unshaded = true
+albedo_color = Color( 0.964706, 0.952941, 0.47451, 1 )
+
+[sub_resource type="SphereMesh" id=33]
+flip_faces = true
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=35]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="SpatialMaterial" id=36]
+albedo_texture = ExtResource( 63 )
+
+[sub_resource type="PlaneMesh" id=37]
+size = Vector2( 25.6, 14 )
+
+[sub_resource type="ShaderMaterial" id=38]
+render_priority = -1
+shader = ExtResource( 2 )
+shader_param/radius = -5.0
+shader_param/image = ExtResource( 48 )
+
+[sub_resource type="PlaneMesh" id=39]
+size = Vector2( 1.829, 1 )
+subdivide_width = 60
+
+[sub_resource type="SpatialMaterial" id=40]
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SphereMesh" id=41]
+flip_faces = true
+
+[node name="Main_Menu" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+script = ExtResource( 31 )
+
+[node name="Title_Screen" type="Spatial" parent="."]
+
+[node name="Logo_Anim" type="Spatial" parent="Title_Screen"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.5, -1.5 )
+
+[node name="Logo1" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+texture = ExtResource( 35 )
+
+[node name="Logo2" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 61 )
+
+[node name="Logo3" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 44 )
+
+[node name="Logo4" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 56 )
+
+[node name="Logo5" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 66 )
+
+[node name="Logo6" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 57 )
+
+[node name="Logo7" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 27 )
+
+[node name="Logo8" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 54 )
+
+[node name="Logo9" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 28 )
+
+[node name="Logo10" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 64 )
+
+[node name="Logo11" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 46 )
+
+[node name="Logo12" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 53 )
+
+[node name="Logo13" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 60 )
+
+[node name="Logo14" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 36 )
+
+[node name="Logo15" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 47 )
+
+[node name="Logo16" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 65 )
+
+[node name="Logo17" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+texture = ExtResource( 40 )
+
+[node name="Logo18" type="Sprite3D" parent="Title_Screen/Logo_Anim"]
+texture = ExtResource( 62 )
+script = ExtResource( 34 )
+
+[node name="Tween" type="Tween" parent="Title_Screen/Logo_Anim/Logo18"]
+
+[node name="Tween" type="Tween" parent="Title_Screen/Logo_Anim"]
+
+[node name="Press_Start_Text" type="Viewport" parent="Title_Screen"]
+size = Vector2( 924, 68 )
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Title_Screen/Press_Start_Text"]
+material = SubResource( 3 )
+margin_right = 924.0
+margin_bottom = 68.0
+custom_fonts/normal_font = ExtResource( 74 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp=50 freq=3]Press a Trigger to Begin"
+text = "Press a Trigger to Begin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Press_Start" type="Sprite3D" parent="Title_Screen"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.825, -1.75 )
+texture = SubResource( 4 )
+
+[node name="Title_Confirm" type="AudioStreamPlayer" parent="Title_Screen"]
+stream = ExtResource( 29 )
+bus = "SFX"
+
+[node name="Mode_Select" type="Spatial" parent="."]
+visible = false
+
+[node name="SpotLight" type="SpotLight" parent="Mode_Select"]
+transform = Transform( 1, 0, 0, 0, 0.95367, 0.300856, 0, -0.300856, 0.95367, 0, 2.87025, 1.30594 )
+light_color = Color( 1, 0.984314, 0, 1 )
+light_energy = 4.81
+spot_range = 4096.0
+
+[node name="Story_Mode" type="Area" parent="Mode_Select"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -1.75 )
+script = ExtResource( 32 )
+hover_sound = ExtResource( 50 )
+pressed_sound = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Mode_Select/Story_Mode"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Mode_Select/Story_Mode"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0 )
+frames = SubResource( 6 )
+animation = "0"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Mode_Select/Story_Mode"]
+bus = "SFX"
+
+[node name="Freeplay" type="Area" parent="Mode_Select"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1.75 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Mode_Select/Freeplay"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Mode_Select/Freeplay"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0 )
+modulate = Color( 0.270588, 0.270588, 0.270588, 1 )
+frames = SubResource( 7 )
+animation = "0"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Mode_Select/Freeplay"]
+bus = "SFX"
+
+[node name="Options" type="Area" parent="Mode_Select"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, -1.75 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Mode_Select/Options"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Mode_Select/Options"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0 )
+modulate = Color( 0.270588, 0.270588, 0.270588, 1 )
+frames = SubResource( 8 )
+animation = "0"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Mode_Select/Options"]
+bus = "SFX"
+
+[node name="Campaign" type="Spatial" parent="."]
+visible = false
+
+[node name="SpotLight" type="SpotLight" parent="Campaign"]
+transform = Transform( 1, 0, 0, 0, 0.95367, 0.300856, 0, -0.300856, 0.95367, 0, 2.87025, 1.30594 )
+light_color = Color( 1, 0.984314, 0, 1 )
+light_energy = 4.81
+spot_range = 4096.0
+
+[node name="Week_Num_Display" type="AnimatedSprite3D" parent="Campaign"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 3, -1.35 )
+frames = SubResource( 9 )
+
+[node name="Prev_Week" type="Area" parent="Campaign"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -1.35 )
+script = ExtResource( 32 )
+pressed_sound = ExtResource( 50 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Campaign/Prev_Week"]
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Campaign/Prev_Week"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0 )
+frames = SubResource( 11 )
+animation = "2"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Campaign/Prev_Week"]
+bus = "SFX"
+
+[node name="Next_Week" type="Area" parent="Campaign"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -1.35 )
+script = ExtResource( 32 )
+pressed_sound = ExtResource( 50 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Campaign/Next_Week"]
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Campaign/Next_Week"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0 )
+frames = SubResource( 12 )
+animation = "2"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Campaign/Next_Week"]
+bus = "SFX"
+
+[node name="Easy" type="Area" parent="Campaign"]
+transform = Transform( 0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -1.374, 0.5, -0.807 )
+script = ExtResource( 33 )
+hover_sound = ExtResource( 50 )
+pressed_sound = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Campaign/Easy"]
+shape = SubResource( 13 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Campaign/Easy"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
+opacity = 0.5
+texture = ExtResource( 13 )
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Campaign/Easy"]
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Campaign/Easy"]
+anims/0 = SubResource( 14 )
+anims/1 = SubResource( 15 )
+anims/2 = SubResource( 16 )
+
+[node name="Normal" type="Area" parent="Campaign"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1 )
+script = ExtResource( 33 )
+hover_sound = ExtResource( 50 )
+pressed_sound = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Campaign/Normal"]
+shape = SubResource( 17 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Campaign/Normal"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
+opacity = 0.5
+texture = ExtResource( 23 )
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Campaign/Normal"]
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Campaign/Normal"]
+anims/0 = SubResource( 18 )
+anims/1 = SubResource( 19 )
+anims/2 = SubResource( 20 )
+
+[node name="Hard" type="Area" parent="Campaign"]
+transform = Transform( 0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 1.374, 0.5, -0.807 )
+script = ExtResource( 33 )
+hover_sound = ExtResource( 50 )
+pressed_sound = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Campaign/Hard"]
+shape = SubResource( 13 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Campaign/Hard"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
+opacity = 0.5
+texture = ExtResource( 21 )
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="Campaign/Hard"]
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Campaign/Hard"]
+anims/0 = SubResource( 21 )
+anims/1 = SubResource( 22 )
+anims/2 = SubResource( 23 )
+
+[node name="Dad" parent="Campaign" instance=ExtResource( 71 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -2 )
+
+[node name="Spooky_Kids" parent="Campaign" instance=ExtResource( 70 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -2 )
+visible = false
+
+[node name="Pico" parent="Campaign" instance=ExtResource( 72 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -2 )
+visible = false
+
+[node name="Mom" parent="Campaign" instance=ExtResource( 73 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -2 )
+visible = false
+
+[node name="Luigi" parent="Campaign" instance=ExtResource( 69 )]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, -2 )
+visible = false
+
+[node name="Readme_Text" type="Viewport" parent="."]
+size = Vector2( 2410, 2000 )
+own_world = true
+world = SubResource( 24 )
+keep_3d_linear = true
+render_target_v_flip = true
+render_target_update_mode = 3
+
+[node name="Panel" type="Panel" parent="Readme_Text"]
+self_modulate = Color( 0.278431, 0.262745, 0.262745, 1 )
+margin_right = 2410.0
+margin_bottom = 2000.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Readme_Text"]
+margin_right = 1250.0
+margin_bottom = 2000.0
+custom_fonts/normal_font = SubResource( 25 )
+bbcode_enabled = true
+bbcode_text = "[center]---- README! ----
+Welcome to FNFVR 4.0.1! This is a regular content update that adds [color=lime]Week L[/color].
+For a full bug list, join the FNFVR Discord!
+(You can report bugs there too!)
+[color=fuchsia]discord.gg/fnfvr[/color]
+
+---- CONTROLS  ----
+To hit a note, [color=lime]make a tapping action in the arrow it's coming towards[/color]. Hold your hand in the arrow for sustained notes.
+You can use both hands for different notes.
+Either menu button to pause.
+
+[color=yellow]Feedback is very much appreciated![/color]
+
+---- CREDITS & ATTRIBUTION ----
+[color=#ec5eff]ThisIsBennyK[/color]: Programmer, artist, \"animator\"
+[color=#ec5eff]Cally3D[/color]: Character models + Dad animations
+[color=#ec5eff]VRBobbie[/color]: Week 3 environment
+[color=#ec5eff]Palladium346[/color]: Character icons
+[color=#ec5eff]CritVA, Angelattes, Teacol, Sayge, and Slushy_Anime[/color]: Their work is coming soon!
+[color=#ec5eff]Verwex + co.[/color] (FNF Mic'd Up): Fixed Week 2 charts
+[color=#ec5eff]KOLSAN + co.[/color] (FNF HD): Week 3 mechanics and asset
+[color=#ec5eff]Funkin' Crew[/color]: Original FNF"
+text = "---- README! ----
+Welcome to FNFVR 4.0.1! This is a regular content update that adds Week L.
+For a full bug list, join the FNFVR Discord!
+(You can report bugs there too!)
+discord.gg/fnfvr
+
+---- CONTROLS  ----
+To hit a note, make a tapping action in the arrow it's coming towards. Hold your hand in the arrow for sustained notes.
+You can use both hands for different notes.
+Either menu button to pause.
+
+Feedback is very much appreciated!
+
+---- CREDITS & ATTRIBUTION ----
+ThisIsBennyK: Programmer, artist, \"animator\"
+Cally3D: Character models + Dad animations
+VRBobbie: Week 3 environment
+Palladium346: Character icons
+CritVA, Angelattes, Teacol, Sayge, and Slushy_Anime: Their work is coming soon!
+Verwex + co. (FNF Mic'd Up): Fixed Week 2 charts
+KOLSAN + co. (FNF HD): Week 3 mechanics and asset
+Funkin' Crew: Original FNF"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Readme_Text"]
+margin_left = 1305.0
+margin_right = 2410.0
+margin_bottom = 2000.0
+custom_fonts/mono_font = SubResource( 26 )
+custom_fonts/normal_font = SubResource( 25 )
+bbcode_enabled = true
+bbcode_text = "[color=gray](Characters from Friday Night Funkin' belong to the Funkin' Crew. Friday Night Funkin' assets are used under the [color=#2b92ff]Apache License 2.0[/color], as well as under [color=#2b92ff]this statement[/color]:
+
+[code][color=white]Little info, you have FULL PERMISSION to stream, letsplay, meme, shitpost, do WHATEVER you want with the game.
+Use the music in videos you do, use art, ANYTHING. GO CRAZY BRO.
+If you do make any sort of video, it would be a bro move if you linked the game and spread the word
+Play On Newgrounds - https://www.newgrounds.com/portal/view/770371
+Support on Itch.io - https://ninja-muffin24.itch.io/funkin
+If not no biggie we don't fully hate you only kinda no biggie.[/color][/code]
+
+- ninjamuffin99, readme.txt, https://github.com/ninjamuffin99/Funkin
+
+Changes: the logo was changed to include the \"VR\" part. Some of the menu assets have been changed to be more colorful.)
+
+(This textbox will eventually be replaced with the appropriate screens.)"
+text = "(Characters from Friday Night Funkin' belong to the Funkin' Crew. Friday Night Funkin' assets are used under the Apache License 2.0, as well as under this statement:
+
+Little info, you have FULL PERMISSION to stream, letsplay, meme, shitpost, do WHATEVER you want with the game.
+Use the music in videos you do, use art, ANYTHING. GO CRAZY BRO.
+If you do make any sort of video, it would be a bro move if you linked the game and spread the word
+Play On Newgrounds - https://www.newgrounds.com/portal/view/770371
+Support on Itch.io - https://ninja-muffin24.itch.io/funkin
+If not no biggie we don't fully hate you only kinda no biggie.
+
+- ninjamuffin99, readme.txt, https://github.com/ninjamuffin99/Funkin
+
+Changes: the logo was changed to include the \"VR\" part. Some of the menu assets have been changed to be more colorful.)
+
+(This textbox will eventually be replaced with the appropriate screens.)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Readme" type="Sprite3D" parent="."]
+transform = Transform( 0.0347296, 0, 0.984808, 0, 0.2, 0, -0.196962, 0, 0.173648, -2.75, 0.516206, -0.628 )
+transparent = false
+texture = SubResource( 27 )
+
+[node name="Girlfriend" parent="." instance=ExtResource( 67 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 2.5, 0, -1.4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 29 )
+
+[node name="Stage_Environment" type="Spatial" parent="."]
+
+[node name="Floor" type="MeshInstance" parent="Stage_Environment"]
+transform = Transform( -10, 0, -6.55671e-07, 0, 1, 0, 8.74228e-07, 0, -7.5, 0, -1, -5 )
+material_override = SubResource( 30 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="Round_Light" type="MeshInstance" parent="Stage_Environment/Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0, 1, -1 )
+material_override = SubResource( 32 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Stage_Environment/Floor/Round_Light"]
+material_override = SubResource( 34 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Stage_Environment/Floor/Round_Light"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light2" type="MeshInstance" parent="Stage_Environment/Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0.574429, 1, -0.82195 )
+material_override = SubResource( 32 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Stage_Environment/Floor/Round_Light2"]
+material_override = SubResource( 34 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Stage_Environment/Floor/Round_Light2"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light3" type="MeshInstance" parent="Stage_Environment/Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, 0.950079, 1, -0.320464 )
+material_override = SubResource( 32 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Stage_Environment/Floor/Round_Light3"]
+material_override = SubResource( 34 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Stage_Environment/Floor/Round_Light3"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 12.0
+
+[node name="Round_Light4" type="MeshInstance" parent="Stage_Environment/Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, -0.574, 1, -0.822 )
+material_override = SubResource( 32 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Stage_Environment/Floor/Round_Light4"]
+material_override = SubResource( 34 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Stage_Environment/Floor/Round_Light4"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 6.0
+
+[node name="Round_Light5" type="MeshInstance" parent="Stage_Environment/Floor"]
+transform = Transform( -4.37113e-09, 0, -0.1, 0, 1, 0, 0.133333, 0, -5.82819e-09, -0.95, 1, -0.32 )
+material_override = SubResource( 32 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="Bulb" type="MeshInstance" parent="Stage_Environment/Floor/Round_Light5"]
+material_override = SubResource( 34 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="Stage_Environment/Floor/Round_Light5"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0.28, 0 )
+light_color = Color( 1, 0.913725, 0, 1 )
+light_energy = 12.0
+
+[node name="Wall" type="MeshInstance" parent="Stage_Environment"]
+transform = Transform( 1, 4.9738e-14, 1.69407e-21, 0, -4.37114e-08, -1, 2.13163e-14, 1, -4.37114e-08, 0.205, 1.617, -3.892 )
+material_override = SubResource( 36 )
+mesh = SubResource( 37 )
+material/0 = null
+
+[node name="Curtains" type="MeshInstance" parent="Stage_Environment"]
+transform = Transform( 14, 4.9738e-14, -1.35525e-20, 0, -4.37114e-08, -14, -2.27374e-13, 1, -6.11959e-07, 0.349, 2.642, 1.116 )
+material_override = SubResource( 38 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Stage_Environment"]
+transform = Transform( 1, 0, 0, 0, 0.741906, 0.670504, 0, -0.670504, 0.741906, 0, 4.76479, 0 )
+
+[node name="GLES2_Light" type="OmniLight" parent="Stage_Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26154, 0 )
+visible = false
+omni_range = 65.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Stage_Environment/GLES2_Light"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
+material_override = SubResource( 40 )
+mesh = SubResource( 41 )
+material/0 = null
+
+[node name="Void_Sphere" parent="." instance=ExtResource( 68 )]

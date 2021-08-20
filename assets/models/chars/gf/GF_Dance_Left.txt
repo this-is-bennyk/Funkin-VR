@@ -1,0 +1,201 @@
+Girlfriend: Dance_Left
+--------------------------------------
+Framerate: 24 FPS
+Length in frames: 15
+--------------------------------------
+Girlfriend Armature/Skeleton2:Thigh.L
+	Frame 0: 4.341675, -1.676482, -5.619974, 0.400442, 0.745756, 0.098527, 0.523246, 1, 1.000001, 1.000001
+	Frame 5: 4.341675, -1.676482, -5.619974, 0.367532, 0.762513, 0.07561, 0.527046, 1, 1.000001, 1.000001
+
+Girlfriend Armature/Skeleton2:Thigh.R
+	Frame 0: -0.461747, -3.06472, 7.61999, -0.023077, -0.037015, -0.667717, 0.743137, 1, 1.000003, 1
+	Frame 5: -0.461747, -3.06472, 7.61999, -0.000001, 0.000001, -0.600979, 0.799265, 1, 1.000003, 1
+
+Girlfriend Armature/Skeleton2:Calf.R
+	Frame 0: 0.000001, 17.6702, -0.000001, 0.632449, 0.763526, -0.065981, -0.112623, 1.000001, 1, 1
+
+Girlfriend Armature/Skeleton2:Foot.R
+	Frame 0: -0.000001, 24.3255, 0.000001, -0.106752, 0.699001, 0.106748, 0.699004, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Calf.L
+	Frame 0: 0, 17.6702, 0.000001, -0.568359, 0.822781, -0.000001, 0.000001, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Foot.L
+	Frame 0: -0.000001, 24.3256, 0.000001, 0.049426, -0.767503, -0.078374, 0.634313, 1, 0.999999, 0.999999
+
+Girlfriend Armature/Skeleton2:Spine
+	Frame 0: -0, 11.1538, 0, -0.009368, -0.384323, 0.057719, 0.921345, 1, 1, 1
+	Frame 5: -0, 11.1538, 0, -0.001328, -0.383804, 0.061071, 0.921392, 1, 1, 1
+	Frame 7: -0, 11.1538, 0, 0.030829, -0.381439, 0.074428, 0.920877, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Spine 1
+	Frame 0: 0.005484, 10.0992, -0, -0, 0, 0.047935, 0.99885, 1, 0.999999, 1
+
+Girlfriend Armature/Skeleton2:Shoulder.R
+	Frame 0: -1.119772, 13.17632, 10.124804, 0.963405, -0.091725, 0.084641, -0.23722, 1, 1, 1
+	Frame 5: -1.119772, 13.17632, 10.124804, 0.966643, -0.094516, 0.088874, -0.220837, 1, 1, 1
+	Frame 7: -1.119772, 13.17632, 10.124804, 0.975653, -0.104049, 0.10347, -0.162998, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Upperarm.R
+	Frame 0: -0.000002, 4.66577, 0.000005, -0.242415, 0.553989, -0.316377, 0.730915, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Forearm.R
+	Frame 0: 0.000004, 20.2068, -0, 0.04619, 0.004796, -0.010766, 0.998863, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Hand.R
+	Frame 0: -0.000005, 20.5704, -0.000001, 0.377399, 0.599704, -0.365842, 0.603394, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Thumb.R
+	Frame 0: -3.79405, 5.18638, -1.57542, -0.479897, 0.629816, -0.447501, -0.415661, 1, 1.000001, 1
+
+Girlfriend Armature/Skeleton2:Thumb1.R
+	Frame 0: 0.000006, 4.26491, 0.000002, -0.042859, -0.153267, 0.013145, 0.987167, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Thumb2.R
+	Frame 0: 0, 3.74558, 0.000002, -0.124777, 0.896124, -0.021074, 0.42538, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pointer.R
+	Frame 0: -5.53386, 12.2746, 0.075085, -0.033009, 0.000292, 0.074749, 0.996656, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pointer1.R
+	Frame 0: -0.000001, 4.28509, 0.000004, -0.015494, -0.726651, -0.013612, 0.686697, 1, 1, 0.999999
+
+Girlfriend Armature/Skeleton2:Pointer2.R
+	Frame 0: -0.000004, 3.32595, -0, -0.007554, 0.729463, -0.007116, 0.683942, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle.R
+	Frame 0: -0.292594, 12.0715, 0.0793, -0.035444, -0.699654, 0.013063, 0.713483, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle1.R
+	Frame 0: -0.000006, 4.26998, 0, -0.000089, 0.705631, 0.001193, 0.708579, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle2.R
+	Frame 0: -0.000001, 3.3322, -0.000012, 0.001156, -0.006591, -0.000321, 0.999978, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pinky.R
+	Frame 0: 4.41438, 11.9533, 0.080713, -0.082887, -0.69768, -0.033203, 0.710823, 1, 0.999999, 1
+
+Girlfriend Armature/Skeleton2:Pinky1.R
+	Frame 0: 0.000013, 4.28768, -0.000003, 0.01185, 0.731061, 0.014705, 0.68205, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pinky2.R
+	Frame 0: -0, 3.33823, 0.000009, 0.002778, -0.045089, -0.002853, 0.998975, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Shoulder.L
+	Frame 0: -1.119764, 13.17632, -10.124795, 0.119674, 0.096165, 0.981493, 0.114467, 1, 1, 1
+	Frame 5: -1.119764, 13.17632, -10.124795, 0.115674, 0.11293, 0.98048, 0.111913, 1, 1, 1
+	Frame 7: -1.119764, 13.17632, -10.124795, 0.103469, 0.162998, 0.975653, 0.104049, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Upperarm.L
+	Frame 0: 0, 4.66577, 0.000015, -0.242416, -0.553989, 0.316378, 0.730915, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Forearm.L
+	Frame 0: 0.000009, 20.2068, -0, 0.04619, -0.004796, 0.010766, 0.998863, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Hand.L
+	Frame 0: 0.000001, 20.5704, -0.000001, 0.377399, -0.599704, 0.365842, 0.603394, 1, 0.999999, 0.999999
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/eyesclosehappy
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/eyescry
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/eyessad
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/moutho
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/mouthscared
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/mouthscaredwiggle
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/mouthwider
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/righteyeclose
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/tears
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend:blend_shapes/tearswiggle
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/eyesclosehappy
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/eyescry
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/eyessad
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/moutho
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/mouthscared
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/mouthscaredwiggle
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/mouthwider
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/righteyeclose
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/tears
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2/Girlfriend Cell Shade:blend_shapes/tearswiggle
+	Frame 0: 0
+
+Girlfriend Armature/Skeleton2:Thumb.L
+	Frame 0: 3.79404, 5.18639, -1.57542, 0.479897, 0.629816, -0.447501, 0.41566, 1, 1.000001, 1
+
+Girlfriend Armature/Skeleton2:Thumb1.L
+	Frame 0: 0.000012, 4.26491, -0.000007, -0.042859, 0.153269, -0.013146, 0.987167, 1, 0.999999, 1
+
+Girlfriend Armature/Skeleton2:Thumb2.L
+	Frame 0: 0.000013, 3.74559, 0.000013, 0.124777, 0.896125, -0.021074, -0.425378, 1, 1, 0.999999
+
+Girlfriend Armature/Skeleton2:Pointer.L
+	Frame 0: 5.53386, 12.2747, 0.075087, -0.033009, -0.000292, -0.074749, 0.996656, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pointer1.L
+	Frame 0: 0.000001, 4.2851, 0.000027, -0.015494, 0.726651, 0.013612, 0.686697, 1, 1.000001, 0.999999
+
+Girlfriend Armature/Skeleton2:Pointer2.L
+	Frame 0: -0.000014, 3.32596, 0, -0.007554, -0.729463, 0.007116, 0.683942, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle.L
+	Frame 0: 0.292594, 12.0716, 0.079317, -0.035444, 0.699654, -0.013063, 0.713483, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle1.L
+	Frame 0: -0.000007, 4.26998, 0, -0.000089, -0.705631, -0.001193, 0.708579, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Middle2.L
+	Frame 0: -0, 3.3322, 0.000006, 0.001156, 0.006591, 0.000321, 0.999978, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pinky.L
+	Frame 0: -4.41438, 11.9533, 0.080707, -0.082887, 0.69768, 0.033203, 0.710823, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Pinky1.L
+	Frame 0: 0.000003, 4.28769, 0.000003, 0.01185, -0.731061, -0.014705, 0.682051, 1, 0.999999, 1
+
+Girlfriend Armature/Skeleton2:Pinky2.L
+	Frame 0: 0.000001, 3.33822, 0.000005, 0.002778, 0.045089, 0.002853, 0.998975, 1, 1, 1
+
+Girlfriend Armature/Skeleton2:Head
+	Frame 0: -0.000002, 6.54232, -0, -0.117727, 0.260542, -0.245269, 0.926338, 1, 1, 1
+	Frame 2: -0.000002, 6.54232, -0, -0.124507, 0.257371, -0.269434, 0.9196, 1, 1, 1
+	Frame 4: -0.000002, 6.54232, -0, -0.107772, 0.25782, -0.274336, 0.920138, 1, 1, 1
+	Frame 6: -0.000002, 6.54232, -0, -0.105517, 0.25875, -0.266296, 0.922497, 1, 1, 1
+	Frame 7: -0.000002, 6.54232, -0, -0.022397, 0.261024, -0.228241, 0.937694, 1, 1, 1
+	Frame 10: -0.000002, 6.54232, -0, 0.002821, 0.259313, -0.234993, 0.936764, 1, 1, 1
+	Frame 13: -0.000002, 6.54232, -0, 0.019633, 0.258073, -0.239406, 0.935787, 1, 1, 1

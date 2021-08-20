@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Senpai_Dies.ogg-63546fdd8aa6ff29c6778e39d3465f23.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Senpai_Dies.ogg"
+dest_files=[ "res://.import/Senpai_Dies.ogg-63546fdd8aa6ff29c6778e39d3465f23.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prototypes/game/Opponent_Step_Zone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prototypes/game/Step_Zone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://test/Step_Zone_In_3D.gd" type="Script" id=4]
+
+[node name="Step_Zone_In_3D" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Player_Step_Zone" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.75, 0, 0 )
+
+[node name="Opponent_Step_Zone" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75, 1.5, -1.5 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.984387, 0.17602, 0, -0.17602, 0.984387, 0, 0.874341, 1.67604 )
+current = true
+
+[node name="Camera2" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.32897, 0.103677 )

@@ -1,0 +1,514 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://assets/graphics/menus/campaign/campaign_bars.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulty_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulties/easy.tres" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulties/normal.tres" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulties/hard.tres" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulties/canon.tres" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/campaign/difficulties/unfair.tres" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/luckiest_guy/LuckGuy_113.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/fonts/vcr/VCR_40.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/fonts/vcr/VCR_30.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/graphics/menus/menu_arrow_right.tres" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/menus/menu_arrow_left.tres" type="Texture" id=12]
+[ext_resource path="res://prototypes/menus/Back_Btn.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=16]
+[ext_resource path="res://prototypes/menus/Next_Btn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://prototypes/menus/Prev_Btn.tscn" type="PackedScene" id=18]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1, 155, 1051, 93 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1, 1, 1119, 152 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 525, 130 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 130, 525, 130 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 260, 525, 130 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 390, 525, 130 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Difficulty:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Difficulty:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Difficulty:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.929412, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Difficulty:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Difficulty:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Difficulty:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Selected"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Difficulty:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.3 ), Vector2( 0.8, 0.7 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Difficulty:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ -7.0, 2.5, 0.0 ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.929412, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2.4, 2.4 ), Vector2( 2.6, 2.6 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.67451, 0.984314, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.929412, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Selected"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2.4, 2.4 ), Vector2( 2.6, 2.6 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.67451, 0.984314, 1, 1 ), Color( 0, 0.929412, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[node name="Story_Mode_GUI" type="Node2D"]
+
+[node name="Title" type="Sprite" parent="."]
+self_modulate = Color( 0.976471, 0.811765, 0.317647, 1 )
+position = Vector2( 640, 46.5 )
+texture = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Title"]
+margin_left = -441.0
+margin_top = -41.5
+margin_right = 440.0
+margin_bottom = 33.5
+rect_clip_content = true
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Week_Number" type="Label" parent="Title/ColorRect"]
+margin_top = -2.0
+margin_right = 881.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.952941, 0.623529, 0, 1 )
+text = "WEEk 1"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Week_Name" type="Label" parent="Title"]
+margin_left = -441.0
+margin_top = -41.5
+margin_right = 440.0
+margin_bottom = 26.5
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Daddy Dearest"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Week_Info" type="Label" parent="Title"]
+margin_left = -640.0
+margin_top = 25.5
+margin_right = 640.0
+margin_bottom = 119.5
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Tracks: Bopeebo, Fresh, Dad Battle
+Score: 696969 / With Modifiers: Coming soon!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" parent="." instance=ExtResource( 13 )]
+position = Vector2( 231.5, 42.5 )
+
+[node name="Difficulty_BG_L0" type="Sprite" parent="."]
+self_modulate = Color( 0.976471, 0.811765, 0.317647, 1 )
+position = Vector2( 640, 617 )
+scale = Vector2( 0.75, 0.75 )
+texture = SubResource( 2 )
+
+[node name="Diff_BG_L1" type="Sprite" parent="Difficulty_BG_L0"]
+self_modulate = Color( 1, 0.87451, 0, 1 )
+texture = SubResource( 3 )
+
+[node name="Diff_BG_L2" type="Sprite" parent="Difficulty_BG_L0"]
+self_modulate = Color( 1, 0.705882, 0, 1 )
+texture = SubResource( 4 )
+
+[node name="Diff_BG_L3" type="Sprite" parent="Difficulty_BG_L0"]
+self_modulate = Color( 1, 0.52549, 0, 1 )
+texture = SubResource( 5 )
+
+[node name="Diff_BG_L4" type="Sprite" parent="Difficulty_BG_L0"]
+texture = SubResource( 6 )
+
+[node name="Difficulty" type="AnimatedSprite" parent="Difficulty_BG_L0"]
+frames = SubResource( 7 )
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Difficulty_BG_L0/Difficulty"]
+anims/Hover = SubResource( 8 )
+anims/Normal = SubResource( 9 )
+anims/Selected = SubResource( 10 )
+
+[node name="Prev_Diff" parent="Difficulty_BG_L0" instance=ExtResource( 18 )]
+position = Vector2( -356, 0 )
+
+[node name="Next_Diff" parent="Difficulty_BG_L0" instance=ExtResource( 17 )]
+position = Vector2( 356, 0 )
+
+[node name="Prev_Week" type="Sprite" parent="."]
+position = Vector2( 96, 360 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Prev_Week"]
+anims/Hover = SubResource( 11 )
+anims/Normal = SubResource( 12 )
+anims/Selected = SubResource( 13 )
+
+[node name="Next_Week" type="Sprite" parent="."]
+position = Vector2( 1184, 360 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Next_Week"]
+anims/Hover = SubResource( 14 )
+anims/Normal = SubResource( 15 )
+anims/Selected = SubResource( 16 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )

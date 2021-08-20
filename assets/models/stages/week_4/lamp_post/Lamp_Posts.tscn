@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/stages/week_4/lamp_post/Lamp_Post_For_Gaming.fbx" type="PackedScene" id=1]
+
+[node name="Lamp_Posts" instance=ExtResource( 1 )]

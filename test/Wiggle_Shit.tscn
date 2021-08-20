@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/graphics/icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/shaders/Plane_Wiggle.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/noise_scale = 0.01
+shader_param/snap_fps = 12.0
+shader_param/plane_tex = ExtResource( 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+subdivide_width = 100
+subdivide_depth = 100
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null

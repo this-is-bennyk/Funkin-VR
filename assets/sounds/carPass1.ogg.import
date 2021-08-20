@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carPass1.ogg-68622c232ba1147a24065d3207b7bdeb.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/carPass1.ogg"
+dest_files=[ "res://.import/carPass1.ogg-68622c232ba1147a24065d3207b7bdeb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

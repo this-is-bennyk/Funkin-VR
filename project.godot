@@ -1,0 +1,104 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Object",
+"class": "AsyncState",
+"language": "GDScript",
+"path": "res://scripts/libraries/godot_extensions/AsyncState.gd"
+}, {
+"base": "Spatial",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scripts/game/chars/Character.gd"
+}, {
+"base": "Reference",
+"class": "GDScriptX",
+"language": "GDScript",
+"path": "res://scripts/libraries/godot_extensions/GDScriptX.gd"
+}, {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scripts/game/Level.gd"
+}, {
+"base": "Spatial",
+"class": "Menu3D",
+"language": "GDScript",
+"path": "res://scripts/libraries/godot_extensions/Menu3D.gd"
+}, {
+"base": "Spatial",
+"class": "MultiModelCharacter",
+"language": "GDScript",
+"path": "res://scripts/game/chars/MultiModelCharacter.gd"
+}, {
+"base": "Spatial",
+"class": "Note",
+"language": "GDScript",
+"path": "res://scripts/game/notes/Note.gd"
+}, {
+"base": "Reference",
+"class": "Old_SongChart",
+"language": "GDScript",
+"path": "res://scripts/game/Old_SongChart.gd"
+}, {
+"base": "Reference",
+"class": "SongChart",
+"language": "GDScript",
+"path": "res://scripts/game/SongChart.gd"
+} ]
+_global_script_class_icons={
+"AsyncState": "",
+"Character": "",
+"GDScriptX": "",
+"Level": "",
+"Menu3D": "",
+"MultiModelCharacter": "",
+"Note": "",
+"Old_SongChart": "",
+"SongChart": ""
+}
+
+[application]
+
+config/name="Friday Night Funkin' VR"
+run/main_scene="res://prototypes/Main.tscn"
+boot_splash/image="res://assets/graphics/splash.png"
+boot_splash/bg_color=Color( 0.046875, 0, 0.375, 1 )
+config/icon="res://assets/graphics/icon.png"
+config/windows_native_icon="res://icon.ico"
+config/version="6.0.0b3"
+
+[autoload]
+
+Settings="*res://scripts/autoload/Settings.gd"
+Conductor="*res://prototypes/autoload/Conductor.tscn"
+Player="*res://prototypes/autoload/Player.tscn"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib", "res://addons/godot_ovrmobile/godot_ovrmobile.gdnlib" ]
+
+[layer_names]
+
+3d_render/layer_1="Both Views"
+3d_render/layer_2="VR View"
+3d_render/layer_3="Secondary View"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+quality/filters/msaa=2
+environment/default_environment="res://default_env.tres"

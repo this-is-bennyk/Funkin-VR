@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Inst.mp3-c571456a3c6ca3a125e488100ab02e27.mp3str"
+
+[deps]
+
+source_file="res://assets/music/fnf/ugh/Inst.mp3"
+dest_files=[ "res://.import/Inst.mp3-c571456a3c6ca3a125e488100ab02e27.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

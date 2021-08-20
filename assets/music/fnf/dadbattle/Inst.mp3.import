@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Inst.mp3-f3e63fa3f2df551d03e65ff227ea379a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/fnf/dadbattle/Inst.mp3"
+dest_files=[ "res://.import/Inst.mp3-f3e63fa3f2df551d03e65ff227ea379a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

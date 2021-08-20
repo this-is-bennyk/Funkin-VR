@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-a850ca16673eba123bafde06df0c3108.oggstr"
+
+[deps]
+
+source_file="res://assets/music/fnf/blammed/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-a850ca16673eba123bafde06df0c3108.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

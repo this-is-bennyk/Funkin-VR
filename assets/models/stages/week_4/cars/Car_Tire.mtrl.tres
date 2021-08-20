@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/stages/week_4/cars/Car_Tires.png" type="Texture" id=1]
+
+[resource]
+flags_unshaded = true
+albedo_texture = ExtResource( 1 )
+distance_fade_mode = 3
+distance_fade_min_distance = 90.0
+distance_fade_max_distance = 50.0

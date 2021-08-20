@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=2]
+
+[ext_resource path="res://assets/graphics/game/notes/NOTE_assets.png" type="Texture" id=1]
+
+[resource]
+flags = 18
+atlas = ExtResource( 1 )
+region = Rect2( 1850, 0, 157, 154 )
+filter_clip = true

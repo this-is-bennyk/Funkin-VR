@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/vcr/vcr.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/vcr/VCR.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/FNF_Font.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform vec4 first_color : hint_color;
+uniform vec4 second_color : hint_color;
+uniform float speed = 1.0;
+
+void fragment() {
+	vec4 new_color = mix(first_color, second_color, cos(TIME * speed));
+	COLOR = vec4(new_color.rgb, texture(TEXTURE, UV).a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/first_color = Color( 0.2, 1, 1, 1 )
+shader_param/second_color = Color( 0.2, 0.2, 0.8, 1 )
+shader_param/speed = 2.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Node" type="Node"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_right = 1105.0
+margin_bottom = 1005.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]README!
+This shit is at [color=yellow]a very early stage of production[/color] and [color=yellow]everything is subject to change.[/color]
+This demo includes [color=aqua]Week 1 on Easy difficulty[/color].
+
+Known Issues:
+[color=red]- Fresh has issues at the beginning and end of the song.[/color]
+Idk why; it might
+have something to do with the chart file, because the other songs are parsed just fine."
+text = "README!
+This shit is at a very early stage of production and everything is subject to change.
+This demo includes Week 1 on Easy difficulty.
+
+Known Issues:
+- Fresh has issues at the beginning and end of the song.
+Idk why; it might
+have something to do with the chart file, because the other songs are parsed just fine."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 1305.0
+margin_right = 2410.0
+margin_bottom = 1005.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Feedback is very much appreciated, [color=yellow]especially with the controls[/color]. I know they suck ass, and I would like to know if you have any suggestions on how to make them better."
+text = "Feedback is very much appreciated, especially with the controls. I know they suck ass, and I would like to know if you have any suggestions on how to make them better."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+visible = false
+material = SubResource( 3 )
+margin_right = 924.0
+margin_bottom = 68.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp=50 freq=2]Press a Trigger to Begin"
+text = "Press a Trigger to Begin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 2 )
+text = "Now loading Week 1..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 100.0
+margin_right = 1024.0
+margin_bottom = 128.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 225.397
+margin_right = 274.0
+margin_bottom = 308.397
+custom_fonts/font = ExtResource( 3 )
+text = "resume"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
