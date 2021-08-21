@@ -698,10 +698,9 @@ custom_constants/shadow_offset_y = 3
 bbcode_enabled = true
 bbcode_text = "[center][b][color=#ec5eff]KOLSAN + co.[/color] (FNF HD)[/b]: Week 3 asset and mechanic inspiration
 
-[color=gray]Characters from Friday Night Funkin' belong to the Funkin' Crew. FNF assets are used under the [color=#2b92ff]this license[/color]:
+[color=gray]Characters from Friday Night Funkin' belong to the Funkin' Crew. FNF assets are used under the [color=#2b92ff]the Apache License 2.0[/color] as well as [color=#2b92ff]this first statement[/color]:
 [color=white]if u make mods, open source them, lol![/color]
-- ninjamuffin99, https://github.com/ninjamuffin99/Funkin/blob/master/LICENSE
-As well as under [color=#2b92ff]this statement[/color]:
+and [color=#2b92ff]this second statement[/color]:
 [color=white]Little info, you have FULL PERMISSION to stream, letsplay, meme, shitpost, do WHATEVER you want with the game.
 Use the music in videos you do, use art, ANYTHING. GO CRAZY BRO.
 If you do make any sort of video, it would be a bro move if you linked the game and spread the word
@@ -711,10 +710,9 @@ If not no biggie we don't fully hate you only kinda no biggie.[/color]
 - ninjamuffin99, readme.txt, https://github.com/ninjamuffin99/Funkin"
 text = "KOLSAN + co. (FNF HD): Week 3 asset and mechanic inspiration
 
-Characters from Friday Night Funkin' belong to the Funkin' Crew. FNF assets are used under the this license:
+Characters from Friday Night Funkin' belong to the Funkin' Crew. FNF assets are used under the the Apache License 2.0 as well as this first statement:
 if u make mods, open source them, lol!
-- ninjamuffin99, https://github.com/ninjamuffin99/Funkin/blob/master/LICENSE
-As well as under this statement:
+and this second statement:
 Little info, you have FULL PERMISSION to stream, letsplay, meme, shitpost, do WHATEVER you want with the game.
 Use the music in videos you do, use art, ANYTHING. GO CRAZY BRO.
 If you do make any sort of video, it would be a bro move if you linked the game and spread the word
@@ -732,7 +730,7 @@ visible = false
 [node name="RichTextLabel" type="RichTextLabel" parent="Page3"]
 margin_left = 195.0
 margin_top = 95.0
-margin_right = 637.5
+margin_right = 1080.0
 margin_bottom = 690.0
 rect_clip_content = false
 custom_fonts/bold_font = SubResource( 1 )
@@ -741,7 +739,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 bbcode_enabled = true
-bbcode_text = "[center][b]IRL Friends
+bbcode_text = "[center][b]IRL friends
 PotatoGranola
 FNFVR server boosters
 Anyone who has recorded a video, including[/b]:
@@ -749,13 +747,22 @@ Anyone who has recorded a video, including[/b]:
 - Itz LEGACY
 - VaporTheGamer
 - Dawko
+- 8-Bit Ryan
 - GoatyVR
 - Zedrakboi
 - SunFRiE
 [b]My TikTok followers
 My YouTube subscribers
-My Twitter followers"
-text = "IRL Friends
+My Twitter followers
+PIGSquad
+NEO Team
+Clowfoe
+pip
+AetherDX
+DodZonedOut
+McDoodle
+[/b]and[b] YOU!"
+text = "IRL friends
 PotatoGranola
 FNFVR server boosters
 Anyone who has recorded a video, including:
@@ -763,17 +770,27 @@ Anyone who has recorded a video, including:
 - Itz LEGACY
 - VaporTheGamer
 - Dawko
+- 8-Bit Ryan
 - GoatyVR
 - Zedrakboi
 - SunFRiE
 My TikTok followers
 My YouTube subscribers
-My Twitter followers"
+My Twitter followers
+PIGSquad
+NEO Team
+Clowfoe
+pip
+AetherDX
+DodZonedOut
+McDoodle
+and YOU!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Page3"]
+visible = false
 margin_left = 637.5
 margin_top = 95.0
 margin_right = 1080.0

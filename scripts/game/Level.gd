@@ -280,7 +280,9 @@ func play_level(lvl_state):
 				do_level_cleanup()
 				
 				for key in score_list:
-					Settings.set_setting(category, key, score_list[key])
+					if score_list[key] > Settings.get_setting(category, key):
+						Settings.set_setting(category, key, score_list[key])
+				Settings.save_settings()
 				
 				if get_parent().name == "Main":
 					var scene = "res://prototypes/menus/main_menu/Freeplay_Mode_Menu.tscn" if is_freeplay else "res://prototypes/menus/main_menu/Story_Mode_Menu.tscn"
@@ -700,6 +702,7 @@ func on_opponent_hit(dir, sustain_length):
 
 func on_conductor_song_finished():
 	if !dying:
+		score_list[songs[0].json_name + difficulty] = score
 		songs.pop_front()
 		has_died = false
 		emit_signal("advance_state")
