@@ -74,7 +74,7 @@ boot_splash/image="res://assets/graphics/splash.png"
 boot_splash/bg_color=Color( 0.046875, 0, 0.375, 1 )
 config/icon="res://assets/graphics/icon.png"
 config/windows_native_icon="res://icon.ico"
-config/version="6.0.0b3"
+config/version="6.0.0"
 
 [autoload]
 
