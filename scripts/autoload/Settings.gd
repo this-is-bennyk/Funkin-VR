@@ -72,7 +72,10 @@ func get_setting(section, key):
 	return _settings[section][key]
 
 func set_setting(section, key, value):
-	_settings[section][key] = value
+	if !(section in _settings):
+		_settings[section] = {key: value}
+	else:
+		_settings[section][key] = value
 
 func has_setting(section, key):
 	return section in _settings && key in _settings[section]

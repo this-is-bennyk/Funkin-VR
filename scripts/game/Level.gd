@@ -280,7 +280,7 @@ func play_level(lvl_state):
 				do_level_cleanup()
 				
 				for key in score_list:
-					if score_list[key] > Settings.get_setting(category, key):
+					if !Settings.has_setting(category, key) || score_list[key] > Settings.get_setting(category, key):
 						Settings.set_setting(category, key, score_list[key])
 				Settings.save_settings()
 				

@@ -16,7 +16,7 @@ func _ready():
 	if get_parent().main_menu:
 		get_parent().main_menu = null
 	
-	if Conductor.stream != freaky_vr:
+	if Conductor.stream != freaky_vr || !Conductor.playing:
 		Conductor.play_song(freaky_vr, 102)
 	
 	gf.start()

@@ -200,8 +200,8 @@ func update_score(track_filename):
 		2:
 			difficulty_suffix = "-hard"
 	
-	if Settings.has_setting("fnf", track_filename + difficulty_suffix):
-		score = Settings.get_setting("fnf", track_filename + difficulty_suffix)
+	if Settings.has_setting(song_list[song_idx].category, track_filename + difficulty_suffix):
+		score = Settings.get_setting(song_list[song_idx].category, track_filename + difficulty_suffix)
 	
 	if week_info_display:
 		week_info_display.text = "Score: " + str(score)

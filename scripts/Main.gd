@@ -30,6 +30,11 @@ func _ready():
 
 # Default is main menu
 func load_scene(scene_path = null, args := {}):
+	# TODO: Figure out why this func is being called twice
+	# when returning from pause / death
+	if interactive_loader:
+		return
+	
 	if scene_path:
 		# Remove current scene
 		var cur_child = get_child(get_child_count() - 1)

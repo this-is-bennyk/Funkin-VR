@@ -197,7 +197,7 @@ func _process(delta):
 #	if right_hand_trigger_just_pressed_time > 0:
 #		right_hand_trigger_just_pressed_time -= delta
 #	else:
-#	right_hand_trigger_just_pressed = false
+	right_hand_trigger_just_pressed = false
 #		right_hand_trigger_just_pressed_time = 0
 	
 #	if right_hand_grip_just_pressed_time > 0:
@@ -334,7 +334,6 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 		retry_text.hide()
 		retry_text_anim.stop()
 		retry_info.hide()
-		death_menu.hide()
 		
 		death_sfx_player.stream = RETURN_TO_MAIN_MENU_SOUND
 		death_sfx_player.play()
@@ -344,6 +343,9 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 
 		var main_vp = get_tree().root
 		main_vp.get_child(main_vp.get_child_count() - 1).load_scene("res://prototypes/menus/main_menu/Main_Menu.tscn")
+		
+		death_menu.hide()
+		switch_materials()
 
 func _retry_or_quit_pressed():
 	return GDScriptX.xor(left_hand_trigger_continued_press || right_hand_trigger_continued_press, 

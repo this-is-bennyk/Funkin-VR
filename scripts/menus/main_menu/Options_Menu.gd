@@ -13,6 +13,7 @@ var button_ranges = [
 ]
 
 onready var back_btn_area = $Back/Area
+onready var subtitle = $Options_VP/Options_GUI/Subtitle
 
 onready var master_vol_text = $Options_VP/Options_GUI/Page1/Master_Vol
 onready var music_vol_text = $Options_VP/Options_GUI/Page1/Music_Vol
@@ -169,6 +170,13 @@ func change_page(increment):
 	cur_page = wrapi(cur_page + increment, 0, len(option_pages))
 	var buttons_to_enable = range(3) if Player.is_correct_height() else range(2)
 	buttons_to_enable.append_array(range(button_ranges[cur_page][0], button_ranges[cur_page][1] + 1))
+	
+	if cur_page == 1:
+		subtitle.text = "Player Height"
+	elif cur_page == 2:
+		subtitle.text = "Step Zone"
+	else:
+		subtitle.text = "Volume"
 	
 	for i in len(option_pages):
 		option_pages[i].visible = i == cur_page
