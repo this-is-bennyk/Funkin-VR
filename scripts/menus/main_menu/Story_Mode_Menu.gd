@@ -2,7 +2,7 @@ extends Menu3D
 
 const CHAR_PATH = "res://assets/models/chars/"
 const LVL_PATH = "res://prototypes/game/weeks/"
-const LVL_RANGE = [1, 4]
+const LVL_RANGE = [1, 5]
 const CHAR_POS = Vector3(0, 0, -3.5)
 
 onready var week_num_display = $GUI/Viewport/Story_Mode_GUI/Title/ColorRect/Week_Number
@@ -43,7 +43,8 @@ var characters = [
 	preload("res://assets/models/chars/dad/Dad.tscn").instance(),
 	preload("res://assets/models/chars/spooky_kids/Spooky_Kids.tscn").instance(),
 	preload("res://assets/models/chars/pico/Pico.tscn").instance(),
-	preload("res://assets/models/chars/mom/Mom.tscn").instance()
+	preload("res://assets/models/chars/mom/Mom.tscn").instance(),
+	preload("res://assets/models/chars/parents/Wk5.tscn").instance()
 ]
 
 func _ready():

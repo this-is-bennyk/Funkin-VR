@@ -201,6 +201,9 @@ func _ready():
 	set_video_driver_stuff()
 	set_songs()
 	on_ready()
+	
+	if (Player.DEBUG == false):
+		$Camera.queue_free()
 
 func set_songs():
 	pass
@@ -243,8 +246,11 @@ func play_level(lvl_state):
 				
 				dying = false
 				
-				if !has_died:
-					do_pre_level_event()
+				if !has_died && !is_freeplay:
+					var result = do_pre_level_event()
+					if result is GDScriptFunctionState:
+						yield(result, "completed")
+				
 				do_level_prep()
 				
 				update_health(1, true)
@@ -271,10 +277,8 @@ func play_level(lvl_state):
 				metronome.start()
 				
 				set_process(true)
-				yield(do_countdown(), "completed")
+				Conductor.connect("quarter_hit", self, "process_countdown", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
 				
-				Player.can_pause = true
-				connect("advance_state", self, "play_level", [LevelState.ADVANCING], CONNECT_ONESHOT)
 			else:
 				do_ender_event()
 				do_level_cleanup()
@@ -311,27 +315,28 @@ func do_pre_level_event():
 func do_level_prep():
 	pass
 
-func do_countdown():
-	var countdown_co = yield(Conductor, "quarter_hit")
-		
-	while countdown_co < 0:
+func process_countdown(quarter):
+	if quarter < 0:
 		countdown.stop()
-		countdown.stream = countdown_voices[abs(countdown_co) - 1]
+		countdown.stream = countdown_voices[abs(quarter) - 1]
 		countdown.play()
 		
-		if countdown_co == -3:
+		if quarter == -3:
 			countdown_tween.interpolate_property(ready, "opacity", 1, 0, Conductor.get_seconds_per_beat(), Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 			countdown_tween.start()
 			
-		elif countdown_co == -2:
+		elif quarter == -2:
 			countdown_tween.interpolate_property(set, "opacity", 1, 0, Conductor.get_seconds_per_beat(), Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 			countdown_tween.start()
 			
-		elif countdown_co == -1:
+		elif quarter == -1:
 			countdown_tween.interpolate_property(go, "opacity", 1, 0, Conductor.get_seconds_per_beat(), Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 			countdown_tween.start()
 		
-		countdown_co = yield(Conductor, "quarter_hit")
+		Conductor.call_deferred("connect", "quarter_hit", self, "process_countdown", [], CONNECT_DEFERRED | CONNECT_ONESHOT)
+	else:
+		Player.can_pause = true
+		connect("advance_state", self, "play_level", [LevelState.ADVANCING], CONNECT_ONESHOT)
 
 func do_ender_event():
 	pass

@@ -48,7 +48,7 @@ onready var miss_sound_player = get_node_or_null("Miss_Sound_Player")
 var particles = []
 
 # Format in non-inverted order: PRA(strum_time, num_of_notes, dir, sustain_length, (dir, sustain_length, ...), ...)
-var notes: PoolRealArray
+var notes: Array = []
 var notes_in_play = []
 
 # Only needed for player
@@ -173,21 +173,38 @@ func note_movement_process(delta):
 	
 	for idx in len(notes_in_play):
 		var note = notes_in_play[idx]
-		var scroll_delta = Settings.SCROLL_DISTANCE / Settings.SCROLL_TIME * Conductor.scroll_speed * delta
+#		var scroll_delta = Settings.SCROLL_DISTANCE / Settings.SCROLL_TIME * Conductor.scroll_speed * delta
+		
+		var scroll_dist = Settings.SCROLL_DISTANCE * Conductor.scroll_speed
+		var scroll_dir = 1 if must_press else -1
+		var relative_song_pos = inverse_lerp(note.strum_time - Settings.SCROLL_TIME * Conductor.scroll_speed, note.strum_time, Conductor.song_position)
+		var final_location = lerp(scroll_dist * scroll_dir, 0, relative_song_pos)
 		
 		# Make the note move
-		if must_press:
-			if "note_model" in note:
-				note.note_model.translation.z -= scroll_delta
-			
-			if "sustain_part" in note:
-				note.sustain_part.translation.z -= scroll_delta
-		else:
-			if "note_model" in note:
-				note.note_model.translation.y += scroll_delta
-			
-			if "sustain_part" in note:
-				note.sustain_part.translation.y += scroll_delta
+		if "note_model" in note:
+			if must_press:
+				note.note_model.translation.z = final_location
+			else:
+				note.note_model.translation.y = final_location
+		
+		if "sustain_part" in note:
+			if must_press:
+				note.sustain_part.translation.z = final_location + note.original_sustain_part_length
+			else:
+				note.sustain_part.translation.y = final_location - note.original_sustain_part_length
+		
+#		if must_press:
+#			if "note_model" in note:
+#				note.note_model.translation.z -= scroll_delta
+#
+#			if "sustain_part" in note:
+#				note.sustain_part.translation.z -= scroll_delta
+#		else:
+#			if "note_model" in note:
+#				note.note_model.translation.y += scroll_delta
+#
+#			if "sustain_part" in note:
+#				note.sustain_part.translation.y += scroll_delta
 		
 		# Check if it needs to be shown
 		if "note_model" in note && !note.note_model.visible:
@@ -267,10 +284,26 @@ func player_zone_process(delta):
 		
 		if dir == null:
 			continue
-	
+		
+		# okay so i added really stupid keyboard support because
+		# i kinda wanted to play the charts while testing
+		# feel free to remove this lmao - codist
+#		var keyboardButton = ""
+#		if (Player.DEBUG):
+#			match (dir):
+#				Conductor.Directions.LEFT:
+#					keyboardButton = "ui_left"
+#				Conductor.Directions.DOWN:
+#					keyboardButton = "ui_down"
+#				Conductor.Directions.UP:
+#					keyboardButton = "ui_up"
+#				Conductor.Directions.RIGHT:
+#					keyboardButton = "ui_right"
+
 		var left_hand_within_zone = lanes[dir].hitbox.has_point(Player.left_hand.global_transform.origin)
 		var right_hand_within_zone = lanes[dir].hitbox.has_point(Player.right_hand.global_transform.origin)
 		
+#		if GDScriptX.xor(left_hand_within_zone, right_hand_within_zone) || Input.is_action_just_pressed(keyboardButton):
 		if GDScriptX.xor(left_hand_within_zone, right_hand_within_zone):
 			if left_hand_within_zone:
 				zones_left_hand_in.append(dir)
@@ -415,7 +448,7 @@ func opponent_process():
 func generate_notes(chart):
 	# First, we generate notes into a temp list
 	var tmp_note_list = []
-	var most_recent_note = PoolRealArray()
+	var most_recent_note = []
 	
 	for section in chart.sections:
 		for note in section["sectionNotes"]:
@@ -437,12 +470,12 @@ func generate_notes(chart):
 				if !most_recent_note.empty():
 					if most_recent_note[0] == strum_time:
 						most_recent_note[1] += 1.0
-						most_recent_note.append_array(PoolRealArray([float(direction), sustain_length]))
+						most_recent_note.append_array([float(direction), sustain_length])
 					else:
 						tmp_note_list.append(most_recent_note)
-						most_recent_note = PoolRealArray([strum_time, 1.0, float(direction), sustain_length])
+						most_recent_note = [strum_time, 1.0, float(direction), sustain_length]
 				else:
-					most_recent_note = PoolRealArray([strum_time, 1.0, float(direction), sustain_length])
+					most_recent_note = [strum_time, 1.0, float(direction), sustain_length]
 	# Have to manually add the last note
 	tmp_note_list.append(most_recent_note)
 	
@@ -472,7 +505,8 @@ func spawn_note(dir, strum_time_, sustain_length_ = 0):
 	# Duplicate the note model templates and calculate the sustain part's length if needed
 	var new_note_model = note_models[dir].duplicate()
 	var new_sustain_part = sustain_parts[dir].duplicate() if sustain_length_ > 0 else null
-	var original_sustain_part_length = sustain_length_ * Settings.SCROLL_DISTANCE / Settings.SCROLL_TIME * pow(Conductor.scroll_speed, 2) if sustain_length_ > 0 else 0
+#	var original_sustain_part_length = sustain_length_ * Settings.SCROLL_DISTANCE / Settings.SCROLL_TIME * pow(Conductor.scroll_speed, 2) if sustain_length_ > 0 else 0
+	var original_sustain_part_length = sustain_length_ * (Settings.SCROLL_DISTANCE * Conductor.scroll_speed) / (Settings.SCROLL_TIME / Conductor.scroll_speed) if sustain_length_ > 0 else 0
 	
 	# Find the lane it's supposed to be in
 	var spawn_lane
@@ -522,7 +556,7 @@ func clear_notes():
 	for obj in physical_note_list.get_children():
 		obj.queue_free()
 	
-	notes = PoolRealArray()
+	notes = []
 	notes_in_play = []
 
 # ---------- Video Driver Functions ----------

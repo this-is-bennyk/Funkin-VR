@@ -1,24 +1,23 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/fonts/comic_helvetic/ComicHelvetic_Medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/vcr/VCR_40.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/graphics/menus/dev_icons/slushy_icon.tres" type="Texture" id=3]
-[ext_resource path="res://assets/graphics/menus/dev_icons/phantomarcade_icon.tres" type="Texture" id=4]
-[ext_resource path="res://assets/graphics/menus/dev_icons/thisisbennyk_icon.tres" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/menus/dev_icons/finko_icon.tres" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/menus/dev_icons/sayge_icon.tres" type="Texture" id=7]
-[ext_resource path="res://assets/graphics/menus/dev_icons/jellyfish_icon.tres" type="Texture" id=8]
-[ext_resource path="res://assets/graphics/menus/dev_icons/evilsk8r_icon.tres" type="Texture" id=9]
-[ext_resource path="res://assets/graphics/menus/dev_icons/toman_icon.tres" type="Texture" id=10]
-[ext_resource path="res://assets/graphics/menus/dev_icons/palladium_icon.tres" type="Texture" id=11]
-[ext_resource path="res://assets/graphics/menus/dev_icons/king_icon.tres" type="Texture" id=12]
-[ext_resource path="res://assets/graphics/menus/dev_icons/kawaisprite_icon.tres" type="Texture" id=13]
-[ext_resource path="res://assets/graphics/menus/dev_icons/crit_icon.tres" type="Texture" id=14]
-[ext_resource path="res://assets/graphics/menus/dev_icons/cole_icon.tres" type="Texture" id=15]
-[ext_resource path="res://assets/graphics/menus/dev_icons/bobbie_icon.tres" type="Texture" id=16]
-[ext_resource path="res://assets/graphics/menus/dev_icons/angel_icon.tres" type="Texture" id=17]
-[ext_resource path="res://assets/graphics/menus/dev_icons/jams_icon.tres" type="Texture" id=18]
-[ext_resource path="res://assets/graphics/menus/dev_icons/ninjamuffin_icon.tres" type="Texture" id=19]
+[ext_resource path="res://assets/graphics/menus/dev_icons/bk_cally_icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Kawaisprite-Icon.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/menus/dev_icons/jams-Icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Bobbie-Icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Toman-Icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/dev_icons/JellyFish-Icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/menus/dev_icons/PhantomArcade-Icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/menus/dev_icons/FURRY.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/menus/dev_icons/custom_Icons_sayge.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Slushy-Icon.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Ninjamuffin-Icon.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/menus/dev_icons/Scavenger-Icon.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/menus/dev_icons/iconGrid-codist.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/menus/dev_icons/finko_icon.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/menus/dev_icons/evilsk8r-Icon(2).png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/menus/dev_icons/pepeu_icon.png" type="Texture" id=18]
 [ext_resource path="res://assets/fonts/comic_helvetic/ComicHelvetic_Light.otf" type="DynamicFontData" id=20]
 [ext_resource path="res://assets/graphics/menus/dev_icons/CallyBunIcon1.png" type="Texture" id=21]
 [ext_resource path="res://assets/graphics/menus/dev_icons/weegeepie_icon.tres" type="Texture" id=22]
@@ -57,10 +56,10 @@ __meta__ = {
 margin_right = 853.333
 margin_bottom = 58.0
 rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 2 )
 text = "Credits"
 align = 1
 valign = 1
@@ -72,109 +71,113 @@ __meta__ = {
 [node name="Page1" type="Node2D" parent="."]
 
 [node name="Row3" type="Node2D" parent="Page1"]
-position = Vector2( 640, 600 )
+position = Vector2( 100, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CritVA" type="Sprite" parent="Page1/Row3"]
-position = Vector2( -200, 0 )
-texture = ExtResource( 14 )
+[node name="King" type="Sprite" parent="Page1/Row3"]
+position = Vector2( 239, 591 )
+texture = ExtResource( 10 )
 
-[node name="Label" type="Label" parent="Page1/Row3/CritVA"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
+[node name="Label7" type="Label" parent="Page1/Row3"]
+margin_left = 161.0
+margin_top = 647.0
+margin_right = 317.0
+margin_bottom = 670.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "CritVA"
+text = "The King"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row3/CritVA"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
+[node name="Label8" type="Label" parent="Page1/Row3"]
+margin_left = 118.0
+margin_top = 664.288
+margin_right = 360.0
+margin_bottom = 687.288
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "VA - Work coming soon!"
+text = "Musician"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Angel" type="Sprite" parent="Page1/Row3"]
-texture = ExtResource( 17 )
+[node name="Pepeu" type="Sprite" parent="Page1/Row3"]
+position = Vector2( 440, 591 )
+texture = ExtResource( 18 )
 
-[node name="Label" type="Label" parent="Page1/Row3/Angel"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
+[node name="Label9" type="Label" parent="Page1/Row3"]
+margin_left = 362.0
+margin_top = 647.0
+margin_right = 518.0
+margin_bottom = 670.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "Angelattes"
+text = "Pepeu_In3D"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row3/Angel"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
+[node name="Label10" type="Label" parent="Page1/Row3"]
+margin_left = 319.0
+margin_top = 664.288
+margin_right = 561.0
+margin_bottom = 687.288
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "VA - Work coming soon!"
+text = "3D Modeler"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cole" type="Sprite" parent="Page1/Row3"]
-position = Vector2( 200, 0 )
+[node name="Codist" type="Sprite" parent="Page1/Row3"]
+position = Vector2( 640, 591 )
 texture = ExtResource( 15 )
 
-[node name="Label" type="Label" parent="Page1/Row3/Cole"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
+[node name="Label11" type="Label" parent="Page1/Row3"]
+margin_left = 562.0
+margin_top = 647.0
+margin_right = 718.0
+margin_bottom = 670.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Teacol"
+custom_fonts/font = SubResource( 1 )
+text = "ImCodist"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row3/Cole"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
+[node name="Label12" type="Label" parent="Page1/Row3"]
+margin_left = 519.0
+margin_top = 664.288
+margin_right = 761.0
+margin_bottom = 687.288
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "VA - Work coming soon!"
+custom_fonts/font = SubResource( 2 )
+text = "Programmer"
 align = 1
 valign = 1
 __meta__ = {
@@ -182,21 +185,60 @@ __meta__ = {
 }
 
 [node name="Row2" type="Node2D" parent="Page1"]
-position = Vector2( 640, 450 )
+position = Vector2( 837, 450 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Palladium" type="Sprite" parent="Page1/Row2"]
-position = Vector2( -300, 0 )
-texture = ExtResource( 11 )
+[node name="Jams" type="Sprite" parent="Page1/Row2"]
+position = Vector2( -499, 0.5 )
+texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Page1/Row2/Palladium"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
+[node name="Label9" type="Label" parent="Page1/Row2"]
+margin_left = -577.0
+margin_top = 56.5
+margin_right = -421.0
+margin_bottom = 79.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Jams3D"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Page1/Row2"]
+margin_left = -620.0
+margin_top = 73.788
+margin_right = -378.0
+margin_bottom = 96.788
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
+text = "3D Animator"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Palladium" type="Sprite" parent="Page1/Row2"]
+position = Vector2( -300, 0 )
+texture = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="Page1/Row2"]
+margin_left = -378.0
+margin_top = 56.0
+margin_right = -222.0
+margin_bottom = 79.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Palladium346"
 align = 1
 valign = 1
@@ -204,15 +246,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row2/Palladium"]
-margin_left = -121.0
+[node name="Label2" type="Label" parent="Page1/Row2"]
+margin_left = -421.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = -179.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "Icon Designer"
 align = 1
 valign = 1
@@ -222,17 +264,18 @@ __meta__ = {
 
 [node name="Finko" type="Sprite" parent="Page1/Row2"]
 position = Vector2( -100, 0 )
-texture = ExtResource( 6 )
+scale = Vector2( 0.22, 0.22 )
+texture = ExtResource( 16 )
 
-[node name="Label" type="Label" parent="Page1/Row2/Finko"]
-margin_left = -78.0
+[node name="Label3" type="Label" parent="Page1/Row2"]
+margin_left = -178.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = -22.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "FinkoToonz"
 align = 1
 valign = 1
@@ -240,15 +283,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row2/Finko"]
-margin_left = -121.0
+[node name="Label4" type="Label" parent="Page1/Row2"]
+margin_left = -221.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = 21.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "2D Artist"
 align = 1
 valign = 1
@@ -260,15 +303,16 @@ __meta__ = {
 position = Vector2( 100, 0 )
 texture = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="Page1/Row2/JellyFish"]
-margin_left = -78.0
+[node name="Label5" type="Label" parent="Page1/Row2"]
+margin_left = 22.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = 178.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.623529, 0.623529, 0.623529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "JellyFish!"
 align = 1
 valign = 1
@@ -276,51 +320,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row2/JellyFish"]
-margin_left = -121.0
+[node name="Label6" type="Label" parent="Page1/Row2"]
+margin_left = -21.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = 221.0
 margin_bottom = 96.288
+custom_colors/font_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "Musician"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="King" type="Sprite" parent="Page1/Row2"]
-position = Vector2( 300, 0 )
-texture = ExtResource( 12 )
-
-[node name="Label" type="Label" parent="Page1/Row2/King"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "The King"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Page1/Row2/King"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
 text = "Musician"
 align = 1
 valign = 1
@@ -329,21 +338,25 @@ __meta__ = {
 }
 
 [node name="Row1" type="Node2D" parent="Page1"]
-position = Vector2( 640, 300 )
+position = Vector2( 740, 300 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Bobbie" type="Sprite" parent="Page1/Row1"]
 position = Vector2( -400, 0 )
-texture = ExtResource( 16 )
+texture = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="Page1/Row1/Bobbie"]
-margin_left = -78.0
+[node name="Label" type="Label" parent="Page1/Row1"]
+margin_left = -478.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = -322.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.623529, 0.623529, 0.623529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "VRBobbie"
 align = 1
 valign = 1
@@ -351,15 +364,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row1/Bobbie"]
-margin_left = -121.0
+[node name="Label2" type="Label" parent="Page1/Row1"]
+margin_left = -521.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = -279.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.623529, 0.623529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "Initial Week Map Modeler"
 align = 1
 valign = 1
@@ -369,17 +383,17 @@ __meta__ = {
 
 [node name="Sayge" type="Sprite" parent="Page1/Row1"]
 position = Vector2( -200, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 11 )
 
-[node name="Label" type="Label" parent="Page1/Row1/Sayge"]
-margin_left = -78.0
+[node name="Label3" type="Label" parent="Page1/Row1"]
+margin_left = -278.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = -122.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Sayge"
 align = 1
 valign = 1
@@ -387,15 +401,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row1/Sayge"]
-margin_left = -121.0
+[node name="Label4" type="Label" parent="Page1/Row1"]
+margin_left = -321.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = -79.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "3D Modeler"
 align = 1
 valign = 1
@@ -404,17 +418,17 @@ __meta__ = {
 }
 
 [node name="Slushy" type="Sprite" parent="Page1/Row1"]
-texture = ExtResource( 3 )
+texture = ExtResource( 12 )
 
-[node name="Label" type="Label" parent="Page1/Row1/Slushy"]
+[node name="Label5" type="Label" parent="Page1/Row1"]
 margin_left = -78.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = 82.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Slushy_Anime"
 align = 1
 valign = 1
@@ -422,15 +436,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row1/Slushy"]
+[node name="Label6" type="Label" parent="Page1/Row1"]
 margin_left = -121.0
 margin_top = 73.288
 margin_right = 121.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "3D Modeler"
 align = 1
 valign = 1
@@ -440,17 +454,17 @@ __meta__ = {
 
 [node name="Toman" type="Sprite" parent="Page1/Row1"]
 position = Vector2( 200, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="Page1/Row1/Toman"]
-margin_left = -78.0
+[node name="Label7" type="Label" parent="Page1/Row1"]
+margin_left = 122.0
 margin_top = 56.0
-margin_right = 78.0
+margin_right = 278.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Toman800"
 align = 1
 valign = 1
@@ -458,51 +472,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Row1/Toman"]
-margin_left = -121.0
+[node name="Label8" type="Label" parent="Page1/Row1"]
+margin_left = 79.0
 margin_top = 73.288
-margin_right = 121.0
+margin_right = 321.0
 margin_bottom = 96.288
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "3D Animator"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Jams" type="Sprite" parent="Page1/Row1"]
-position = Vector2( 400, 0 )
-texture = ExtResource( 18 )
-
-[node name="Label" type="Label" parent="Page1/Row1/Jams"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "Jams3D"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Page1/Row1/Jams"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
 text = "3D Animator"
 align = 1
 valign = 1
@@ -512,17 +490,18 @@ __meta__ = {
 
 [node name="Ben" type="Sprite" parent="Page1"]
 position = Vector2( 640, 150 )
-texture = ExtResource( 5 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Page1/Ben"]
-margin_left = -78.0
-margin_top = 56.0
-margin_right = 78.0
-margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
+[node name="Label" type="Label" parent="Page1"]
+margin_left = 562.0
+margin_top = 206.0
+margin_right = 718.0
+margin_bottom = 229.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "ThisIsBennyK"
 align = 1
 valign = 1
@@ -530,16 +509,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Page1/Ben"]
-margin_left = -121.0
-margin_top = 73.288
-margin_right = 121.0
-margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
+[node name="Label2" type="Label" parent="Page1"]
+margin_left = 519.0
+margin_top = 223.288
+margin_right = 761.0
+margin_bottom = 246.288
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "Lead Developer and Programmer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Page1"]
+margin_top = 83.0
+margin_right = 1280.0
+margin_bottom = 106.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Developers (Sorted by Join Order)"
 align = 1
 valign = 1
 __meta__ = {
@@ -550,7 +544,10 @@ __meta__ = {
 visible = false
 
 [node name="Row1" type="Node2D" parent="Page2"]
-position = Vector2( 640, 150 )
+position = Vector2( 640, 181 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Cally" type="Sprite" parent="Page2/Row1"]
 position = Vector2( -250, 0 )
@@ -563,10 +560,10 @@ margin_top = 207.407
 margin_right = -132.889
 margin_bottom = 230.407
 rect_scale = Vector2( 3.704, 3.704 )
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Cally3D"
 align = 1
 valign = 1
@@ -580,11 +577,11 @@ margin_top = 273.764
 margin_right = -206.148
 margin_bottom = 308.764
 rect_scale = Vector2( 3.704, 3.704 )
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/line_spacing = -1
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "FNF Cast + Mod Models
 Daddy Dearest Animations"
 align = 1
@@ -597,32 +594,32 @@ __meta__ = {
 
 [node name="Ninjamuffin" type="Sprite" parent="Page2/Row1/FNF_Devs"]
 position = Vector2( -110, 0 )
-texture = ExtResource( 19 )
+texture = ExtResource( 13 )
 
 [node name="PhantomArcade" type="Sprite" parent="Page2/Row1/FNF_Devs/Ninjamuffin"]
 show_behind_parent = true
 position = Vector2( 75, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="KawaiSprite" type="Sprite" parent="Page2/Row1/FNF_Devs/Ninjamuffin/PhantomArcade"]
 show_behind_parent = true
 position = Vector2( 85, 0 )
-texture = ExtResource( 13 )
+texture = ExtResource( 4 )
 
 [node name="EvilSk8r" type="Sprite" parent="Page2/Row1/FNF_Devs/Ninjamuffin/PhantomArcade/KawaiSprite"]
 show_behind_parent = true
 position = Vector2( 65, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 17 )
 
 [node name="Label" type="Label" parent="Page2/Row1/FNF_Devs"]
 margin_left = -166.0
 margin_top = 56.0
 margin_right = 189.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "FNF Developers"
 align = 1
 valign = 1
@@ -635,11 +632,11 @@ margin_left = -166.0
 margin_top = 73.288
 margin_right = 189.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/line_spacing = -1
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "Ninjamuffin99, PhantomArcade,
 KawaiSprite, EvilSk8r"
 align = 1
@@ -657,10 +654,10 @@ margin_left = -78.0
 margin_top = 56.0
 margin_right = 78.0
 margin_bottom = 79.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
 text = "Weegeepie"
 align = 1
 valign = 1
@@ -673,10 +670,10 @@ margin_left = -121.0
 margin_top = 73.288
 margin_right = 121.0
 margin_bottom = 96.288
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
 text = "Week L Assets"
 align = 1
 valign = 1
@@ -686,15 +683,15 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Page2"]
 margin_left = 195.0
-margin_top = 280.0
+margin_top = 311.0
 margin_right = 1080.0
-margin_bottom = 690.0
+margin_bottom = 721.0
 rect_clip_content = false
-custom_fonts/bold_font = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center][b][color=#ec5eff]KOLSAN + co.[/color] (FNF HD)[/b]: Week 3 asset and mechanic inspiration
 
@@ -724,6 +721,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="Page2"]
+margin_top = 83.0
+margin_right = 1280.0
+margin_bottom = 106.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Licenses to Other Assets"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Page3" type="Node2D" parent="."]
 visible = false
 
@@ -733,13 +745,14 @@ margin_top = 95.0
 margin_right = 1080.0
 margin_bottom = 690.0
 rect_clip_content = false
-custom_fonts/bold_font = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center][b]IRL friends
+bbcode_text = "[center][b]
+IRL friends
 PotatoGranola
 FNFVR server boosters
 Anyone who has recorded a video, including[/b]:
@@ -758,11 +771,12 @@ PIGSquad
 NEO Team
 Clowfoe
 pip
-AetherDX
 DodZonedOut
 McDoodle
+OhSoVanilla
 [/b]and[b] YOU!"
-text = "IRL friends
+text = "
+IRL friends
 PotatoGranola
 FNFVR server boosters
 Anyone who has recorded a video, including:
@@ -781,43 +795,25 @@ PIGSquad
 NEO Team
 Clowfoe
 pip
-AetherDX
 DodZonedOut
 McDoodle
+OhSoVanilla
 and YOU!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Page3"]
-visible = false
-margin_left = 637.5
-margin_top = 95.0
-margin_right = 1080.0
-margin_bottom = 690.0
-rect_clip_content = false
-custom_fonts/bold_font = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 3 )
+[node name="Label3" type="Label" parent="Page3"]
+margin_top = 83.0
+margin_right = 1280.0
+margin_bottom = 106.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 3
-custom_constants/shadow_offset_y = 3
-bbcode_enabled = true
-bbcode_text = "[center][b]NEO Team
-Clowfoe
-pip
-AetherDX
-Cval
-DodZonedOut
-McDoodle
-[/b]and[b] YOU!"
-text = "NEO Team
-Clowfoe
-pip
-AetherDX
-Cval
-DodZonedOut
-McDoodle
-and YOU!"
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "Special Thanks"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

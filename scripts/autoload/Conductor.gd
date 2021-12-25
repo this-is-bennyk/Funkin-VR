@@ -19,7 +19,7 @@ onready var vocals = $Vocals
 onready var countdown_timer = $Countdown_Timer
 
 var bpm: float = 60
-var scroll_speed = 1
+var scroll_speed = 2.0
 
 var song_position: float = 0 # in seconds
 # time_begin: the exact timestamp (since engine launch / last pause in microseconds)
@@ -41,7 +41,7 @@ var last_sixteenth_before_change = 0
 
 #### (Re-)Initialization #####################
 
-var DEBUG = false
+var DEBUG = true
 
 func _ready():
 	$BPM_Debug.visible = DEBUG

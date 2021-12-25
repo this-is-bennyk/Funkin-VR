@@ -9,7 +9,9 @@ const HAND_SIZE = Vector3(0.1, 0.01, 0.01)
 var STEP_ZONE_SIZE = 0.65
 #var GRIP_IDX = 3 if OS.get_name() == "Android" else JOY_VR_ANALOG_GRIP
 
+const NORMAL_MATERIAL = preload("res://assets/models/chars/bf/regular/BoyfriendTex.material")
 const MISS_MATERIAL = preload("res://assets/models/chars/bf/regular/BoyfriendFailTex.material")
+const CHRISTMISS_MATERIAL = preload("res://assets/models/chars/bf/regular/BoyfriendChristmasFailTex.material")
 const DEATH_MATERIAL = preload("res://assets/models/chars/bf/Death_Material.tres")
 
 const DEFAULT_DEATH_MUSIC = preload("res://assets/music/fnf/gameOver.ogg")
@@ -23,6 +25,7 @@ const SUSTAIN_RUMBLE = 0.1
 const RUMBLE_DECAY = 2
 
 enum Transition {FLASH, FADE_IN, FADE_OUT, DEATH_FADE}
+enum BFState {NORMAL, MISS, DEATH}
 
 # Player Model Stuff
 
@@ -89,6 +92,8 @@ onready var death_tween = $Death_Menu/Tween
 onready var pause_menu = $Pause_Menu
 onready var pause_music = $Pause_Menu/Pause_Music
 
+var christmas_outfit = false
+
 var can_pause = false
 var pause_timer: SceneTreeTimer
 
@@ -107,7 +112,7 @@ const DEBUG = false
 func _ready():
 	if DEBUG:
 		arvr_origin.visible = false
-		set_process(false)
+#		set_process(false)
 		return
 	
 	initialize_vr()
@@ -120,10 +125,10 @@ func _ready():
 	screen_flash.rect_size = ARVRServer.primary_interface.get_render_targetsize()
 	screen_wipe.rect_size = ARVRServer.primary_interface.get_render_targetsize()
 	
-	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("root"), Transform(Basis(), Vector3(-0.3 / bf_model.scale.x, 0, 0)))
-	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("head"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
-	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("shoulder_l"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
-	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("shoulder_r"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
+	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("Root"), Transform(Basis(), Vector3(-0.3 / bf_model.scale.x, 0, 0)))
+	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("Head"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
+	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("Shoulder.L"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
+	bf_skeleton.set_bone_pose(bf_skeleton.find_bone("Shoulder.R"), Transform(Vector3(), Vector3(), Vector3(), Vector3()))
 	
 	left_hand_model.scale /= 2
 	left_hand_model.get_node("AnimationPlayer").play("Point")
@@ -151,6 +156,11 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	if DEBUG:
+		if Input.is_action_just_pressed("ui_accept"):
+			set_pause(!get_tree().paused)
+		return
+	
 	# Quests: Perform runtime config stuff here for some reason
 	if OS.get_name() == "Android" && !ovr_mobile_runtime_config_performed:
 		ovr_mobile_performance = load("res://addons/godot_ovrmobile/OvrPerformance.gdns").new()
@@ -257,7 +267,7 @@ func do_game_over(death_sound = null, death_music = null, retry_sound = null):
 	death_menu.show()
 	dropped_mic.show()
 	dropped_mic.global_transform = right_hand_model.global_transform
-	switch_materials(DEATH_MATERIAL)
+	switch_materials(BFState.DEATH)
 	
 	var dropped_mic_final_xform = Transform(Basis(Quat(Vector3(0, -PI / 2, 0))).scaled(dropped_mic.global_transform.basis.get_scale()),
 											dropped_mic.global_transform.origin * Vector3(1, 0, 1))
@@ -366,6 +376,7 @@ func initialize_vr():
 			ovr_mobile_init_config.set_render_target_size_multiplier(1)
 			
 			if VR.initialize():
+				arvr = true
 				hdr = false
 				keep_3d_linear = false
 			
@@ -376,27 +387,46 @@ func initialize_vr():
 		VR = ARVRServer.find_interface("OpenVR")
 
 		if VR and VR.initialize():
+			arvr = true
 			OS.vsync_enabled = false
 			Engine.target_fps = 90
 
-func switch_materials(mat = null):
-	match mat:
-		MISS_MATERIAL, DEATH_MATERIAL:
-			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = mat
-			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = mat
-			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = mat
+func switch_materials(state = BFState.NORMAL):
+	var body_to_use = "Boyfriend Armature/Skeleton/Boyfriend Body (Christmas)" \
+					  if christmas_outfit else \
+					  "Boyfriend Armature/Skeleton/Boyfriend Body"
+	
+	bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Body").hide()
+	bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Body (Christmas)").hide()
+	
+	match state:
+		BFState.DEATH:
+			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = DEATH_MATERIAL
+			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = DEATH_MATERIAL
 			
-			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").visible = !(mat == DEATH_MATERIAL)
-			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").visible = !(mat == DEATH_MATERIAL)
-			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").visible = !(mat == DEATH_MATERIAL)
+			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend (Skeleton)").show()
+			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend (Skeleton Under)").show()
 			
-			right_hand_model.get_node("Boyfriend Armature/Skeleton/Microphone").visible = !(mat == DEATH_MATERIAL)
+			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").hide()
+			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").hide()
+			
+			right_hand_model.get_node("Boyfriend Armature/Skeleton/Microphone").hide()
 		_:
-			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = null
-			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = null
-			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = null
+			var body_mat = null
+			var hand_mat = NORMAL_MATERIAL
 			
-			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").show()
+			if state == BFState.MISS:
+				body_mat = CHRISTMISS_MATERIAL if christmas_outfit else MISS_MATERIAL
+				hand_mat = MISS_MATERIAL
+			
+			bf_model.get_node(body_to_use).material_override = body_mat
+			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = hand_mat
+			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend").material_override = hand_mat
+			
+			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend (Skeleton)").hide()
+			bf_model.get_node("Boyfriend Armature/Skeleton/Boyfriend (Skeleton Under)").hide()
+			bf_model.get_node(body_to_use).show()
+			
 			left_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").show()
 			right_hand_model.get_node("Boyfriend Armature/Skeleton/Boyfriend Cell Shade").show()
 			
@@ -498,9 +528,21 @@ func on_controller_button_detected(button, is_right_hand, pressed):
 
 			set_pause(false)
 			yield(get_tree(), "idle_frame")
-
+			
+			christmas_outfit = false
+			switch_materials()
+			
 			var main_vp = get_tree().root
-			main_vp.get_child(main_vp.get_child_count() - 1).load_scene("res://prototypes/menus/main_menu/Main_Menu.tscn")
+			var main_scene = main_vp.get_child(main_vp.get_child_count() - 1)
+			
+			var lvl = main_scene.get_child(main_scene.get_child_count() - 1)
+			
+			var lvl_incoming_connections = get_incoming_connections()
+	
+			for connection in lvl_incoming_connections:
+				connection.source.disconnect(connection.signal_name, lvl, connection.method_name)
+			
+			main_scene.load_scene("res://prototypes/menus/main_menu/Main_Menu.tscn")
 
 func set_rumble(for_right_hand, intensity):
 	if for_right_hand:

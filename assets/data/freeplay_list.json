@@ -64,6 +64,22 @@
 		"icon_idx": 27,
 		"corrected_name": "M.I.L.F"
 	},
+	"cocoa": {
+		"char_name": "The Parents",
+		"week_filename": "Week_5",
+		"icon_idx": 32
+	},
+	"eggnog": {
+		"char_name": "The Parents",
+		"week_filename": "Week_5",
+		"icon_idx": 32
+	},
+	"winter-horrorland": {
+		"char_name": "Monster",
+		"week_filename": "Week_5",
+		"icon_idx": 37,
+		"corrected_name": "Winter Horrorland"
+	},
 	"heavenfunk": {
 		"char_name": "Weegeepie",
 		"week_filename": "Luigi_Week",

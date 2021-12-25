@@ -247,3 +247,7 @@ frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
 anims/Beat_Hit = SubResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921575, 0.198964 )
+fov = 90.0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/chars/gf/christmas/ChrGirlfriend.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/chars/gf/christmas/DanceFace.anim" type="Animation" id=2]
+[ext_resource path="res://scripts/game/chars/gf/ChristmasGirlfriend.gd" type="Script" id=3]
+
+[node name="ChrGirlfriend" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="FacePlayer" type="AnimationPlayer" parent="." index="3"]
+anims/DanceFace = ExtResource( 2 )

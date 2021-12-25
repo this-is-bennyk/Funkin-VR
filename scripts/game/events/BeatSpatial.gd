@@ -4,6 +4,7 @@ extends Spatial
 export(Conductor.Notes) var note_to_hit = Conductor.Notes.QUARTER
 # beat_interval: tells us to play an animation every n beats
 export(int) var beat_interval = 1
+export(String) var idle_anim_name = "Beat_Hit"
 
 onready var anim_player = $AnimationPlayer
 
@@ -26,4 +27,5 @@ func _ready():
 
 func on_beat_hit(beat):
 	if bumping && beat % beat_interval == 0:
-		anim_player.play("Beat_Hit")
+		anim_player.stop()
+		anim_player.play(idle_anim_name)

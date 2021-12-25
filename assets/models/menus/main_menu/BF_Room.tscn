@@ -29,6 +29,9 @@ tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.25, 1, 0, 0
 
 [node name="BFRoomGlib" parent="." instance=ExtResource( 1 )]
 
+[node name="NSFWPoster" parent="BFRoomGlib" index="22"]
+visible = false
+
 [node name="Fan_Anim" type="AnimationPlayer" parent="."]
 autoplay = "Fan"
 playback_speed = 1.5

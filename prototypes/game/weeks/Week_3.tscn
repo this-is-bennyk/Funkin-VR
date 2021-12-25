@@ -1240,7 +1240,7 @@ surfaces/0 = {
 "vertex_count": 1419
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=79]
 length = 1.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Week_3_Stage/Train:translation")
@@ -1887,7 +1887,7 @@ stream = ExtResource( 4 )
 bus = "SFX"
 
 [node name="Train_Anim" type="AnimationPlayer" parent="." index="10"]
-anims/Train_Pass = SubResource( 82 )
+anims/Train_Pass = SubResource( 79 )
 
 [node name="Train_Cooldown" type="Timer" parent="." index="11"]
 one_shot = true

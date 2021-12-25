@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource( 1 )
-shader_param/xray_color_intensity = 1.0
-shader_param/outline_sharpness = 0.85
-shader_param/outline_color = Color( 0.269531, 0.671751, 1, 1 )
+shader_param/xray_color_intensity = 4.34
+shader_param/outline_sharpness = 2.0
+shader_param/outline_color = Color( 0.2, 0.2, 0.803922, 1 )

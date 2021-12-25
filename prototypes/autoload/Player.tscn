@@ -215,7 +215,6 @@ size = Vector3( 1, 1, 1 )
 
 [node name="Player" type="Viewport"]
 pause_mode = 2
-arvr = true
 size = Vector2( 100, 100 )
 msaa = 2
 keep_3d_linear = true

@@ -30,3 +30,7 @@ transform = Transform( 10, 0, 0, 0, 6, 0, 0, 0, 8, -4.8888, 3.0555, -1.04731 )
 material_override = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Camera" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00746, 0.372084 )
+fov = 70.0

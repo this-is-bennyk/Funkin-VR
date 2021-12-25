@@ -540,3 +540,6 @@ anims/Thunder_GLES2 = SubResource( 25 )
 
 [node name="Thunder" type="AudioStreamPlayer" parent="." index="9"]
 bus = "SFX"
+
+[node name="Camera" parent="." index="10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.617023 )

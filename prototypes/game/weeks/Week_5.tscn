@@ -1,0 +1,158 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://prototypes/game/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/stages/week_5/Week_5_Stage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/game/weeks/Week_5.gd" type="Script" id=3]
+[ext_resource path="res://assets/models/chars/gf/christmas/ChrGirlfriend.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/models/chars/monster/Monster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/chars/parents/Wk5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/models/stages/week_5/santa/Santa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/models/stages/week_5/trees/TreeNormal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/models/stages/week_5/cops/Cops.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/models/stages/week_5/trees/TreeMonster.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sounds/Lights_Shut_off.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/models/stages/week_5/meat/MEAT.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Gradient" id=2]
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+adjustment_color_correction = SubResource( 3 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Lights_Out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Red_Flash"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 1 ), PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Opponent_Icon" parent="HUD/Health_Bar/Icons" index="1"]
+frame = 30
+
+[node name="Week_5_Stage" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5926, -0.243677, -3.11022 )
+
+[node name="Camera" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 0.943008, 0.33277, 0, -0.33277, 0.943008, 0, 7.54584, 4.81505 )
+current = true
+
+[node name="ChrGirlfriend" parent="." index="6" instance=ExtResource( 4 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 2.7, 0, -1.5 )
+
+[node name="Wk5" parent="." index="7" instance=ExtResource( 6 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -4 )
+
+[node name="Monster" parent="." index="8" instance=ExtResource( 5 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+visible = false
+
+[node name="Santa" parent="." index="9" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.56755, 0, -4.39269 )
+
+[node name="Cops" parent="." index="10" instance=ExtResource( 9 )]
+transform = Transform( -3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, -4.19968, 0, -0.652591 )
+
+[node name="TreeNormal" parent="." index="11" instance=ExtResource( 8 )]
+transform = Transform( 0.938668, 0, 0.344823, 0, 1, 0, -0.344823, 0, 0.938668, 9.45961, 0, -3.543 )
+
+[node name="TreeMonster" parent="." index="12" instance=ExtResource( 10 )]
+transform = Transform( 0.541224, 0, -0.840878, 0, 1, 0, 0.840878, 0, 0.541224, 9.46036, 0, -3.45105 )
+visible = false
+
+[node name="MEAT" parent="." index="13" instance=ExtResource( 12 )]
+transform = Transform( 0.13, 1.08574e-23, -4.74593e-31, 0, -5.68248e-09, -0.13, -1.08574e-23, 0.13, -5.68248e-09, -13.8977, 0.0543362, -12.8438 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="14"]
+environment = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" index="0"]
+anims/Lights_Out = SubResource( 6 )
+anims/RESET = SubResource( 4 )
+anims/Red_Flash = SubResource( 5 )
+
+[node name="Scary_Noise" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource( 11 )
+
+[editable path="MEAT"]

@@ -38,9 +38,8 @@ func load_scene(scene_path = null, args := {}):
 	if scene_path:
 		# Remove current scene
 		var cur_child = get_child(get_child_count() - 1)
-		if cur_child == main_menu:
-			remove_child(cur_child)
-		else:
+		remove_child(cur_child)
+		if cur_child != main_menu:
 			cur_child.queue_free()
 		
 		for child in Player.camera.get_children():
@@ -116,3 +115,4 @@ func _process(delta):
 
 func update_second_view_size():
 	second_view.get_node("Viewport").size = OS.window_size
+	OS.center_window()
