@@ -1,0 +1,34 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D tex : hint_albedo;
+
+uniform float vertex_amplitude = 0.01;
+uniform float vertex_speed = 1.0;
+uniform float vertex_frequency = 1.0;
+
+uniform float tex_amplitude = 0.01;
+uniform float tex_speed = 1.0;
+
+void vertex()
+{
+	float delta = sin(VERTEX.y * vertex_frequency + TIME * vertex_speed) * vertex_amplitude;
+	
+	if (VERTEX.y < 100.0 || VERTEX.y > 220.0)
+	{
+		VERTEX.xz += delta * 2.0;
+	}
+	else
+	{
+		VERTEX.xz += delta;
+	}
+}
+
+void fragment()
+{
+	ALBEDO = mix(texture(tex, UV).rgb, texture(tex, UV + vec2(cos(TIME * tex_speed), 0.0) * tex_amplitude).rgb, 0.5);
+}
+"

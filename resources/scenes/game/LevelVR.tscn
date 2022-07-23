@@ -1,0 +1,224 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/Girlfriend.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/notes/Up_Note_VR.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/VCR_20.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scripts/menus/NonControlText.gd" type="Script" id=5]
+[ext_resource path="res://scripts/game/HUD.gd" type="Script" id=6]
+[ext_resource path="res://scenes/shared/game/GameCamera3D.tscn" type="PackedScene" id=7]
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/hud/countdown_messages.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://scenes/shared/game/notes/3d/Down_Lane.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/shared/game/notes/3d/Up_Lane.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/shared/game/notes/3d/Right_Lane.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/shared/game/notes/3d/Left_Lane.tscn" type="PackedScene" id=12]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/notes/LaneVR.gd" type="Script" id=13]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/notes/LaneOBB.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=15]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/notes/Down_Note_VR.tscn" type="PackedScene" id=16]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/notes/Right_Note_VR.tscn" type="PackedScene" id=17]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/notes/Left_Note_VR.tscn" type="PackedScene" id=18]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/scene_scaling/SceneScaler.gd" type="Script" id=19]
+[ext_resource path="res://packages/fnfvr/characters/bf_placeholders/BF_Placeholder.tscn" type="PackedScene" id=20]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/DisplayPlane.gd" type="Script" id=21]
+
+[sub_resource type="World" id=1]
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=5]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 6 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 1, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+
+[node name="LevelVR" type="Node"]
+script = ExtResource( 1 )
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("Girlfriend")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+hud_path = NodePath("HUD")
+default_pos_path = NodePath("HUD/Default_Pos")
+
+[node name="Girlfriend" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.00284701, 0, -0.0106252, 0, 0.011, 0, 0.0106252, 0, 0.00284701, 2.5, 0, -1.7 )
+
+[node name="BF_Placeholder" parent="." instance=ExtResource( 20 )]
+
+[node name="Player_Zone_Scaler" type="Spatial" parent="."]
+transform = Transform( 0.556, 0, 0, 0, 0.556, 0, 0, 0, 0.556, 0, 0, 0 )
+script = ExtResource( 19 )
+
+[node name="Player_Step_Zone" type="Spatial" parent="Player_Zone_Scaler"]
+transform = Transform( 0.22482, 0, 0, 0, 0.0768928, 0.211261, 0, -0.211261, 0.0768928, 0, 1.34892, -0.44964 )
+
+[node name="Left_Lane" parent="Player_Zone_Scaler/Player_Step_Zone" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0, 0 )
+script = ExtResource( 13 )
+note_scenes = [ ExtResource( 18 ) ]
+
+[node name="LaneOBB" parent="Player_Zone_Scaler/Player_Step_Zone/Left_Lane" instance=ExtResource( 14 )]
+transform = Transform( 1.4, 0, 0, 0, 1, -9.05975e-08, 0, 1.50996e-07, 0.6, 0.175, 0, -0.345 )
+
+[node name="Down_Lane" parent="Player_Zone_Scaler/Player_Step_Zone" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0 )
+script = ExtResource( 13 )
+note_scenes = [ ExtResource( 16 ) ]
+
+[node name="LaneOBB" parent="Player_Zone_Scaler/Player_Step_Zone/Down_Lane" instance=ExtResource( 14 )]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0, -0.345 )
+
+[node name="Up_Lane" parent="Player_Zone_Scaler/Player_Step_Zone" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0 )
+script = ExtResource( 13 )
+note_scenes = [ ExtResource( 3 ) ]
+
+[node name="LaneOBB" parent="Player_Zone_Scaler/Player_Step_Zone/Up_Lane" instance=ExtResource( 14 )]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0, -0.345 )
+
+[node name="Right_Lane" parent="Player_Zone_Scaler/Player_Step_Zone" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 0 )
+script = ExtResource( 13 )
+note_scenes = [ ExtResource( 17 ) ]
+
+[node name="LaneOBB" parent="Player_Zone_Scaler/Player_Step_Zone/Right_Lane" instance=ExtResource( 14 )]
+transform = Transform( 1.4, 0, 0, 0, 1, 0, 0, 0, 0.6, -0.175, 0, -0.345 )
+
+[node name="Opponent_Step_Zone" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.25, 3.15, -3.25 )
+
+[node name="Left_Lane" parent="Opponent_Step_Zone" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0, 0 )
+script = ExtResource( 13 )
+lane_type = 1
+note_scenes = [ ExtResource( 18 ) ]
+
+[node name="Down_Lane" parent="Opponent_Step_Zone" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0 )
+script = ExtResource( 13 )
+lane_type = 1
+note_scenes = [ ExtResource( 16 ) ]
+
+[node name="Up_Lane" parent="Opponent_Step_Zone" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0 )
+script = ExtResource( 13 )
+lane_type = 1
+note_scenes = [ ExtResource( 3 ) ]
+
+[node name="Right_Lane" parent="Opponent_Step_Zone" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 0 )
+script = ExtResource( 13 )
+lane_type = 1
+note_scenes = [ ExtResource( 17 ) ]
+
+[node name="HUD" type="Node" parent="."]
+script = ExtResource( 6 )
+camera_path = NodePath("Cam_HUD")
+ratings_list_path = NodePath("Visible_Elements/Ratings_List")
+player_health_path = NodePath("Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG/Player_Health")
+opponent_health_path = NodePath("Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG/Opponent_Health")
+player_health_icon_path = NodePath("Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG/Player_Icon")
+opponent_health_icon_path = NodePath("Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG/Opponent_Icon")
+score_text_path = NodePath("Visible_Elements/Details_VP/CanvasLayer/Score_Text")
+countdown_path = NodePath("Visible_Elements/Countdown_Msgs/Countdown")
+countdown_msgs_path = NodePath("Visible_Elements/Countdown_Msgs")
+countdown_tween_path = NodePath("Visible_Elements/Countdown_Msgs/Countdown_Tween")
+miss_sound_player_path = NodePath("Miss_Sound")
+beat_anim_path = NodePath("HUD_Zoom_Beat")
+
+[node name="Default_Pos" type="Position3D" parent="HUD"]
+transform = Transform( 0.154176, 0, -0.988043, 0, 1, 0, 0.988043, 0, 0.154176, -1.84359, 1.46518, 0 )
+
+[node name="Cam_HUD" parent="HUD" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.96589, 0.258954, 0, -0.258954, 0.96589, 0, 1.69486, 1.25888 )
+current = false
+
+[node name="Visible_Elements" type="Spatial" parent="HUD"]
+
+[node name="Ratings_List" type="Spatial" parent="HUD/Visible_Elements"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.624, -1.5 )
+
+[node name="Details_VP" type="Viewport" parent="HUD/Visible_Elements"]
+size = Vector2( 1280, 300 )
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+hdr = false
+usage = 0
+render_target_v_flip = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD/Visible_Elements/Details_VP"]
+offset = Vector2( 640, 150 )
+transform = Transform2D( 1, 0, 0, 1, 640, 150 )
+
+[node name="Score_Text" type="Node2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer"]
+script = ExtResource( 5 )
+text = "Score: 100 | Accuracy: 99%"
+font = ExtResource( 4 )
+h_align = 1
+v_align = 1
+
+[node name="Health_Bar_BG" type="Line2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer"]
+position = Vector2( 0, -36 )
+points = PoolVector2Array( -300, 0, 300, 0 )
+width = 20.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Opponent_Health" type="Line2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG"]
+points = PoolVector2Array( -296, 0, 0, 0 )
+width = 12.0
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="Player_Health" type="Line2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG"]
+points = PoolVector2Array( 0, 0, 296, 0 )
+width = 12.0
+default_color = Color( 0.4, 1, 0.2, 1 )
+
+[node name="Player_Icon" type="Node2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG"]
+scale = Vector2( -1, 1 )
+
+[node name="Opponent_Icon" type="Node2D" parent="HUD/Visible_Elements/Details_VP/CanvasLayer/Health_Bar_BG"]
+
+[node name="Details" type="MeshInstance" parent="HUD/Visible_Elements"]
+transform = Transform( 6.4, 0, 0, 0, -4.37114e-08, -1.5, 0, 1, -6.55671e-08, 0, 3, -3.5 )
+material_override = SubResource( 5 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = null
+script = ExtResource( 21 )
+
+[node name="Countdown_Msgs" type="AnimatedSprite3D" parent="HUD/Visible_Elements"]
+transform = Transform( 0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 1, -1.5 )
+visible = false
+frames = ExtResource( 8 )
+animation = "3"
+
+[node name="Countdown" type="AudioStreamPlayer" parent="HUD/Visible_Elements/Countdown_Msgs"]
+bus = "SFX"
+
+[node name="Countdown_Tween" type="Tween" parent="HUD/Visible_Elements/Countdown_Msgs"]
+
+[node name="Miss_Sound" type="AudioStreamPlayer" parent="HUD"]
+bus = "SFX"
+
+[node name="Tween" type="Tween" parent="HUD"]
+
+[node name="HUD_Zoom_Beat" type="Node" parent="HUD"]
+script = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/HUD_Zoom_Beat"]
+anims/Idle = SubResource( 3 )

@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Jelly_face.png-7b7484d85f067b01914bc56eb0607d9d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://packages/fnfvr/resources/models/levels/school/regular/fangirl1/Jelly_face.png"
+dest_files=[ "res://.import/Jelly_face.png-7b7484d85f067b01914bc56eb0607d9d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gross_clang.ogg-3623377cf6c052d530d35d36e39dcb16.oggstr"
+
+[deps]
+
+source_file="res://packages/fnfvr/resources/sounds/week_4/gross_clang.ogg"
+dest_files=[ "res://.import/gross_clang.ogg-3623377cf6c052d530d35d36e39dcb16.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://assets/models/stages/luigi_week/Stage.gltf" type="PackedScene" id=1]
-
-[node name="Stage" instance=ExtResource( 1 )]

@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://assets/shaders/Fresnel_Effect.shader" type="Shader" id=1]
-
-[resource]
-shader = ExtResource( 1 )
-shader_param/xray_color_intensity = 4.34
-shader_param/outline_sharpness = 2.0
-shader_param/outline_color = Color( 0.2, 0.2, 0.803922, 1 )

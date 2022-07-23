@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/mom_frame_7.png-b0b4c53c0bff8e25d5dbbe26cd6b1dcf.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_7.png"
+dest_files=[ "res://.import/mom_frame_7.png-b0b4c53c0bff8e25d5dbbe26cd6b1dcf.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

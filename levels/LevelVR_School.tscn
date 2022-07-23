@@ -1,0 +1,193 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/school/regular/WeebSchool.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/school/regular/weebSky.png" type="Texture" id=3]
+[ext_resource path="res://packages/fnfvr/characters/senpai/Senpai.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/shared/game/icons/BF_Pixel_Icon_Extended.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packages/fnfvr/characters/senpai/Senpai_Angry.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_School.gd" type="Script" id=7]
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/hud/pixel/countdown_messages.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/school/regular/fangirl1/Fangirl1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://packages/fnfvr/resources/scenes/general/obb/MenuVR.tscn" type="PackedScene" id=10]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/DialogueButtonVR.gd" type="Script" id=11]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/school/regular/fangirl2/Fangirl2.tscn" type="PackedScene" id=12]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_orientation = Basis( 1, 0, 0, 0.305, 0.844, 0, 0, 0, 1 )
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("DialogueMenu/Viewport")
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 7 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogueMenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DialogueMenu/Display/OBB:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Wait_For_Interaction"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogueMenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DialogueMenu/Display/OBB:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 3 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+script = ExtResource( 7 )
+performers = {
+"metronome": "gf",
+"opponent": "senpai",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("Girlfriend"),
+"senpai": NodePath("Senpai"),
+"senpai_angry": NodePath("Senpai_Angry")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 2 )
+
+[node name="WeebSchool" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.2, -1.75 )
+
+[node name="Senpai" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+
+[node name="Senpai_Angry" parent="." index="3" instance=ExtResource( 6 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+visible = false
+
+[node name="Fangirls" type="Spatial" parent="." index="4"]
+
+[node name="Fangirl1_1" parent="Fangirls" index="0" instance=ExtResource( 9 )]
+transform = Transform( -0.110602, 0, -0.0858321, 0, 0.14, 0, 0.0858321, 0, -0.110602, -1.8062, 0, -4.32483 )
+
+[node name="Fangirl1_2" parent="Fangirls" index="1" instance=ExtResource( 9 )]
+transform = Transform( -0.0338216, 0, -0.135853, 0, 0.14, 0, 0.135853, 0, -0.0338216, -4.01106, 0, -1.67164 )
+
+[node name="Fangirl1_3" parent="Fangirls" index="2" instance=ExtResource( 9 )]
+transform = Transform( 0.089773, 0, -0.107428, 0, 0.14, 0, 0.107428, 0, 0.089773, -4.01106, 0, 1.31251 )
+
+[node name="Fangirl1_4" parent="Fangirls" index="3" instance=ExtResource( 9 )]
+transform = Transform( 0.0834774, 0, 0.11239, 0, 0.14, 0, -0.11239, 0, 0.0834774, 2.79142, 0, 0.904997 )
+
+[node name="Fangirl2_1" parent="Fangirls" index="4" instance=ExtResource( 12 )]
+transform = Transform( -0.123898, 0, 0.065186, 0, 0.14, 0, -0.065186, 0, -0.123898, 1.71203, 0, -4.14537 )
+
+[node name="Fangirl2_2" parent="Fangirls" index="5" instance=ExtResource( 12 )]
+transform = Transform( -0.0871482, 0, -0.109568, 0, 0.14, 0, 0.109568, 0, -0.0871482, -4.48217, 0, -4.01725 )
+
+[node name="Fangirl2_3" parent="Fangirls" index="6" instance=ExtResource( 12 )]
+transform = Transform( -0.00194737, 0, -0.139986, 0, 0.14, 0, 0.139986, 0, -0.00194737, -5.24504, 0, -0.197212 )
+
+[node name="Fangirl2_4" parent="Fangirls" index="7" instance=ExtResource( 12 )]
+transform = Transform( 0.114114, 0, 0.0811053, 0, 0.14, 0, -0.0811053, 0, 0.114114, 1.12058, 0, 1.97868 )
+
+[node name="DialogueMenu" parent="." index="5" instance=ExtResource( 10 )]
+visible = false
+
+[node name="Viewport" parent="DialogueMenu" index="0"]
+size = Vector2( 1280, 720 )
+
+[node name="Button" type="Button" parent="DialogueMenu/Viewport" index="1"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 1330.0
+margin_bottom = 770.0
+script = ExtResource( 11 )
+
+[node name="Display" parent="DialogueMenu" index="1"]
+transform = Transform( 1.778, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.8, -1.5 )
+material_override = SubResource( 6 )
+
+[node name="OBB" parent="DialogueMenu/Display" index="0"]
+disabled = true
+
+[node name="Menu_Anim" type="AnimationPlayer" parent="." index="6"]
+anims/RESET = SubResource( 8 )
+anims/Wait_For_Interaction = SubResource( 9 )
+
+[node name="BF_Placeholder" parent="." index="8"]
+icon = ExtResource( 5 )
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 4 )
+
+[node name="Countdown_Msgs" parent="HUD/Visible_Elements" index="3"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 1, -1.5 )
+frames = ExtResource( 8 )
+
+[editable path="DialogueMenu"]

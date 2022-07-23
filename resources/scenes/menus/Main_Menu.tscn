@@ -1,0 +1,1957 @@
+[gd_scene load_steps=126 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/bf_room/BFRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/graphics/skyboxes/main_menu_skybox.png" type="Texture" id=2]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/Girlfriend.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scenes/general/obb/MenuVR.tscn" type="PackedScene" id=4]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/MainMenuVR.gd" type="Script" id=5]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Bold.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnfvr/resources/graphics/logos/fnfvr_mini_logo.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/credits/newgrounds_logo.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/menus/credits/PhantomArcade-Icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/menus/credits/Kawaisprite-Icon.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/menus/credits/Ninjamuffin-Icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/menus/credits/evilsk8r-Icon(2).png" type="Texture" id=12]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=13]
+[ext_resource path="res://packages/fnfvr/resources/graphics/logos/fnfvr_logo_hq.png" type="Texture" id=14]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://assets/sounds/confirmMenu.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/sounds/cancelMenu.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/sounds/scrollMenu.ogg" type="AudioStream" id=18]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode_normal.tres" type="Texture" id=19]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode_highlight.tres" type="Texture" id=20]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/options_normal.tres" type="Texture" id=21]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/freeplay_highlight.tres" type="Texture" id=22]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/credits_highlight.tres" type="Texture" id=23]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/freeplay_pressed.tres" type="Texture" id=24]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/options_pressed.tres" type="Texture" id=25]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/credits_pressed.tres" type="Texture" id=26]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode/week_logos/fnfvr_week_logos.tres" type="SpriteFrames" id=27]
+[ext_resource path="res://assets/graphics/menus/SB_Empty.tres" type="StyleBox" id=41]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/back_button_press.tres" type="Texture" id=42]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/back_button_normal.tres" type="Texture" id=43]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/back_button_focus.tres" type="Texture" id=44]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber.tres" type="Texture" id=45]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber_Disabled.tres" type="Texture" id=46]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/Orange_Grabber_Highlight.tres" type="Texture" id=47]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Unchecked.tres" type="Texture" id=48]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Checked_Disabled.tres" type="Texture" id=49]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Checked.tres" type="Texture" id=50]
+[ext_resource path="res://assets/graphics/menus/ui/static_checkbox/Static_CB_Unchecked_Disabled.tres" type="Texture" id=51]
+[ext_resource path="res://assets/graphics/menus/ui/orange_h_slider/OrangeSlider_BG.tres" type="StyleBox" id=52]
+[ext_resource path="res://scripts/shaders/Inverted_Colors.tres" type="Shader" id=53]
+[ext_resource path="res://scripts/menus/FNFStyleMenu.gd" type="Script" id=54]
+[ext_resource path="res://scenes/shared/menus/FNFStyleText_Normal.tscn" type="PackedScene" id=55]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/confirm_button_normal.tres" type="Texture" id=56]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/arrow_button_normal.tres" type="Texture" id=57]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/confirm_button_focus.tres" type="Texture" id=58]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/confirm_button_press.tres" type="Texture" id=59]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/arrow_button_press.tres" type="Texture" id=60]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/interactive_buttons/arrow_button_focus.tres" type="Texture" id=61]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/FreeplayMenuVR.gd" type="Script" id=62]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/StoryModeVR.gd" type="Script" id=63]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode/default_difficulties_vr.tres" type="SpriteFrames" id=64]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode/Story_Mode_VR_UI_Assets.png" type="Texture" id=65]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/CreditsMenuVR.gd" type="Script" id=66]
+[ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=67]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/OptionsUI_MMVR.gd" type="Script" id=68]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/OptionsMenuVR.gd" type="Script" id=69]
+[ext_resource path="res://scripts/shaders/Wiggle.tres" type="Shader" id=70]
+[ext_resource path="res://assets/graphics/game/hud/ratings.tres" type="SpriteFrames" id=71]
+[ext_resource path="res://assets/graphics/game/hud/combo_nums/combo_nums.tres" type="SpriteFrames" id=72]
+[ext_resource path="res://assets/graphics/menus/main_menu/Main_Menu_Options.res" type="SpriteFrames" id=73]
+[ext_resource path="res://assets/music/Funkin_Settings_Music.ogg" type="AudioStream" id=74]
+[ext_resource path="res://assets/graphics/menus/bgs/options_menu_bg.png" type="Texture" id=75]
+[ext_resource path="res://assets/materials/menus/Inverted_Colors.tres" type="Material" id=76]
+[ext_resource path="res://scenes/shared/menus/options/SpinOption.tscn" type="PackedScene" id=77]
+[ext_resource path="res://scenes/shared/menus/options/ResetOption.tscn" type="PackedScene" id=78]
+[ext_resource path="res://scenes/shared/menus/options/AudioBars.tscn" type="PackedScene" id=79]
+[ext_resource path="res://scripts/menus/options/OSM_CategorySelect.gd" type="Script" id=80]
+[ext_resource path="res://scripts/menus/options/OSM_Gameplay.gd" type="Script" id=81]
+[ext_resource path="res://scripts/menus/options/Combo_Adjustment.gd" type="Script" id=82]
+[ext_resource path="res://scripts/menus/options/OSM_Audio.gd" type="Script" id=83]
+[ext_resource path="res://scripts/menus/options/OSM_Controls.gd" type="Script" id=84]
+[ext_resource path="res://scripts/menus/options/OSM_Reset.gd" type="Script" id=85]
+[ext_resource path="res://assets/sounds/hxf_beep.ogg" type="AudioStream" id=86]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode_pressed.tres" type="Texture" id=87]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/freeplay_normal.tres" type="Texture" id=88]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/credits_normal.tres" type="Texture" id=89]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/options_highlight.tres" type="Texture" id=90]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/main_menu/story_mode/characters/fnfvr_story_mode_thumbnails.tres" type="SpriteFrames" id=91]
+[ext_resource path="res://scripts/menus/options/OSM_ModSpecific.gd" type="Script" id=92]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_orientation = Basis( 1, 0, 0, 0, 0.672, 0, 0, 0, 1 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=30]
+
+[sub_resource type="Animation" id=6]
+resource_name = "0"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNFVR_Team/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Team" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FNFVR_Team:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "10"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quirky_Text/Text2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "11"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quirky_Text:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "12"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_To_Title:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "13"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_To_Title/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "friday
+night" ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "14"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_To_Title/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "friday
+night
+funkin'" ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "15"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_To_Title/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "friday
+night
+funkin'
+vr" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNFVR_Team/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Team
+Presents" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "3"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNFVR_Team:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "4"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNF_Team:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "6"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNF_Team/NewgroundsLogo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "7"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNF_Team:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "8"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Quirky_Text:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FNFVR_Team/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Team" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FNFVR_Team:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FNF_Team:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FNF_Team/NewgroundsLogo:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Quirky_Text:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Quirky_Text/Text2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Transition_To_Title:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Transition_To_Title/Text:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "friday" ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Idle"
+length = 0.625
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.125, 0.208333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.955, 0.955 ), Vector2( 1, 1 ), Vector2( 0.973, 0.973 ), Vector2( 0.967, 0.967 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=23]
+size = 64
+font_data = ExtResource( 15 )
+
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 1, 0.0862745, 0.815686, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.219608, 0.254902, 0.733333, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_top = 10
+border_width_bottom = 15
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id=50]
+HScrollBar/styles/grabber = SubResource( 48 )
+HScrollBar/styles/grabber_highlight = SubResource( 51 )
+HScrollBar/styles/grabber_pressed = SubResource( 52 )
+HScrollBar/styles/scroll = SubResource( 49 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 32
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 48
+font_data = ExtResource( 15 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 65 )
+region = Rect2( 2, 2, 48, 85 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 65 )
+region = Rect2( 60, 2, 42, 75 )
+margin = Rect2( 3, 5, 6, 10 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 53 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 15 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0, 0, 0.372549 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=32]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = 15
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 15 )
+
+[sub_resource type="ShaderMaterial" id=42]
+shader = ExtResource( 70 )
+shader_param/noise_scale = 2.047
+shader_param/time_snap = 0.124
+
+[sub_resource type="ArrayMesh" id=43]
+surfaces/0 = {
+"aabb": AABB( -500, -240, 0, 1000, 480, 0 ),
+"array_data": PoolByteArray( 0, 0, 250, 67, 0, 0, 105, 195, 0, 0, 128, 63, 239, 238, 110, 60, 0, 0, 237, 67, 0, 0, 86, 195, 16, 88, 121, 63, 222, 221, 93, 61, 0, 0, 237, 67, 205, 204, 83, 195, 16, 88, 121, 63, 215, 163, 112, 61, 0, 0, 234, 67, 51, 179, 45, 195, 217, 206, 119, 63, 164, 112, 13, 62, 0, 0, 234, 67, 0, 0, 178, 194, 217, 206, 119, 63, 17, 17, 161, 62, 102, 102, 237, 67, 0, 0, 224, 192, 126, 140, 121, 63, 137, 136, 248, 62, 204, 204, 237, 67, 0, 0, 224, 192, 236, 192, 121, 63, 137, 136, 248, 62, 0, 192, 242, 67, 0, 0, 20, 66, 186, 73, 124, 63, 188, 187, 19, 63, 204, 76, 241, 67, 0, 0, 20, 66, 172, 139, 123, 63, 188, 187, 19, 63, 204, 140, 239, 67, 48, 51, 29, 66, 76, 166, 122, 63, 194, 245, 20, 63, 0, 128, 238, 67, 208, 204, 24, 66, 172, 28, 122, 63, 147, 95, 20, 63, 0, 128, 238, 67, 48, 51, 21, 66, 172, 28, 122, 63, 177, 228, 19, 63, 204, 12, 225, 67, 0, 0, 180, 65, 193, 57, 115, 63, 0, 0, 12, 63, 154, 217, 234, 67, 0, 0, 14, 67, 67, 62, 120, 63, 188, 187, 75, 63, 204, 76, 235, 67, 0, 0, 14, 67, 61, 121, 120, 63, 188, 187, 75, 63, 204, 76, 240, 67, 0, 0, 58, 67, 154, 8, 123, 63, 51, 51, 99, 63, 52, 179, 240, 67, 0, 0, 58, 67, 8, 61, 123, 63, 51, 51, 99, 63, 0, 0, 247, 67, 52, 179, 93, 67, 201, 118, 126, 63, 113, 61, 118, 63, 0, 0, 247, 67, 204, 204, 95, 67, 201, 118, 126, 63, 41, 92, 119, 63, 102, 102, 245, 67, 0, 0, 99, 67, 17, 165, 125, 63, 17, 17, 121, 63, 0, 0, 203, 67, 0, 0, 99, 67, 158, 239, 103, 63, 17, 17, 121, 63, 208, 204, 253, 66, 0, 0, 112, 67, 133, 124, 32, 63, 0, 0, 128, 63, 152, 153, 77, 194, 0, 0, 112, 67, 230, 174, 229, 62, 0, 0, 128, 63, 0, 0, 84, 194, 102, 230, 111, 67, 47, 221, 228, 62, 89, 242, 127, 63, 0, 0, 84, 194, 204, 204, 109, 67, 47, 221, 228, 62, 160, 211, 126, 63, 152, 153, 93, 194, 0, 128, 107, 67, 157, 162, 227, 62, 154, 153, 125, 63, 48, 51, 89, 194, 0, 0, 105, 67, 203, 50, 228, 62, 68, 68, 124, 63, 0, 0, 82, 194, 0, 0, 105, 67, 184, 30, 229, 62, 68, 68, 124, 63, 192, 204, 204, 192, 0, 0, 77, 67, 36, 185, 252, 62, 85, 85, 109, 63, 0, 0, 128, 193, 0, 0, 77, 67, 217, 206, 247, 62, 85, 85, 109, 63, 0, 0, 128, 193, 102, 230, 77, 67, 217, 206, 247, 62, 54, 208, 109, 63, 0, 0, 139, 195, 102, 230, 91, 67, 248, 83, 99, 62, 174, 71, 117, 63, 0, 0, 139, 195, 102, 230, 92, 67, 248, 83, 99, 62, 54, 208, 117, 63, 0, 128, 172, 195, 102, 230, 97, 67, 82, 184, 30, 62, 225, 122, 120, 63, 0, 128, 172, 195, 204, 204, 98, 67, 82, 184, 30, 62, 194, 245, 120, 63, 0, 0, 202, 195, 204, 204, 104, 67, 166, 155, 196, 61, 245, 40, 124, 63, 0, 0, 202, 195, 52, 179, 105, 67, 166, 155, 196, 61, 215, 163, 124, 63, 205, 76, 221, 195, 0, 0, 112, 67, 68, 28, 107, 61, 0, 0, 128, 63, 0, 0, 237, 195, 0, 0, 112, 67, 244, 253, 212, 60, 0, 0, 128, 63, 0, 0, 237, 195, 0, 128, 109, 67, 244, 253, 212, 60, 171, 170, 126, 63, 0, 0, 232, 195, 0, 128, 90, 67, 188, 116, 19, 61, 137, 136, 116, 63, 0, 0, 232, 195, 204, 204, 86, 67, 188, 116, 19, 61, 92, 143, 114, 63, 0, 0, 230, 195, 154, 153, 66, 67, 10, 215, 35, 61, 99, 201, 103, 63, 0, 0, 230, 195, 102, 230, 56, 67, 10, 215, 35, 61, 3, 157, 98, 63, 0, 128, 227, 195, 152, 153, 239, 66, 236, 81, 56, 61, 177, 228, 63, 63, 0, 128, 227, 195, 0, 0, 88, 66, 236, 81, 56, 61, 205, 204, 28, 63, 154, 217, 227, 195, 0, 0, 88, 66, 234, 115, 53, 61, 205, 204, 28, 63, 154, 25, 228, 195, 152, 153, 73, 66, 161, 103, 51, 61, 71, 225, 26, 63, 205, 140, 236, 195, 0, 0, 138, 66, 99, 93, 220, 60, 205, 204, 36, 63, 102, 102, 238, 195, 0, 0, 138, 66, 238, 13, 190, 60, 205, 204, 36, 63, 0, 0, 240, 195, 152, 153, 131, 66, 10, 215, 163, 60, 228, 23, 35, 63, 0, 0, 240, 195, 0, 0, 128, 191, 10, 215, 163, 60, 239, 238, 254, 62, 51, 115, 243, 195, 0, 0, 13, 195, 98, 161, 86, 60, 51, 51, 83, 62, 102, 230, 243, 195, 0, 0, 13, 195, 130, 226, 71, 60, 51, 51, 83, 62, 102, 230, 245, 195, 0, 0, 52, 195, 75, 89, 6, 60, 0, 0, 0, 62, 205, 76, 246, 195, 0, 0, 52, 195, 179, 123, 242, 59, 0, 0, 0, 62, 0, 0, 250, 195, 0, 0, 89, 195, 0, 0, 0, 0, 68, 68, 68, 61, 0, 0, 250, 195, 0, 0, 101, 195, 0, 0, 0, 0, 188, 187, 187, 60, 51, 115, 245, 195, 0, 0, 101, 195, 43, 24, 21, 60, 188, 187, 187, 60, 102, 230, 136, 195, 0, 0, 84, 195, 249, 160, 103, 62, 239, 238, 110, 61, 0, 128, 128, 195, 0, 0, 84, 195, 254, 212, 120, 62, 239, 238, 110, 61, 208, 204, 12, 194, 205, 76, 73, 195, 68, 250, 237, 62, 185, 30, 165, 61, 0, 0, 176, 194, 0, 0, 110, 195, 170, 241, 210, 62, 137, 136, 136, 59, 0, 0, 176, 194, 0, 0, 112, 195, 170, 241, 210, 62, 0, 0, 0, 0, 48, 51, 119, 194, 0, 0, 112, 195, 193, 91, 224, 62, 0, 0, 0, 0, 160, 153, 253, 193, 0, 0, 107, 195, 4, 197, 239, 62, 171, 170, 42, 60, 0, 0, 152, 193, 0, 0, 107, 195, 162, 69, 246, 62, 171, 170, 42, 60, 0, 0, 184, 65, 0, 0, 105, 195, 84, 227, 5, 63, 239, 238, 110, 60, 0, 0, 2, 67, 0, 0, 105, 195, 174, 71, 33, 63, 239, 238, 110, 60, 0, 128, 201, 67, 0, 0, 112, 195, 2, 43, 103, 63, 0, 0, 0, 0, 0, 0, 250, 67, 0, 0, 112, 195, 0, 0, 128, 63, 0, 0, 0, 0 ),
+"array_index_data": PoolByteArray( 70, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 13, 0, 14, 0, 15, 0, 15, 0, 16, 0, 17, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 23, 0, 24, 0, 24, 0, 25, 0, 26, 0, 29, 0, 30, 0, 31, 0, 31, 0, 32, 0, 33, 0, 33, 0, 34, 0, 35, 0, 35, 0, 36, 0, 37, 0, 37, 0, 38, 0, 39, 0, 40, 0, 41, 0, 42, 0, 42, 0, 43, 0, 44, 0, 45, 0, 46, 0, 47, 0, 47, 0, 48, 0, 49, 0, 49, 0, 50, 0, 51, 0, 52, 0, 53, 0, 54, 0, 54, 0, 55, 0, 56, 0, 56, 0, 57, 0, 58, 0, 59, 0, 60, 0, 61, 0, 61, 0, 62, 0, 63, 0, 63, 0, 64, 0, 65, 0, 65, 0, 66, 0, 67, 0, 68, 0, 69, 0, 70, 0, 5, 0, 7, 0, 8, 0, 8, 0, 10, 0, 11, 0, 15, 0, 17, 0, 19, 0, 20, 0, 22, 0, 24, 0, 24, 0, 26, 0, 27, 0, 35, 0, 37, 0, 39, 0, 47, 0, 49, 0, 51, 0, 54, 0, 56, 0, 58, 0, 61, 0, 63, 0, 65, 0, 68, 0, 70, 0, 1, 0, 5, 0, 8, 0, 11, 0, 15, 0, 19, 0, 20, 0, 20, 0, 24, 0, 27, 0, 33, 0, 35, 0, 39, 0, 47, 0, 51, 0, 52, 0, 52, 0, 54, 0, 58, 0, 61, 0, 65, 0, 67, 0, 67, 0, 68, 0, 1, 0, 4, 0, 5, 0, 11, 0, 13, 0, 15, 0, 20, 0, 20, 0, 27, 0, 28, 0, 33, 0, 39, 0, 40, 0, 45, 0, 47, 0, 52, 0, 52, 0, 58, 0, 59, 0, 61, 0, 67, 0, 1, 0, 4, 0, 11, 0, 12, 0, 12, 0, 13, 0, 20, 0, 31, 0, 33, 0, 40, 0, 45, 0, 52, 0, 59, 0, 61, 0, 1, 0, 3, 0, 3, 0, 4, 0, 12, 0, 12, 0, 20, 0, 28, 0, 29, 0, 31, 0, 40, 0, 44, 0, 45, 0, 59, 0, 59, 0, 61, 0, 3, 0, 3, 0, 12, 0, 28, 0, 29, 0, 40, 0, 42, 0, 42, 0, 44, 0, 59, 0, 59, 0, 3, 0, 28, 0, 28, 0, 29, 0, 42, 0, 42, 0, 59, 0, 28, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 207,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 71
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Move_In"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.2871, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 74 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Move_Out"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.2871, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 720 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Cancel_SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Music")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=45]
+offsets = PoolRealArray( 0, 0.25, 0.75, 1 )
+colors = PoolColorArray( 0, 0.603922, 1, 1, 0, 0.603922, 1, 0, 0, 0.603922, 1, 0, 0, 0.603922, 1, 1 )
+
+[sub_resource type="GradientTexture" id=46]
+gradient = SubResource( 45 )
+width = 300
+
+[sub_resource type="Animation" id=24]
+resource_name = "Flash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="ViewportTexture" id=40]
+viewport_path = NodePath("MenuVR/Viewport")
+
+[sub_resource type="SpatialMaterial" id=41]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 40 )
+
+[node name="Main_Menu" type="Spatial"]
+script = ExtResource( 5 )
+state_paths = [ NodePath("MenuVR/Viewport/MainMenuVR/Intro"), NodePath("MenuVR/Viewport/MainMenuVR/TitleScreen"), NodePath("MenuVR/Viewport/MainMenuVR/MainOptions"), NodePath("MenuVR/Viewport/MainMenuVR/StoryMode"), NodePath("MenuVR/Viewport/MainMenuVR/Freeplay"), NodePath("MenuVR/Viewport/MainMenuVR/Credits"), NodePath("MenuVR/Viewport/MainMenuVR/Options") ]
+sound_paths = [ NodePath("Select_Sound"), NodePath("Confirm_Sound"), NodePath("Cancel_Sound") ]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="BFRoom" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.424633, 0, -0.5 )
+
+[node name="Girlfriend" parent="." instance=ExtResource( 3 )]
+transform = Transform( 4.80825e-10, 0, 0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, -1.948, -0.822, -0.964 )
+
+[node name="Speakers Armature" parent="Girlfriend" index="0"]
+visible = false
+
+[node name="BoneAttachment" parent="Girlfriend/Girlfriend Armature/Skeleton2" index="2"]
+transform = Transform( 0.225627, 0.494231, -0.839528, -0.762195, 0.596789, 0.147589, 0.574057, 0.626618, 0.522806, 8.25441, 205.135, 41.0184 )
+
+[node name="AnimationTree" parent="Girlfriend" index="3"]
+parameters/playback = SubResource( 30 )
+gles2_face_to_anim_map = {
+"CryFace": [ "Sad_Loop" ],
+"DanceFace": [ "Dance_Right", "Dance_Left", "Idle_Left", "Idle_Right", "W3_Hair_Blow_Loop", "W3_Hair_Land" ],
+"DownFace": [ "Down" ],
+"LeftFace": [ "Left" ],
+"RightFace": [ "Right" ],
+"UpFace": [ "Up" ],
+"WaveFace": [ "Cheer" ]
+}
+anim_name_remap = {
+"Sad": "Sad_Loop"
+}
+
+[node name="MenuVR" parent="." instance=ExtResource( 4 )]
+
+[node name="Viewport" parent="MenuVR" index="0"]
+size = Vector2( 1280, 720 )
+
+[node name="MainMenuVR" type="Node" parent="MenuVR/Viewport" index="1"]
+
+[node name="BG" type="ColorRect" parent="MenuVR/Viewport/MainMenuVR"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="Intro" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+
+[node name="FNFVR_Team" type="Control" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="FNFVR_Mini_Logo" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNFVR_Team"]
+position = Vector2( 640, 360 )
+texture = ExtResource( 7 )
+
+[node name="The" parent="MenuVR/Viewport/MainMenuVR/Intro/FNFVR_Team" instance=ExtResource( 6 )]
+margin_left = 365.0
+margin_top = 200.0
+margin_right = 915.0
+margin_bottom = 270.0
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "The"
+align = 1
+valign = 1
+
+[node name="Text" parent="MenuVR/Viewport/MainMenuVR/Intro/FNFVR_Team" instance=ExtResource( 6 )]
+margin_left = 365.0
+margin_top = 420.0
+margin_right = 915.0
+margin_bottom = 490.0
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "Team"
+align = 1
+valign = 1
+
+[node name="FNF_Team" type="Control" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+visible = false
+
+[node name="Text" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team" instance=ExtResource( 6 )]
+margin_left = 170.5
+margin_top = 139.624
+margin_right = 1109.5
+margin_bottom = 209.624
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "BASED ON THE GAME BY"
+align = 1
+valign = 1
+
+[node name="FNF_Devs" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team"]
+position = Vector2( 415, 261.341 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ninjamuffin" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team/FNF_Devs"]
+texture = ExtResource( 11 )
+
+[node name="PhantomArcade" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team/FNF_Devs"]
+position = Vector2( 142, 0 )
+texture = ExtResource( 9 )
+
+[node name="KawaiSprite" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team/FNF_Devs"]
+position = Vector2( 288, 0 )
+texture = ExtResource( 10 )
+
+[node name="EvilSk8r" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team/FNF_Devs"]
+position = Vector2( 450, 0 )
+texture = ExtResource( 12 )
+
+[node name="Text2" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team" instance=ExtResource( 6 )]
+margin_left = 193.0
+margin_top = 319.624
+margin_right = 1087.0
+margin_bottom = 389.624
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "in association with"
+align = 1
+valign = 1
+
+[node name="NewgroundsLogo" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Intro/FNF_Team"]
+visible = false
+position = Vector2( 640, 514 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+
+[node name="Quirky_Text" type="Control" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+visible = false
+
+[node name="Text" parent="MenuVR/Viewport/MainMenuVR/Intro/Quirky_Text" instance=ExtResource( 6 )]
+margin_left = 308.0
+margin_top = 200.0
+margin_right = 972.0
+margin_bottom = 270.0
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "SOMETHING FUNNY"
+align = 1
+valign = 1
+
+[node name="Text2" parent="MenuVR/Viewport/MainMenuVR/Intro/Quirky_Text" instance=ExtResource( 6 )]
+visible = false
+margin_left = 308.0
+margin_top = 200.0
+margin_right = 972.0
+margin_bottom = 270.0
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "
+IS SAID HERE"
+align = 1
+valign = 1
+
+[node name="Transition_To_Title" type="Control" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+visible = false
+
+[node name="Text" parent="MenuVR/Viewport/MainMenuVR/Intro/Transition_To_Title" instance=ExtResource( 6 )]
+margin_left = 308.0
+margin_top = 200.0
+margin_right = 972.0
+margin_bottom = 270.0
+grow_horizontal = 2
+custom_constants/line_spacing = -10
+text = "friday"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+anims/0 = SubResource( 6 )
+anims/10 = SubResource( 15 )
+anims/11 = SubResource( 16 )
+anims/12 = SubResource( 17 )
+anims/13 = SubResource( 18 )
+anims/14 = SubResource( 19 )
+anims/15 = SubResource( 20 )
+anims/2 = SubResource( 7 )
+anims/3 = SubResource( 8 )
+anims/4 = SubResource( 9 )
+anims/6 = SubResource( 12 )
+anims/7 = SubResource( 13 )
+anims/8 = SubResource( 14 )
+anims/RESET = SubResource( 10 )
+
+[node name="Button" type="Button" parent="MenuVR/Viewport/MainMenuVR/Intro"]
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 1380.0
+margin_bottom = 820.0
+flat = true
+
+[node name="TitleScreen" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/TitleScreen"]
+position = Vector2( 640, 285 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Logo" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/TitleScreen/Node2D"]
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+idle_frequency = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuVR/Viewport/MainMenuVR/TitleScreen/Node2D/Logo"]
+anims/Idle = SubResource( 21 )
+anims/RESET = SubResource( 22 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuVR/Viewport/MainMenuVR/TitleScreen"]
+margin_top = 570.0
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp=50 freq=2]Press TRIGGER to Begin"
+text = "Press TRIGGER to Begin"
+
+[node name="Button" type="Button" parent="MenuVR/Viewport/MainMenuVR/TitleScreen"]
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 1380.0
+margin_bottom = 820.0
+flat = true
+
+[node name="MainOptions" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuVR/Viewport/MainMenuVR/MainOptions"]
+margin_left = 20.0
+margin_top = 50.0
+margin_right = 1260.0
+margin_bottom = 690.0
+theme = SubResource( 50 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer"]
+margin_right = 1654.0
+margin_bottom = 600.0
+
+[node name="Story_Mode" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 400, 600 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 87 )
+texture_hover = ExtResource( 20 )
+expand = true
+
+[node name="VSeparator" type="VSeparator" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 404.0
+margin_right = 414.0
+margin_bottom = 600.0
+custom_constants/separation = 10
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Freeplay" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 418.0
+margin_right = 818.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 400, 600 )
+texture_normal = ExtResource( 88 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 22 )
+expand = true
+
+[node name="VSeparator2" type="VSeparator" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 822.0
+margin_right = 832.0
+margin_bottom = 600.0
+custom_constants/separation = 10
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Credits" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 836.0
+margin_right = 1236.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 400, 600 )
+texture_normal = ExtResource( 89 )
+texture_pressed = ExtResource( 26 )
+texture_hover = ExtResource( 23 )
+expand = true
+
+[node name="VSeparator3" type="VSeparator" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 1240.0
+margin_right = 1250.0
+margin_bottom = 600.0
+custom_constants/separation = 10
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Options" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer"]
+margin_left = 1254.0
+margin_right = 1654.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 400, 600 )
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 90 )
+expand = true
+
+[node name="StoryMode" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+script = ExtResource( 63 )
+
+[node name="Week_Thumbnails" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+position = Vector2( 30, 60 )
+scale = Vector2( 0.625, 0.625 )
+frames = ExtResource( 91 )
+centered = false
+
+[node name="Week_Deets_BG" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 640, 60 )
+scale = Vector2( 0.625, 0.625 )
+frames = ExtResource( 91 )
+centered = false
+
+[node name="Week_Logos" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+position = Vector2( 940, 120 )
+frames = ExtResource( 27 )
+
+[node name="Cur_Difficulty" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+position = Vector2( 940, 610 )
+frames = ExtResource( 64 )
+animation = "1"
+
+[node name="Tween" type="Tween" parent="MenuVR/Viewport/MainMenuVR/StoryMode/Cur_Difficulty"]
+
+[node name="Week_Name" type="Label" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 640.0
+margin_top = 150.0
+margin_right = 1240.0
+margin_bottom = 215.0
+custom_fonts/font = SubResource( 29 )
+text = "Tutorial"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Week_Score" type="Label" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 640.0
+margin_top = 185.0
+margin_right = 1240.0
+margin_bottom = 250.0
+custom_fonts/font = SubResource( 29 )
+text = "Score: 0"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Week_Tracklist" type="Label" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 640.0
+margin_top = 215.0
+margin_right = 1240.0
+margin_bottom = 515.0
+custom_fonts/font = SubResource( 47 )
+text = "TRACKS:
+Tutorial"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Prev_Week" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 600.0
+margin_top = 520.0
+margin_right = 920.0
+margin_bottom = 620.0
+rect_rotation = -90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="Next_Week" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 1280.0
+margin_top = 200.0
+margin_right = 1600.0
+margin_bottom = 300.0
+rect_rotation = 90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="Prev_Difficulty" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 645.0
+margin_top = 575.0
+margin_right = 813.0
+margin_bottom = 645.0
+texture_normal = SubResource( 27 )
+texture_pressed = SubResource( 28 )
+expand = true
+stretch_mode = 5
+
+[node name="Next_Difficulty" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 1067.0
+margin_top = 575.0
+margin_right = 1235.0
+margin_bottom = 645.0
+texture_normal = SubResource( 27 )
+texture_pressed = SubResource( 28 )
+expand = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Accept" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_left = 1200.0
+margin_top = 640.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture_normal = ExtResource( 56 )
+texture_pressed = ExtResource( 59 )
+texture_hover = ExtResource( 58 )
+expand = true
+stretch_mode = 5
+
+[node name="Cancel" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/StoryMode"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 42 )
+texture_hover = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="Freeplay" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+
+[node name="FreeplayMenuVR" type="Control" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+script = ExtResource( 62 )
+button_paths = [ NodePath("../UI_Up"), NodePath("../UI_Down"), NodePath("../UI_Left"), NodePath("../UI_Right"), NodePath("../UI_Accept"), NodePath("../UI_Cancel") ]
+
+[node name="Song_Select_Menu" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+script = ExtResource( 54 )
+
+[node name="Selection_Audio" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Song_Select_Menu"]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="Options_Container" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Song_Select_Menu"]
+
+[node name="Tween" type="Tween" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+
+[node name="Score_BG" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" instance=ExtResource( 55 )]
+margin_left = 1063.0
+margin_top = 40.0
+margin_right = 1270.0
+margin_bottom = 93.0
+grow_horizontal = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+
+[node name="Score_FG" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" instance=ExtResource( 55 )]
+material = SubResource( 3 )
+margin_left = 1063.0
+margin_top = 40.0
+margin_right = 1270.0
+margin_bottom = 93.0
+grow_horizontal = 0
+text = "0"
+align = 2
+
+[node name="PB" type="Label" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+margin_left = 1088.0
+margin_top = 10.0
+margin_right = 1270.0
+margin_bottom = 32.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 26 )
+text = "Personal Best"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="Label" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+margin_left = 1088.0
+margin_top = 98.0
+margin_right = 1270.0
+margin_bottom = 120.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 26 )
+text = "< Normal >"
+align = 2
+
+[node name="Song_Speed_Indicator" type="Label" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+margin_left = 1088.0
+margin_top = 141.0
+margin_right = 1270.0
+margin_bottom = 163.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 26 )
+text = "Song Speed: 1"
+align = 2
+
+[node name="Song_Speed_Changer" type="HSlider" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+margin_left = 1088.0
+margin_top = 166.0
+margin_right = 1272.0
+margin_bottom = 182.0
+focus_mode = 0
+custom_icons/grabber_disabled = ExtResource( 46 )
+custom_icons/grabber_highlight = ExtResource( 47 )
+custom_icons/grabber = ExtResource( 45 )
+custom_styles/slider = ExtResource( 52 )
+custom_styles/grabber_area_highlight = ExtResource( 41 )
+custom_styles/grabber_area = ExtResource( 41 )
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Botplay_Button" type="CheckBox" parent="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR"]
+margin_left = 1130.0
+margin_top = 190.0
+margin_right = 1270.0
+margin_bottom = 228.0
+focus_mode = 0
+custom_fonts/font = SubResource( 26 )
+custom_icons/checked_disabled = ExtResource( 49 )
+custom_icons/checked = ExtResource( 50 )
+custom_icons/unchecked_disabled = ExtResource( 51 )
+custom_icons/unchecked = ExtResource( 48 )
+text = "Botplay"
+
+[node name="UI_Up" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_left = 200.0
+margin_right = 1080.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Down" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_left = 1080.0
+margin_top = 720.0
+margin_right = 1960.0
+margin_bottom = 820.0
+rect_rotation = 180.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Left" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_top = 520.0
+margin_right = 320.0
+margin_bottom = 620.0
+rect_rotation = -90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Right" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_left = 1280.0
+margin_top = 200.0
+margin_right = 1600.0
+margin_bottom = 300.0
+rect_rotation = 90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Accept" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_left = 1180.0
+margin_top = 620.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture_normal = ExtResource( 56 )
+texture_pressed = ExtResource( 59 )
+texture_hover = ExtResource( 58 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Cancel" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Freeplay"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 42 )
+texture_hover = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="Credits" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 66 )
+
+[node name="Panel" type="Panel" parent="MenuVR/Viewport/MainMenuVR/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 275.0
+margin_top = 75.0
+margin_right = 965.0
+margin_bottom = 605.0
+custom_styles/panel = SubResource( 31 )
+
+[node name="Credits" type="RichTextLabel" parent="MenuVR/Viewport/MainMenuVR/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 140.0
+margin_right = 940.0
+margin_bottom = 580.0
+custom_fonts/italics_font = SubResource( 32 )
+custom_fonts/bold_font = SubResource( 33 )
+custom_fonts/normal_font = SubResource( 34 )
+custom_styles/focus = ExtResource( 41 )
+custom_styles/normal = ExtResource( 41 )
+bbcode_enabled = true
+
+[node name="Credits_Title" parent="MenuVR/Viewport/MainMenuVR/Credits" instance=ExtResource( 6 )]
+anchor_right = 1.0
+margin_top = 65.0
+margin_right = 1240.0
+margin_bottom = 135.0
+text = "Credits"
+align = 1
+
+[node name="Cancel" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Credits"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 42 )
+texture_hover = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="Cancel_Sound" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Credits"]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[node name="Options" type="Control" parent="MenuVR/Viewport/MainMenuVR"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 69 )
+buttons_path = NodePath("Buttons")
+
+[node name="OptionsUI" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options"]
+pause_mode = 2
+script = ExtResource( 68 )
+main_menu_path = NodePath("../../../../..")
+
+[node name="Music" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+stream = ExtResource( 74 )
+volume_db = -80.0
+bus = "Music"
+
+[node name="Scroll_SFX" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="Confirm_SFX" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+stream = ExtResource( 16 )
+bus = "SFX"
+
+[node name="Cancel_SFX" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[node name="Panel" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+position = Vector2( 640, 360 )
+
+[node name="Options_Outline" type="Polygon2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Panel"]
+position = Vector2( -640, -360 )
+color = Color( 0.203922, 0, 0.768627, 1 )
+antialiased = true
+polygon = PoolVector2Array( 226.7, 148.379, 226.254, 139.025, 226.254, 134.125, 224.473, 126.552, 222.691, 120.761, 220.464, 111.407, 220.464, 102.943, 223.136, 88.6891, 224.918, 78.8892, 231.6, 69.5348, 241.4, 59.7349, 248.972, 54.8349, 253.427, 54.3895, 258.327, 53.944, 269.463, 53.944, 272.136, 53.944, 281.49, 53.4986, 284.608, 53.0531, 288.617, 53.4986, 292.626, 54.8349, 297.972, 57.0622, 301.981, 59.7349, 306.881, 61.9621, 311.335, 59.7349, 318.017, 57.9531, 334.053, 56.6167, 345.189, 60.1803, 347.417, 62.853, 349.198, 65.0803, 352.762, 67.753, 356.771, 71.3166, 368.353, 68.6439, 372.362, 68.1984, 392.852, 67.753, 403.989, 68.6439, 417.798, 69.9802, 422.698, 74.4347, 425.816, 75.7711, 428.934, 73.5438, 432.052, 74.4347, 436.952, 75.7711, 440.516, 77.1074, 443.634, 80.2255, 444.97, 82.0073, 456.106, 77.1074, 461.006, 76.2165, 471.697, 74.8802, 481.942, 75.7711, 491.742, 78.4437, 493.079, 80.2255, 493.969, 83.3437, 494.415, 81.1164, 506.887, 77.5528, 520.251, 76.6619, 522.478, 77.5528, 526.933, 78.4437, 528.714, 79.7801, 530.051, 82.4528, 536.733, 80.671, 543.414, 79.7801, 550.096, 78.4437, 554.996, 78.4437, 568.359, 79.7801, 572.369, 82.0073, 578.159, 82.8982, 590.186, 78.4437, 599.541, 78.4437, 616.913, 82.4528, 622.259, 86.0164, 627.604, 91.8072, 635.622, 105.616, 637.404, 122.098, 638.74, 129.67, 630.722, 181.788, 587.959, 217.424, 293.963, 184.461 )
+
+[node name="Options_Menu_BG" type="MeshInstance2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Panel"]
+material = SubResource( 42 )
+position = Vector2( 0, 5 )
+scale = Vector2( 1, 1.032 )
+mesh = SubResource( 43 )
+texture = ExtResource( 75 )
+
+[node name="Options_Title" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Panel"]
+position = Vector2( -209.325, -238.752 )
+rotation = 0.0645772
+scale = Vector2( 0.8, 0.8 )
+frames = ExtResource( 73 )
+animation = "options basic"
+playing = true
+
+[node name="Menus" type="Control" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+margin_left = 340.0
+margin_top = 210.0
+margin_right = 940.0
+margin_bottom = 510.0
+rect_clip_content = true
+
+[node name="Category_Select" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 80 )
+valid_options_paths = [ NodePath("Gameplay"), NodePath("Audio"), NodePath("Controls"), NodePath("Mod-Specific"), NodePath("Reset") ]
+submenu_desc = "Select a category!"
+
+[node name="Gameplay" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select" instance=ExtResource( 55 )]
+material = ExtResource( 76 )
+margin_right = 600.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Gameplay"
+align = 1
+valign = 1
+
+[node name="BG" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select/Gameplay" instance=ExtResource( 55 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 76 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Gameplay"
+align = 1
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select"]
+margin_top = 57.0
+margin_right = 600.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Audio" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select" instance=ExtResource( 55 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 76 )
+margin_top = 82.0
+margin_right = 600.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Audio"
+align = 1
+valign = 1
+
+[node name="BG" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select/Audio" instance=ExtResource( 55 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 76 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Audio"
+align = 1
+valign = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select"]
+margin_top = 139.0
+margin_right = 600.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Controls" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select" instance=ExtResource( 55 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 76 )
+margin_top = 164.0
+margin_right = 600.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Controls"
+align = 1
+valign = 1
+
+[node name="BG" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select/Controls" instance=ExtResource( 55 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 76 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Controls"
+align = 1
+valign = 1
+
+[node name="HSeparator4" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select"]
+margin_top = 221.0
+margin_right = 600.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Mod-Specific" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select" instance=ExtResource( 55 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 76 )
+margin_top = 246.0
+margin_right = 600.0
+margin_bottom = 299.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Mod-Specific"
+align = 1
+valign = 1
+
+[node name="BG" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select/Mod-Specific" instance=ExtResource( 55 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 76 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Mod-Specific"
+align = 1
+valign = 1
+
+[node name="HSeparator5" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select"]
+margin_top = 303.0
+margin_right = 600.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+custom_constants/separation = 21
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Reset" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select" instance=ExtResource( 55 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = ExtResource( 76 )
+margin_top = 328.0
+margin_right = 600.0
+margin_bottom = 381.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Reset"
+align = 1
+valign = 1
+
+[node name="BG" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Category_Select/Reset" instance=ExtResource( 55 )]
+modulate = Color( 0.203922, 0, 0.768627, 1 )
+show_behind_parent = true
+material = ExtResource( 76 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 602.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( -878.504, 115.903 )
+size_flags_horizontal = 3
+text = "Reset"
+align = 1
+valign = 1
+
+[node name="Gameplay" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 81 )
+valid_options_paths = [ NodePath("Time_Offset"), NodePath("Downscroll"), NodePath("Middlescroll"), NodePath("Ghost_Tapping"), NodePath("Combo_X_Offset"), NodePath("Combo_Y_Offset"), NodePath("Fullscreen") ]
+submenu_desc = "Fine-tune your experience."
+
+[node name="Time_Offset" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+option_name = "time_offset"
+option_category = "gameplay"
+num_range = true
+num_range_max = 500
+
+[node name="Downscroll" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 33.0
+margin_bottom = 62.0
+option_name = "downscroll"
+option_category = "gameplay"
+
+[node name="Middlescroll" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 66.0
+margin_bottom = 95.0
+option_name = "middlescroll"
+option_category = "gameplay"
+
+[node name="Ghost_Tapping" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 99.0
+margin_bottom = 128.0
+option_name = "ghost_tapping"
+option_category = "gameplay"
+default_option = 1
+
+[node name="Combo_X_Offset" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 132.0
+margin_bottom = 161.0
+option_name = "combo_x_offset"
+option_category = "gameplay"
+num_range = true
+num_range_min = -640
+num_range_max = 640
+
+[node name="Combo_Y_Offset" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 165.0
+margin_bottom = 194.0
+option_name = "combo_y_offset"
+option_category = "gameplay"
+num_range = true
+num_range_min = -360
+num_range_max = 360
+
+[node name="Fullscreen" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Gameplay" instance=ExtResource( 77 )]
+margin_top = 198.0
+margin_bottom = 227.0
+option_name = "fullscreen"
+option_category = "gameplay"
+
+[node name="Audio" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 83 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+valid_options_paths = [ NodePath("Master"), NodePath("Music"), NodePath("SFX") ]
+submenu_desc = "Pump up / cool down the jams!"
+
+[node name="Master" type="Label" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio"]
+margin_right = 600.0
+margin_bottom = 29.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 67 )
+text = "Master"
+valign = 1
+
+[node name="AudioBars" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/Master" instance=ExtResource( 79 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/Master"]
+stream = ExtResource( 86 )
+
+[node name="HSeparator" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio"]
+margin_top = 33.0
+margin_right = 600.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+custom_styles/separator = ExtResource( 41 )
+
+[node name="Music" type="Label" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio"]
+margin_top = 42.0
+margin_right = 600.0
+margin_bottom = 71.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 67 )
+text = "Music"
+valign = 1
+
+[node name="AudioBars" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/Music" instance=ExtResource( 79 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/Music"]
+stream = ExtResource( 86 )
+bus = "Music"
+
+[node name="HSeparator2" type="HSeparator" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio"]
+margin_top = 75.0
+margin_right = 600.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+custom_styles/separator = ExtResource( 41 )
+
+[node name="SFX" type="Label" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio"]
+margin_top = 84.0
+margin_right = 600.0
+margin_bottom = 113.0
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 67 )
+text = "SFX"
+valign = 1
+
+[node name="AudioBars" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/SFX" instance=ExtResource( 79 )]
+
+[node name="Audio_Level_Indicator" type="AudioStreamPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Audio/SFX"]
+stream = ExtResource( 86 )
+bus = "SFX"
+
+[node name="Controls" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 84 )
+submenu_desc = "Make your keys comfortable."
+
+[node name="Mod-Specific" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 92 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+submenu_desc = "Customize your mods!"
+
+[node name="Reset" type="VBoxContainer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus"]
+visible = false
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+script = ExtResource( 85 )
+valid_options_paths = [ NodePath("Scores"), NodePath("Settings"), NodePath("All") ]
+submenu_desc = "Clean up your data."
+
+[node name="Scores" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Reset" instance=ExtResource( 78 )]
+text = "Reset Scores"
+reset_scores = true
+
+[node name="Settings" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Reset" instance=ExtResource( 78 )]
+margin_top = 33.0
+margin_bottom = 62.0
+text = "Reset Settings"
+reset_settings = true
+
+[node name="All" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Menus/Reset" instance=ExtResource( 78 )]
+margin_top = 66.0
+margin_bottom = 95.0
+text = "Reset Everything"
+reset_scores = true
+reset_settings = true
+
+[node name="Submenu_Desc" type="Label" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+margin_left = 253.892
+margin_top = 144.004
+margin_right = 595.892
+margin_bottom = 173.004
+rect_rotation = 2.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_colors/font_color_shadow = Color( 0.203922, 0, 0.768627, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 67 )
+text = "Select a category!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+autoplay = "Move_In"
+anims/Move_In = SubResource( 4 )
+anims/Move_Out = SubResource( 44 )
+anims/RESET = SubResource( 5 )
+
+[node name="Fade" type="Sprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+position = Vector2( 640, 360 )
+rotation = 1.5708
+scale = Vector2( 1, 600 )
+texture = SubResource( 46 )
+
+[node name="Combo_Adjustment" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 640, 360 )
+script = ExtResource( 82 )
+
+[node name="Combo_Pos" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment"]
+
+[node name="PopupCombo" type="Node2D" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment/Combo_Pos"]
+position = Vector2( 64, -50 )
+
+[node name="Rating" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment/Combo_Pos/PopupCombo"]
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 71 )
+
+[node name="ComboNum_Hundreds" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -191.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 72 )
+frame = 4
+
+[node name="ComboNum_Tens" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -148.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 72 )
+frame = 2
+
+[node name="ComboNum_Ones" type="AnimatedSprite" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment/Combo_Pos/PopupCombo"]
+position = Vector2( -105.05, 100 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 72 )
+
+[node name="Tween" type="Tween" parent="MenuVR/Viewport/MainMenuVR/Options/OptionsUI/Combo_Adjustment"]
+
+[node name="Buttons" type="Control" parent="MenuVR/Viewport/MainMenuVR/Options"]
+
+[node name="UI_Up" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_left = 200.0
+margin_right = 1080.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Down" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_left = 1080.0
+margin_top = 720.0
+margin_right = 1960.0
+margin_bottom = 820.0
+rect_rotation = 180.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Left" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_top = 520.0
+margin_right = 320.0
+margin_bottom = 620.0
+rect_rotation = -90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Right" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_left = 1280.0
+margin_top = 200.0
+margin_right = 1600.0
+margin_bottom = 300.0
+rect_rotation = 90.0
+texture_normal = ExtResource( 57 )
+texture_pressed = ExtResource( 60 )
+texture_hover = ExtResource( 61 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Accept" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_left = 1180.0
+margin_top = 620.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture_normal = ExtResource( 56 )
+texture_pressed = ExtResource( 59 )
+texture_hover = ExtResource( 58 )
+expand = true
+stretch_mode = 5
+
+[node name="UI_Cancel" type="TextureButton" parent="MenuVR/Viewport/MainMenuVR/Options/Buttons"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 42 )
+texture_hover = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="Flash" type="ColorRect" parent="MenuVR/Viewport/MainMenuVR"]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuVR/Viewport/MainMenuVR/Flash"]
+anims/Flash = SubResource( 24 )
+anims/RESET = SubResource( 25 )
+
+[node name="Display" parent="MenuVR" index="1"]
+transform = Transform( 1.778, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -1 )
+material_override = SubResource( 41 )
+
+[node name="Select_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="Confirm_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+bus = "SFX"
+
+[node name="Cancel_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/Intro/Button" to="." method="change_state" binds= [ 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/TitleScreen/Button" to="." method="change_state" binds= [ 2, 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer/Story_Mode" to="." method="change_state" binds= [ 3, 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer/Freeplay" to="." method="change_state" binds= [ 4, 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer/Credits" to="." method="change_state" binds= [ 5, 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/MainOptions/ScrollContainer/HBoxContainer/Options" to="." method="change_state" binds= [ 6, 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Prev_Week" to="MenuVR/Viewport/MainMenuVR/StoryMode" method="_on_option_changed" binds= [ -1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Next_Week" to="MenuVR/Viewport/MainMenuVR/StoryMode" method="_on_option_changed" binds= [ 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Prev_Difficulty" to="MenuVR/Viewport/MainMenuVR/StoryMode" method="_on_difficulty_changed" binds= [ -1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Next_Difficulty" to="MenuVR/Viewport/MainMenuVR/StoryMode" method="_on_difficulty_changed" binds= [ 1 ]]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Accept" to="MenuVR/Viewport/MainMenuVR/StoryMode" method="_on_week_selection_confirmed" flags=6]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/StoryMode/Cancel" to="." method="change_state" binds= [ 2, 2 ]]
+[connection signal="option_changed" from="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Song_Select_Menu" to="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" method="_on_option_changed"]
+[connection signal="option_selected" from="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Song_Select_Menu" to="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" method="_on_option_selected" flags=7]
+[connection signal="value_changed" from="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Song_Speed_Changer" to="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" method="_on_song_speed_changed"]
+[connection signal="toggled" from="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR/Botplay_Button" to="MenuVR/Viewport/MainMenuVR/Freeplay/FreeplayMenuVR" method="_on_botplay_toggled"]
+[connection signal="pressed" from="MenuVR/Viewport/MainMenuVR/Credits/Cancel" to="." method="change_state" binds= [ 2, 2 ]]
+
+[editable path="Girlfriend"]
+[editable path="MenuVR"]

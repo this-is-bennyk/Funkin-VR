@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/fonts/VCR_32_Options_W_Outline.tres" type="DynamicFont" id=1]
+[ext_resource path="res://packages/fnfvr/testing/LevelTester.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scenes/general/obb/OBB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/obb/InteractiveOBB.gd" type="Script" id=4]
+
+[sub_resource type="Environment" id=1]
+
+[sub_resource type="World" id=3]
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 1, 1, 1 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+path = "res://packages/fnfvr/levels/managers/TesterWeekVR.tscn"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+own_world = true
+world = SubResource( 3 )
+render_target_v_flip = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Viewport"]
+offset = Vector2( 640, 360 )
+transform = Transform2D( 1, 0, 0, 1, 640, 360 )
+
+[node name="Label" type="Label" parent="Viewport/CanvasLayer"]
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Touch OBB to play:"
+align = 1
+valign = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2 )
+cast_shadow = 0
+transparent = false
+texture = SubResource( 2 )
+
+[node name="OBB" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.4, -0.6 )
+script = ExtResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="OBB"]
+material_override = SubResource( 4 )
+cast_shadow = 0
+mesh = SubResource( 5 )
+material/0 = null

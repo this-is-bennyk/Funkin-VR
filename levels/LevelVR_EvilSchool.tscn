@@ -1,0 +1,788 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/school/evil/EvilWeebSchool.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/characters/spirit/Spirit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/shared/game/icons/BF_Pixel_Icon_Extended.tscn" type="PackedScene" id=4]
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/hud/pixel/countdown_messages.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_EvilSchool.gd" type="Script" id=6]
+[ext_resource path="res://packages/fnfvr/characters/senpai/Senpai.tscn" type="PackedScene" id=7]
+[ext_resource path="res://packages/fnfvr/resources/scenes/general/obb/MenuVR.tscn" type="PackedScene" id=8]
+[ext_resource path="res://packages/fnfvr/resources/scripts/menus/DialogueButtonVR.gd" type="Script" id=9]
+
+[sub_resource type="Environment" id=3]
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.6
+albedo_color = Color( 1, 0.619608, 0.192157, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+next_pass = SubResource( 12 )
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.3
+albedo_color = Color( 0.92549, 0.898039, 0.439216, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+next_pass = SubResource( 13 )
+flags_unshaded = true
+
+[sub_resource type="CylinderMesh" id=15]
+top_radius = 0.0
+
+[sub_resource type="SpatialMaterial" id=18]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="CylinderMesh" id=19]
+top_radius = 0.489
+
+[sub_resource type="Animation" id=16]
+resource_name = "Eye_Flash"
+length = 0.125
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 37, 2 ), Vector3( 5, 25, 5 ), Vector3( 5, 50, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 37, 2 ), Vector3( 5, 25, 5 ), Vector3( 5, 50, 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 37, 5 ), Vector3( 5, 25, 10 ), Vector3( 5, 50, 10 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Spatial/MeshInstance:material_override:next_pass:next_pass:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 0.619608, 0.192157, 1 ), Color( 1, 0.619608, 0.192157, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Spatial/MeshInstance:material_override:next_pass:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.92549, 0.898039, 0.439216, 1 ), Color( 0.92549, 0.898039, 0.439216, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Spatial/MeshInstance:material_override:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 50, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 50, 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5, 50, 10 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Spatial/MeshInstance:material_override:next_pass:next_pass:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.619608, 0.192157, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Spatial/MeshInstance:material_override:next_pass:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.92549, 0.898039, 0.439216, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Spatial/MeshInstance:material_override:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 1, 0.105882, 0.192157, 1 )
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("DialogueMenu/Viewport")
+
+[sub_resource type="SpatialMaterial" id=11]
+resource_local_to_scene = true
+render_priority = 2
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 10 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("EvilWeebSchool:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spirit:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Senpai:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Red:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girlfriend:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Player_Zone_Scaler:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Opponent_Step_Zone:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("HUD/Visible_Elements:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Senpai/Senpai Armature/Skeleton/Senpai:material_override:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Red:material_override:albedo_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.105882, 0.192157, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("DialogueMenu:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("DialogueMenu/Display/OBB:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Senpai/Senpai Armature/Skeleton/BoneAttachment2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial3/MeshInstance2:material_override:albedo_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Senpai_Dies"
+length = 11.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("EvilWeebSchool:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spirit:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Senpai:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Red:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girlfriend:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Player_Zone_Scaler:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Opponent_Step_Zone:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("HUD/Visible_Elements:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Senpai/Senpai Armature/Skeleton/Senpai:material_override:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.1, 4.2, 7.4, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.105882, 0.192157, 1 ), Color( 1, 0.105882, 0.192157, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Red:material_override:albedo_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 7.4, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.105882, 0.192157, 1 ), Color( 1, 0.105882, 0.192157, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("Senpai")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 4.2, 4.78, 6.6, 7.18 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "Idle", 0.0, true, false ],
+"method": "play_anim"
+}, {
+"args": [ "TransformStart", 0.0, true, false ],
+"method": "play_anim"
+}, {
+"args": [ "TransformShake_Loop", 0.0, true, false ],
+"method": "play_anim"
+}, {
+"args": [ "TransformExplode", 0.0, true, false ],
+"method": "play_anim"
+}, {
+"args": [ "TransformDying_Loop", 0.0, true, false ],
+"method": "play_anim"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("Senpai/AnimationTree")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 11.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("DialogueMenu:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("DialogueMenu/Display/OBB:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/14/type = "animation"
+tracks/14/path = NodePath("Senpai/Senpai Armature/Skeleton/BoneAttachment2/AnimationPlayer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"clips": PoolStringArray( "Eye_Flash", "[stop]" ),
+"times": PoolRealArray( 6.6, 11.5 )
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Senpai/Senpai Armature/Skeleton/BoneAttachment2:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 6.6, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial3/MeshInstance2:material_override:albedo_color")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 7.4, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 1 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+performers = {
+"metronome": "gf",
+"opponent": "spirit",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("Girlfriend"),
+"spirit": NodePath("Spirit")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 3 )
+
+[node name="EvilWeebSchool" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.2, -1.75 )
+
+[node name="Spirit" parent="." index="2" instance=ExtResource( 3 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -4 )
+
+[node name="Senpai" parent="." index="3" instance=ExtResource( 7 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+visible = false
+
+[node name="Skeleton" parent="Senpai/Senpai Armature" index="0"]
+bones/4/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
+
+[node name="Microphone" parent="Senpai/Senpai Armature/Skeleton" index="0"]
+visible = false
+
+[node name="Senpai" parent="Senpai/Senpai Armature/Skeleton" index="1"]
+material_override = SubResource( 5 )
+
+[node name="BoneAttachment" parent="Senpai/Senpai Armature/Skeleton" index="2"]
+transform = Transform( 4.37501e-07, 5.87173e-08, -1, -0.257771, 0.966206, -5.69059e-08, 0.966206, 0.257771, 4.35268e-07, 3.52284e-06, 179.567, -1.18058 )
+visible = false
+
+[node name="BoneAttachment2" type="BoneAttachment" parent="Senpai/Senpai Armature/Skeleton" index="3"]
+transform = Transform( 4.37501e-07, 5.87173e-08, -1, -0.257771, 0.966206, -5.69059e-08, 0.966206, 0.257771, 4.35268e-07, 3.52284e-06, 179.567, -1.18058 )
+visible = false
+bone_name = "Head"
+
+[node name="Spatial" type="Spatial" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2" index="0"]
+transform = Transform( 1.2828, 48.3264, -1.3957e-14, -4.83264, 12.828, 5.25801e-14, 5.44009e-14, -1.34466e-18, 5, 10.7759, 24.247, 7.94554 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial" index="0"]
+transform = Transform( 1, -2.79397e-09, 6.55032e-15, 2.91038e-11, 1, 7.10543e-15, 1.09357e-14, 9.09495e-13, 1, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 14 )
+cast_shadow = 0
+mesh = SubResource( 15 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial" index="1"]
+transform = Transform( 1.6, -3.20142e-11, -1.74971e-14, 4.65661e-11, 1.1, -1.45519e-12, 1.74971e-14, 1.00044e-12, 1.6, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 18 )
+cast_shadow = 0
+mesh = SubResource( 19 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Spatial2" type="Spatial" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2" index="1"]
+transform = Transform( 1.2828, 48.3264, -1.3957e-14, -4.83264, 12.828, 5.25801e-14, 5.44009e-14, -1.34466e-18, 5, 10.776, 24.247, -8.07 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial2" index="0"]
+transform = Transform( 1, -2.79397e-09, 6.55032e-15, 2.91038e-11, 1, 7.10543e-15, 1.09357e-14, 9.09495e-13, 1, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 14 )
+cast_shadow = 0
+mesh = SubResource( 15 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial2" index="1"]
+transform = Transform( 1.6, -3.20142e-11, -1.74971e-14, 4.65661e-11, 1.1, -1.45519e-12, 1.74971e-14, 1.00044e-12, 1.6, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 18 )
+cast_shadow = 0
+mesh = SubResource( 19 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Spatial3" type="Spatial" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2" index="2"]
+transform = Transform( 1.2828, 48.3264, 5.95886e-14, -4.83264, 12.828, -2.24484e-13, -1.16129e-13, -2.20229e-18, 10, 14.0538, 11.8986, -0.404395 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial3" index="0"]
+transform = Transform( 1, -2.79397e-09, 6.55032e-15, 2.91038e-11, 1, 7.10543e-15, 1.09357e-14, 9.09495e-13, 1, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 14 )
+cast_shadow = 0
+mesh = SubResource( 15 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2/Spatial3" index="1"]
+transform = Transform( 1.6, -3.20142e-11, -1.74971e-14, 4.65661e-11, 1.1, -1.45519e-12, 1.74971e-14, 1.00044e-12, 1.6, -3.8147e-06, 1.04818, -3.57628e-07 )
+material_override = SubResource( 18 )
+cast_shadow = 0
+mesh = SubResource( 19 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Senpai/Senpai Armature/Skeleton/BoneAttachment2" index="3"]
+anims/Eye_Flash = SubResource( 16 )
+anims/RESET = SubResource( 17 )
+
+[node name="AnimationTree" parent="Senpai" index="2"]
+parameters/playback = SubResource( 4 )
+gles2_face_to_anim_map = {
+"DownFace": [ "Down" ],
+"IdleFace": [ "Idle", "TransformStart", "TransformShake_Loop", "TransformExplode", "TransformDying_Loop" ],
+"LeftFace": [ "Left" ],
+"RightFace": [ "Right" ],
+"UpFace": [ "Up" ]
+}
+
+[node name="Red" type="MeshInstance" parent="." index="4"]
+transform = Transform( 25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0 )
+visible = false
+material_override = SubResource( 6 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="DialogueMenu" parent="." index="5" instance=ExtResource( 8 )]
+visible = false
+
+[node name="Viewport" parent="DialogueMenu" index="0"]
+size = Vector2( 1280, 720 )
+
+[node name="Button" type="Button" parent="DialogueMenu/Viewport" index="1"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 1330.0
+margin_bottom = 770.0
+script = ExtResource( 9 )
+
+[node name="Display" parent="DialogueMenu" index="1"]
+transform = Transform( 1.778, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.8, -1.5 )
+material_override = SubResource( 11 )
+
+[node name="OBB" parent="DialogueMenu/Display" index="0"]
+disabled = true
+
+[node name="Senpai_Death" type="AnimationPlayer" parent="." index="6"]
+anims/RESET = SubResource( 8 )
+anims/Senpai_Dies = SubResource( 9 )
+
+[node name="BF_Placeholder" parent="." index="8"]
+icon = ExtResource( 4 )
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 2 )
+
+[node name="Countdown_Msgs" parent="HUD/Visible_Elements" index="3"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 1, -1.5 )
+frames = ExtResource( 5 )
+
+[editable path="Senpai"]
+[editable path="DialogueMenu"]

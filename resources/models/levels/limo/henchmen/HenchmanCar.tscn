@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/HenchmanCar.glb" type="PackedScene" id=1]
+
+[node name="HenchmanCar" instance=ExtResource( 1 )]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/RightHandModel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-openxr/scenes/hand_mesh.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/models/hand/Hand_Texture.png" type="Texture" id=3]
+[ext_resource path="res://addons/godot-openxr/config/OpenXRPose.gdns" type="Script" id=4]
+[ext_resource path="res://addons/godot-openxr/config/OpenXRSkeleton.gdns" type="Script" id=5]
+[ext_resource path="res://packages/fnfvr/resources/models/hand/og/Boyfriend Hand.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnfvr/resources/scripts/top_level/PCVRHand.gd" type="Script" id=7]
+
+[node name="RightHand" type="Spatial"]
+script = ExtResource( 2 )
+albedo_texture = ExtResource( 3 )
+hand_mesh = NodePath("HandModel/Armature001/Skeleton/FNFHand")
+
+[node name="HandModel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5 )
+script = ExtResource( 4 )
+path = "/user/hand/right"
+
+[node name="Skeleton" parent="HandModel/Armature001" index="0"]
+script = ExtResource( 5 )
+hand = 1
+
+[node name="IndexTip" type="BoneAttachment" parent="HandModel/Armature001/Skeleton" index="1"]
+transform = Transform( 0.319407, 0.669965, 0.670169, 0.0359736, -0.715278, 0.697914, 0.946934, -0.19881, -0.252566, -0.0345975, -0.164767, -0.0355408 )
+bone_name = "Index_Tip_R"
+
+[node name="BF_Hand_Ref" type="Position3D" parent="HandModel/Armature001/Skeleton/IndexTip"]
+transform = Transform( 0.999913, 0.0132118, -2.18557e-08, 2.23539e-08, -3.75631e-08, 1, 0.0132118, -0.999913, -3.78552e-08, -0.014, 0.027, 0.016 )
+
+[node name="MiddleTip" type="BoneAttachment" parent="HandModel/Armature001/Skeleton" index="2"]
+transform = Transform( 0.122946, 0.650531, 0.749462, 0.0207071, -0.756708, 0.653425, 0.992197, -0.064817, -0.106505, -0.032112, -0.171612, -0.00654232 )
+bone_name = "Middle_Tip_R"
+
+[node name="BF_Hand_Ref" type="Position3D" parent="HandModel/Armature001/Skeleton/MiddleTip"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -0.999999, -4.37114e-08, 0, 0.036, -0.002 )
+
+[node name="PinkyTip" type="BoneAttachment" parent="HandModel/Armature001/Skeleton" index="3"]
+transform = Transform( -0.478205, 0.749372, 0.457997, -0.115458, -0.570604, 0.813069, 0.870626, 0.335934, 0.359386, -0.027096, -0.133468, 0.0462905 )
+bone_name = "Little_Tip_R"
+
+[node name="BF_Hand_Ref" type="Position3D" parent="HandModel/Armature001/Skeleton/PinkyTip"]
+transform = Transform( 0.996194, -0.0871557, 0, 0.036111, 0.412751, 0.910128, -0.0793228, -0.906664, 0.414328, -0.014, 0.038, -0.023 )
+
+[node name="ThumbTip" type="BoneAttachment" parent="HandModel/Armature001/Skeleton" index="4"]
+transform = Transform( 0.963134, -0.0284255, 0.267517, -0.268921, -0.129157, 0.954463, 0.00742059, -0.991217, -0.13204, -0.0498676, -0.112777, -0.0560918 )
+bone_name = "Thumb_Tip_R"
+
+[node name="BF_Hand_Ref" type="Position3D" parent="HandModel/Armature001/Skeleton/ThumbTip"]
+transform = Transform( 0.993641, 0.112596, 2.74274e-07, 0.0451479, -0.398423, 0.916091, 0.103148, -0.910266, -0.400973, -0.0270839, -0.0012306, -0.00281155 )
+
+[node name="Rotation_Ref" type="Spatial" parent="HandModel"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.001, 0.02, 0 )
+
+[node name="Boyfriend Hand" parent="HandModel/Rotation_Ref" instance=ExtResource( 6 )]
+transform = Transform( 1.57361e-08, 0.36, -3.14722e-08, 0.36, -1.57361e-08, 0, -1.37569e-15, -3.14722e-08, -0.36, -0.26821, 0.260976, -0.0265222 )
+script = ExtResource( 7 )
+hand_paths = [ NodePath("."), NodePath("../../Armature001") ]
+ik_node_paths = [ NodePath("Boyfriend Armature/Skeleton/Index"), NodePath("Boyfriend Armature/Skeleton/Middle"), NodePath("Boyfriend Armature/Skeleton/Pinky"), NodePath("Boyfriend Armature/Skeleton/Thumb") ]
+
+[node name="Index" type="SkeletonIK" parent="HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="3"]
+process_priority = 1
+root_bone = "Pointer.R"
+tip_bone = "Pointer2.R"
+target_node = NodePath("../../../../../Armature001/Skeleton/IndexTip/BF_Hand_Ref")
+
+[node name="Middle" type="SkeletonIK" parent="HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="4"]
+process_priority = 1
+root_bone = "Middle.R"
+tip_bone = "Middle2.R"
+target_node = NodePath("../../../../../Armature001/Skeleton/MiddleTip/BF_Hand_Ref")
+
+[node name="Pinky" type="SkeletonIK" parent="HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="5"]
+process_priority = 1
+root_bone = "Pinky.R"
+tip_bone = "Pinky2.R"
+target_node = NodePath("../../../../../Armature001/Skeleton/PinkyTip/BF_Hand_Ref")
+
+[node name="Thumb" type="SkeletonIK" parent="HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="6"]
+process_priority = 1
+root_bone = "Thumb.R"
+tip_bone = "Thumb2.R"
+target_node = NodePath("../../../../../Armature001/Skeleton/ThumbTip/BF_Hand_Ref")
+
+[editable path="HandModel"]
+[editable path="HandModel/Rotation_Ref/Boyfriend Hand"]

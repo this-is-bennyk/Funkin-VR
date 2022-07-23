@@ -1,0 +1,18 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D tex : hint_albedo;
+
+void vertex()
+{
+	POSITION = round(POSITION);
+}
+
+void fragment()
+{
+	ALBEDO = texture(tex, UV).rgb;
+}
+"

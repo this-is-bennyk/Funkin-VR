@@ -1,0 +1,785 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/girlfriend_xmas/ChrGirlfriend.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_11.png" type="Texture" id=3]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_2.png" type="Texture" id=4]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_13.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_15.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_3.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_4.png" type="Texture" id=8]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_5.png" type="Texture" id=9]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_17.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_16.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_12.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_6.png" type="Texture" id=13]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_8.png" type="Texture" id=14]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_10.png" type="Texture" id=15]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_9.png" type="Texture" id=16]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_7.png" type="Texture" id=17]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_1.png" type="Texture" id=18]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend/gles2_faces/gf_frame_14.png" type="Texture" id=19]
+[ext_resource path="res://packages/fnfvr/resources/scripts/shaders/FaceOverlay.tres" type="Shader" id=20]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/anims/CharacterAnimationTree.gd" type="Script" id=21]
+[ext_resource path="res://scripts/game/characters/DoubleIdleCharacter.gd" type="Script" id=23]
+
+[sub_resource type="Gradient" id=166]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0.129412, 0.129412, 0.129412, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=164]
+gradient = SubResource( 166 )
+
+[sub_resource type="Gradient" id=167]
+offsets = PoolRealArray( 0, 0.657407, 0.753086, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.561728, 0.561728, 0.561728, 1, 1, 1, 1, 1, 0.831373, 0.831373, 0.831373, 1 )
+
+[sub_resource type="GradientTexture" id=165]
+gradient = SubResource( 167 )
+
+[sub_resource type="ShaderMaterial" id=168]
+shader = ExtResource( 20 )
+shader_param/min_height_x = 0.0
+shader_param/max_height_x = 1.0
+shader_param/min_height_z = 0.0
+shader_param/max_height_z = 1.0
+shader_param/img = ExtResource( 18 )
+shader_param/height_gradient_x = SubResource( 164 )
+shader_param/height_gradient_z = SubResource( 165 )
+
+[sub_resource type="PlaneMesh" id=169]
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Animation" id=170]
+resource_name = "CryFace"
+length = 0.666667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=171]
+resource_name = "DanceFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=172]
+resource_name = "DownFace"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.25, 0.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=173]
+resource_name = "DuckFace"
+length = 0.833333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.333333, 0.708333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ), ExtResource( 13 ), ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=174]
+resource_name = "FearFace"
+length = 0.666667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 14 ) ]
+}
+
+[sub_resource type="Animation" id=175]
+resource_name = "LeftFace"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.25, 0.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=176]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=177]
+resource_name = "RightFace"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.25, 0.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=178]
+resource_name = "UpFace"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=179]
+resource_name = "WaveFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+
+[sub_resource type="Animation" id=184]
+resource_name = "Crumple"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesclose")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesclosehappy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyescry")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesdown")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesleft")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesright")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyessad")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesup")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthleft")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/moutho")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthright")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthscared")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthscaredwiggle")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthup")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthwider")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/righteyeclose")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/tears")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/tearswiggle")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=185]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesclose")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesclosehappy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyescry")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesdown")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesleft")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesright")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyessad")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/eyesup")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthleft")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/moutho")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthright")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthscared")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthscaredwiggle")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthup")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/mouthwider")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/righteyeclose")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/tears")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Girlfriend (Christmas) Armature/Skeleton2/Girlfriend (Christmas):blend_shapes/tearswiggle")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=190]
+animation = "Crumple"
+
+[sub_resource type="AnimationNodeAnimation" id=191]
+animation = "DanceFace"
+
+[sub_resource type="AnimationNodeAnimation" id=192]
+animation = "Dance_Right"
+
+[sub_resource type="AnimationNodeAdd2" id=193]
+
+[sub_resource type="AnimationNodeTimeScale" id=194]
+
+[sub_resource type="AnimationNodeBlendTree" id=195]
+graph_offset = Vector2( -527.333, 114.333 )
+nodes/Animation/node = SubResource( 192 )
+nodes/Animation/position = Vector2( -213.333, 80 )
+"nodes/Animation 2/node" = SubResource( 191 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 193 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 194 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "FaceEnabler", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeAnimation" id=186]
+animation = "DanceFace"
+
+[sub_resource type="AnimationNodeAnimation" id=187]
+animation = "Dance_Left"
+
+[sub_resource type="AnimationNodeAdd2" id=188]
+
+[sub_resource type="AnimationNodeTimeScale" id=189]
+
+[sub_resource type="AnimationNodeBlendTree" id=181]
+graph_offset = Vector2( -518.667, 124 )
+nodes/Animation/node = SubResource( 187 )
+nodes/Animation/position = Vector2( -200, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 186 )
+"nodes/Animation 2/position" = Vector2( -200, 186.667 )
+nodes/FaceEnabler/node = SubResource( 188 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 189 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "FaceEnabler", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=182]
+states/Crumple/node = SubResource( 190 )
+states/Crumple/position = Vector2( -65.5963, 78.3333 )
+states/Dance_Left/node = SubResource( 195 )
+states/Dance_Left/position = Vector2( 131.959, 117 )
+states/Dance_Right/node = SubResource( 181 )
+states/Dance_Right/position = Vector2( 131.07, 58.3333 )
+start_node = "Crumple"
+graph_offset = Vector2( -319.263, 0 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=183]
+
+[node name="ChrGirlfriend" instance=ExtResource( 1 )]
+script = ExtResource( 23 )
+anim_player_path = NodePath("AnimationTree")
+
+[node name="Skeleton2" parent="Girlfriend (Christmas) Armature" index="0"]
+bones/4/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="Girlfriend (Christmas)" parent="Girlfriend (Christmas) Armature/Skeleton2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.10096, 0 )
+blend_shapes/eyesclose = 1.0
+blend_shapes/eyesdown = -1.0
+blend_shapes/eyesleft = 0.0
+blend_shapes/eyesup = 1.0
+blend_shapes/mouthleft = 0.0
+blend_shapes/moutho = -1.0
+
+[node name="Girlfriend (Christmas) Cell Shade" parent="Girlfriend (Christmas) Armature/Skeleton2" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.101, 0 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Girlfriend (Christmas) Armature/Skeleton2" index="2"]
+transform = Transform( 0.113508, 0.268192, -0.970327, -0.689786, 0.615586, 0.105522, 0.623514, 0.725105, 0.266242, 6.84037, 205.588, 36.8536 )
+bone_name = "Head"
+
+[node name="GLES2_Face" type="MeshInstance" parent="Girlfriend (Christmas) Armature/Skeleton2/BoneAttachment" index="0"]
+transform = Transform( -4.76837e-06, 9.99999, -2.86102e-06, 2.38419e-06, 2.38419e-06, -15, -23, -1.66893e-06, -3.33786e-06, 18.2663, 11.9632, -1.09202 )
+visible = false
+material_override = SubResource( 168 )
+cast_shadow = 0
+mesh = SubResource( 169 )
+skeleton = NodePath("../../../..")
+material/0 = null
+
+[node name="GLES2_Face_Player" type="AnimationPlayer" parent="Girlfriend (Christmas) Armature/Skeleton2/BoneAttachment/GLES2_Face" index="0"]
+anims/CryFace = SubResource( 170 )
+anims/DanceFace = SubResource( 171 )
+anims/DownFace = SubResource( 172 )
+anims/DuckFace = SubResource( 173 )
+anims/FearFace = SubResource( 174 )
+anims/LeftFace = SubResource( 175 )
+anims/RESET = SubResource( 176 )
+anims/RightFace = SubResource( 177 )
+anims/UpFace = SubResource( 178 )
+anims/WaveFace = SubResource( 179 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/Crumple = SubResource( 184 )
+anims/RESET = SubResource( 185 )
+
+[node name="Camera_Point" type="Position3D" parent="." index="3"]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource( 182 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 183 )
+parameters/Dance_Left/FaceEnabler/add_amount = 0
+parameters/Dance_Left/TimeScale/scale = 1.0
+parameters/Dance_Right/FaceEnabler/add_amount = 1.0
+parameters/Dance_Right/TimeScale/scale = 1.0
+script = ExtResource( 21 )
+gles2_face_path = NodePath("../Girlfriend (Christmas) Armature/Skeleton2/BoneAttachment/GLES2_Face")
+gles2_face_anim_path = NodePath("../Girlfriend (Christmas) Armature/Skeleton2/BoneAttachment/GLES2_Face/GLES2_Face_Player")
+gles2_face_to_anim_map = {
+"DanceFace": [ "Dance_Right", "Dance_Left" ]
+}

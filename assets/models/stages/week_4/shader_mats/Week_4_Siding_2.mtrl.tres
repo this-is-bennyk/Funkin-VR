@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://assets/models/stages/week_4/shaders/Week_4_Siding.shader" type="Shader" id=1]
-
-[resource]
-shader = ExtResource( 1 )
-shader_param/color = Color( 0.396078, 0.396078, 0.396078, 1 )
-shader_param/time_warp = 0.0
-shader_param/desired_time_warp = 5.0

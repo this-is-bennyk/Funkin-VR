@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/Dancing_Henchman.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game/characters/DoubleIdleBeatNode.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/Dance_Left.anim" type="Animation" id=3]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/Dance_Right.anim" type="Animation" id=4]
+
+[node name="Dancing_Henchman" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+anim_player_path = NodePath("AnimPlayer")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/Dance_Left = ExtResource( 3 )
+anims/Dance_Right = ExtResource( 4 )

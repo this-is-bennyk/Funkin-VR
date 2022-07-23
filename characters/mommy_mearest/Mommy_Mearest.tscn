@@ -1,0 +1,456 @@
+[gd_scene load_steps=72 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/Mom.glb" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/anims/CharacterAnimationTree.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/Mom_Crumple.tres" type="Animation" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scripts/shaders/FaceOverlay.tres" type="Shader" id=4]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_1.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_6.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_7.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_8.png" type="Texture" id=8]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_10.png" type="Texture" id=9]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_9.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_2.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_3.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_4.png" type="Texture" id=13]
+[ext_resource path="res://scripts/game/characters/Character.gd" type="Script" id=14]
+[ext_resource path="res://packages/fnf/characters/mommy_mearest/MM_Icon_Extended.tscn" type="PackedScene" id=15]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/gles2_faces/mom_frame_5.png" type="Texture" id=16]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=17]
+
+[sub_resource type="Gradient" id=43]
+offsets = PoolRealArray( 0, 0.225309, 0.5, 0.820988, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.580392, 0.580392, 0.580392, 1, 1, 1, 1, 1, 0.639216, 0.639216, 0.639216, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=44]
+gradient = SubResource( 43 )
+
+[sub_resource type="Gradient" id=40]
+offsets = PoolRealArray( 0, 0.45679, 0.580247, 0.685185, 0.808642, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.235294, 0.235294, 0.235294, 1, 0.360784, 0.360784, 0.360784, 1, 0.568627, 0.564706, 0.564706, 1, 0.517647, 0.517647, 0.517647, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=41]
+gradient = SubResource( 40 )
+
+[sub_resource type="ShaderMaterial" id=42]
+shader = ExtResource( 4 )
+shader_param/min_height_x = -0.1
+shader_param/max_height_x = 1.0
+shader_param/min_height_z = -0.1
+shader_param/max_height_z = 1.0
+shader_param/img = ExtResource( 5 )
+shader_param/height_gradient_x = SubResource( 44 )
+shader_param/height_gradient_z = SubResource( 41 )
+
+[sub_resource type="PlaneMesh" id=39]
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Animation" id=45]
+resource_name = "CharmFace"
+length = 1.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.375, 0.5, 0.625, 1.04167, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "DownFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "DuckFace"
+length = 1.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.208333, 0.416667, 1.20833, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "IdleFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "LUFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "RightFace"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "PUT THE EYES BACK"
+length = 0.001
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Mom Armature/Skeleton:Eye.R")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Mom Armature/Skeleton:Eye.L")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "CharmFace"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Charm"
+
+[sub_resource type="AnimationNodeAdd2" id=30]
+
+[sub_resource type="AnimationNodeTimeScale" id=31]
+
+[sub_resource type="AnimationNodeBlendTree" id=32]
+graph_offset = Vector2( -571.333, 44.6667 )
+nodes/Animation/node = SubResource( 29 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 28 )
+"nodes/Animation 2/position" = Vector2( -200, 186.667 )
+nodes/FaceEnabler/node = SubResource( 30 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 31 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "Mom_Crumple"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "DownFace"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "Down"
+
+[sub_resource type="AnimationNodeAdd2" id=15]
+
+[sub_resource type="AnimationNodeTimeScale" id=16]
+
+[sub_resource type="AnimationNodeBlendTree" id=17]
+graph_offset = Vector2( -528, 74.6667 )
+nodes/Animation/node = SubResource( 53 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 13 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 15 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 16 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "DuckFace"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "Duck"
+
+[sub_resource type="AnimationNodeAdd2" id=35]
+
+[sub_resource type="AnimationNodeTimeScale" id=36]
+
+[sub_resource type="AnimationNodeBlendTree" id=37]
+graph_offset = Vector2( -563.333, 65.3333 )
+nodes/Animation/node = SubResource( 34 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 33 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 35 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 36 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=56]
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "IdleFace"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "PUT THE EYES BACK"
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAdd2" id=7]
+
+[sub_resource type="AnimationNodeTimeScale" id=3]
+
+[sub_resource type="AnimationNodeBlendTree" id=4]
+graph_offset = Vector2( -473.333, 74 )
+nodes/Add2/node = SubResource( 56 )
+nodes/Add2/position = Vector2( -200, 186.667 )
+nodes/Animation/node = SubResource( 54 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 57 )
+"nodes/Animation 2/position" = Vector2( -373.333, 173.333 )
+"nodes/Animation 3/node" = SubResource( 58 )
+"nodes/Animation 3/position" = Vector2( -440, 293.333 )
+nodes/FaceEnabler/node = SubResource( 7 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 3 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "LeftFace"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAdd2" id=20]
+
+[sub_resource type="AnimationNodeTimeScale" id=21]
+
+[sub_resource type="AnimationNodeBlendTree" id=22]
+graph_offset = Vector2( -558.667, 48.3333 )
+nodes/Animation/node = SubResource( 19 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 18 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 20 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 21 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "RightFace"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "Right"
+
+[sub_resource type="AnimationNodeAdd2" id=23]
+
+[sub_resource type="AnimationNodeTimeScale" id=26]
+
+[sub_resource type="AnimationNodeBlendTree" id=27]
+graph_offset = Vector2( -386, 56.6667 )
+nodes/Animation/node = SubResource( 25 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 24 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 23 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 26 )
+nodes/TimeScale/position = Vector2( 146.667, 106.667 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "UpFace"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "Up"
+
+[sub_resource type="AnimationNodeAdd2" id=10]
+
+[sub_resource type="AnimationNodeTimeScale" id=11]
+
+[sub_resource type="AnimationNodeBlendTree" id=12]
+graph_offset = Vector2( -500, 31.3333 )
+nodes/Animation/node = SubResource( 55 )
+nodes/Animation/position = Vector2( -200, 40 )
+"nodes/Animation 2/node" = SubResource( 8 )
+"nodes/Animation 2/position" = Vector2( -200, 160 )
+nodes/FaceEnabler/node = SubResource( 10 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 66.6667 )
+nodes/TimeScale/node = SubResource( 11 )
+nodes/TimeScale/position = Vector2( 146.667, 106.667 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=1]
+states/Charm/node = SubResource( 32 )
+states/Charm/position = Vector2( 795.667, 135.333 )
+states/Crumple/node = SubResource( 38 )
+states/Crumple/position = Vector2( 232, 107.778 )
+states/Down/node = SubResource( 17 )
+states/Down/position = Vector2( 607.37, 116.333 )
+states/Duck/node = SubResource( 37 )
+states/Duck/position = Vector2( 795.667, 75.3333 )
+states/Idle/node = SubResource( 4 )
+states/Idle/position = Vector2( 423, 107 )
+states/Left/node = SubResource( 22 )
+states/Left/position = Vector2( 607.395, 174.333 )
+states/Right/node = SubResource( 27 )
+states/Right/position = Vector2( 607.078, 233 )
+states/Up/node = SubResource( 12 )
+states/Up/position = Vector2( 606.556, 58.3333 )
+start_node = "Crumple"
+graph_offset = Vector2( 46, 19 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[node name="Mom" instance=ExtResource( 1 )]
+script = ExtResource( 14 )
+anim_player_path = NodePath("AnimationTree")
+idle_frequency = 2
+icon = ExtResource( 15 )
+
+[node name="Skeleton" parent="Mom Armature" index="0"]
+bones/6/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="Mom" parent="Mom Armature/Skeleton" index="1"]
+blend_shapes/eyebrowsdown = 1.0
+blend_shapes/eyebrowsforward = -1.0
+blend_shapes/eyesclose = 1.0
+blend_shapes/eyesclosehappy = 0.35227
+blend_shapes/eyeshalfclose = 1.0
+blend_shapes/mouthch = 1.0
+blend_shapes/mouthopen = -1.0
+blend_shapes/mouthopeno = -1.0
+blend_shapes/mouthsmile = -1.0
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Mom Armature/Skeleton" index="3"]
+transform = Transform( 0.98394, 0.0552927, -0.169718, -0.0874785, 0.978174, -0.188475, 0.155593, 0.200295, 0.967302, 1.84188, 168.963, -6.99956 )
+bone_name = "Head"
+
+[node name="Camera" type="Camera" parent="Mom Armature/Skeleton/BoneAttachment" index="0"]
+transform = Transform( 1, 1.60187e-07, 2.08616e-07, -2.04891e-08, 1, -7.45058e-08, -8.9407e-08, -1.49012e-08, 1, 0.385, 17.293, 23.384 )
+visible = false
+projection = 1
+size = 37.76
+
+[node name="GLES2_Face" type="MeshInstance" parent="Mom Armature/Skeleton/BoneAttachment" index="1"]
+transform = Transform( 17, 3.8147e-06, 1.75834e-06, -5.96046e-08, 1.7451, -16.9102, -3.8147e-06, 16.9102, 1.7451, -0.142744, 16.285, 6.59134 )
+visible = false
+material_override = SubResource( 42 )
+cast_shadow = 0
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="GLES2_Face_Player" type="AnimationPlayer" parent="Mom Armature/Skeleton/BoneAttachment/GLES2_Face" index="0"]
+anims/CharmFace = SubResource( 45 )
+anims/DownFace = SubResource( 46 )
+anims/DuckFace = SubResource( 47 )
+anims/IdleFace = SubResource( 48 )
+anims/LUFace = SubResource( 49 )
+anims/RESET = SubResource( 50 )
+anims/RightFace = SubResource( 51 )
+script = ExtResource( 17 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Mom_Crumple = ExtResource( 3 )
+"anims/PUT THE EYES BACK" = SubResource( 52 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 1 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 2 )
+parameters/Charm/FaceEnabler/add_amount = 1.0
+parameters/Charm/TimeScale/scale = 1.0
+parameters/Down/FaceEnabler/add_amount = 1.0
+parameters/Down/TimeScale/scale = 1.0
+parameters/Duck/FaceEnabler/add_amount = 1.0
+parameters/Duck/TimeScale/scale = 1.0
+parameters/Idle/Add2/add_amount = 1.0
+parameters/Idle/FaceEnabler/add_amount = 1.0
+parameters/Idle/TimeScale/scale = 1.0
+parameters/Left/FaceEnabler/add_amount = 1.0
+parameters/Left/TimeScale/scale = 1.0
+parameters/Right/FaceEnabler/add_amount = 1.0
+parameters/Right/TimeScale/scale = 1.0
+parameters/Up/FaceEnabler/add_amount = 1.0
+parameters/Up/TimeScale/scale = 1.0
+script = ExtResource( 2 )
+gles2_face_path = NodePath("../Mom Armature/Skeleton/BoneAttachment/GLES2_Face")
+gles2_face_anim_path = NodePath("../Mom Armature/Skeleton/BoneAttachment/GLES2_Face/GLES2_Face_Player")
+gles2_face_to_anim_map = {
+"CharmFace": [ "Charm" ],
+"DownFace": [ "Down" ],
+"DuckFace": [ "Duck" ],
+"IdleFace": [ "Idle" ],
+"LUFace": [ "Left", "Up" ],
+"RightFace": [ "Right" ]
+}
+
+[node name="Camera_Point" type="Position3D" parent="." index="3"]

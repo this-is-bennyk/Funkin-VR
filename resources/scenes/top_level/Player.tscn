@@ -1,0 +1,375 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/LeftHand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/RightHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scripts/top_level/Player.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnfvr/resources/graphics/loading_screens/funkay_small.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnfvr/resources/graphics/menus/ui/height_adjuster_progress.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/QuestHand.tscn" type="PackedScene" id=8]
+
+[sub_resource type="World" id=1]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.333, 0.667, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 2160
+
+[sub_resource type="Animation" id=5]
+resource_name = "Basic_Fade_In"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -720 ), Vector2( 1280, 720 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Basic_Fade_Out"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -2160 ), Vector2( 1280, -720 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Instant_Fade_In"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Instant_Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Instant_Fade_Out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Instant_Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Basic_Fade:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1280, -2160 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basic_Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Instant_Transition:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("FPController/ARVRCamera/Overlay_VP")
+
+[sub_resource type="SpatialMaterial" id=9]
+resource_local_to_scene = true
+render_priority = 3
+flags_transparent = true
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_texture = SubResource( 16 )
+
+[sub_resource type="PlaneMesh" id=10]
+size = Vector2( 1.778, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_unshaded = true
+
+[sub_resource type="CubeMesh" id=12]
+
+[sub_resource type="CubeMesh" id=13]
+
+[node name="Player" type="Spatial"]
+pause_mode = 2
+script = ExtResource( 4 )
+left_index_point_path = NodePath("FPController/LeftHand/HandModel/Armature001/Skeleton/IndexTip")
+right_index_point_path = NodePath("FPController/RightHand/HandModel/Armature001/Skeleton/IndexTip")
+left_index_reference_point_path = NodePath("FPController/LeftHandController/Index_Tip_Ref")
+right_index_reference_point_path = NodePath("FPController/RightHandController/Index_Tip_Ref")
+left_index_direction_point_path = NodePath("FPController/LeftHandController/Index_Tip_Ref/Index_Tip_Dir")
+right_index_direction_point_path = NodePath("FPController/RightHandController/Index_Tip_Ref/Index_Tip_Dir")
+
+[node name="FPController" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.556, 0, 0, 0, 0.556, 0, 0, 0, 0.556, 0, 0, 0 )
+
+[node name="ARVRCamera" parent="FPController" index="1"]
+current = true
+near = 0.01
+far = 200.0
+
+[node name="Overlay_VP" type="Viewport" parent="FPController/ARVRCamera" index="0"]
+size = Vector2( 1280, 720 )
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+hdr = false
+usage = 0
+render_target_v_flip = true
+
+[node name="Height_Adjuster" type="CanvasLayer" parent="FPController/ARVRCamera/Overlay_VP"]
+layer = 0
+
+[node name="Height_Adjustment_Progress" type="TextureProgress" parent="FPController/ARVRCamera/Overlay_VP/Height_Adjuster"]
+margin_left = 576.0
+margin_top = 296.0
+margin_right = 1088.0
+margin_bottom = 808.0
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 1.0
+step = 0.01
+texture_progress = ExtResource( 7 )
+fill_mode = 4
+
+[node name="Transition" type="CanvasLayer" parent="FPController/ARVRCamera/Overlay_VP"]
+
+[node name="Basic_Fade" type="Sprite" parent="FPController/ARVRCamera/Overlay_VP/Transition"]
+visible = false
+position = Vector2( 1280, -2160 )
+rotation = 1.5708
+scale = Vector2( 1, 1280 )
+texture = SubResource( 4 )
+centered = false
+
+[node name="Instant_Transition" type="Sprite" parent="FPController/ARVRCamera/Overlay_VP/Transition"]
+visible = false
+position = Vector2( 640, 360 )
+scale = Vector2( 0.778, 0.778 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FPController/ARVRCamera/Overlay_VP/Transition"]
+anims/Basic_Fade_In = SubResource( 5 )
+anims/Basic_Fade_Out = SubResource( 6 )
+anims/Instant_Fade_In = SubResource( 15 )
+anims/Instant_Fade_Out = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="Overlay" type="MeshInstance" parent="FPController/ARVRCamera" index="1"]
+transform = Transform( 1.8, 0, 0, 0, -4.37114e-08, -1.8, 0, 1, -7.86805e-08, 0, -0.25, -1 )
+material_override = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="LeftHandController" parent="FPController" index="2"]
+visible = true
+
+[node name="Index_Tip_Ref" type="Position3D" parent="FPController/LeftHandController" index="0"]
+
+[node name="MeshInstance" type="MeshInstance" parent="FPController/LeftHandController/Index_Tip_Ref"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+visible = false
+material_override = SubResource( 14 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="Index_Tip_Dir" type="Position3D" parent="FPController/LeftHandController/Index_Tip_Ref"]
+transform = Transform( 1, -7.45058e-09, 7.45058e-09, 6.70552e-08, 1, 2.98023e-08, -7.45058e-08, 2.98023e-08, 1, -5.96046e-08, 2.38419e-07, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="FPController/LeftHandController/Index_Tip_Ref/Index_Tip_Dir"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+visible = false
+material_override = SubResource( 14 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="LeftHand_Quest" parent="FPController/LeftHandController" index="1" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024, -0.032, 0.152 )
+visible = false
+controller_path = NodePath("..")
+
+[node name="RightHandController" parent="FPController" index="3"]
+visible = true
+
+[node name="Index_Tip_Ref" type="Position3D" parent="FPController/RightHandController" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="FPController/RightHandController/Index_Tip_Ref"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+visible = false
+material_override = SubResource( 14 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="Index_Tip_Dir" type="Position3D" parent="FPController/RightHandController/Index_Tip_Ref"]
+transform = Transform( 1, 0, 0, -1.49012e-08, 1, -4.47035e-08, -1.49012e-08, 2.23517e-08, 1, 0, 4.17233e-07, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="FPController/RightHandController/Index_Tip_Ref/Index_Tip_Dir"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+visible = false
+material_override = SubResource( 14 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="RightHand_Quest" parent="FPController/RightHandController" index="1" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024, -0.032, 0.152 )
+visible = false
+controller_path = NodePath("..")
+
+[node name="LeftHand" parent="FPController" instance=ExtResource( 2 )]
+
+[node name="Skeleton" parent="FPController/LeftHand/HandModel/Armature001" index="0"]
+bones/4/bound_children = [ NodePath("ThumbTip") ]
+bones/9/bound_children = [ NodePath("IndexTip") ]
+bones/14/bound_children = [ NodePath("MiddleTip") ]
+bones/24/bound_children = [ NodePath("PinkyTip") ]
+
+[node name="IndexTip" parent="FPController/LeftHand/HandModel/Armature001/Skeleton" index="1"]
+transform = Transform( 0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.076153, 0.0915428, -0.715277, 0.692819, 0.0345973, 0.0355402, -0.164767 )
+
+[node name="MiddleTip" parent="FPController/LeftHand/HandModel/Armature001/Skeleton" index="2"]
+transform = Transform( 0.0812012, -0.650532, -0.755125, 0.996576, 0.0648171, 0.051326, 0.0155558, -0.756708, 0.653568, 0.032112, 0.00654222, -0.171612 )
+
+[node name="PinkyTip" parent="FPController/LeftHand/HandModel/Armature001/Skeleton" index="3"]
+transform = Transform( -0.244295, -0.749373, -0.615435, 0.941219, -0.335934, 0.0354295, -0.233296, -0.570604, 0.787391, 0.0270962, -0.0462907, -0.133468 )
+
+[node name="ThumbTip" parent="FPController/LeftHand/HandModel/Armature001/Skeleton" index="4"]
+transform = Transform( 0.937246, 0.0284255, -0.347508, 0.0184904, 0.991216, 0.130949, 0.348179, -0.129157, 0.928487, 0.0498668, 0.0560917, -0.112777 )
+
+[node name="Skeleton" parent="FPController/LeftHand/HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="FPController/LeftHand/HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="7"]
+transform = Transform( 0.0624986, -0.994455, 0.0845788, -0.00261953, 0.0845808, 0.996413, -0.998042, -0.0624959, 0.00268114, -54.7627, 66.7823, -5.99741 )
+
+[node name="RightHand" parent="FPController" instance=ExtResource( 3 )]
+
+[node name="Skeleton" parent="FPController/RightHand/HandModel/Armature001" index="0"]
+bones/4/bound_children = [ NodePath("ThumbTip") ]
+bones/9/bound_children = [ NodePath("IndexTip") ]
+bones/14/bound_children = [ NodePath("MiddleTip") ]
+bones/24/bound_children = [ NodePath("PinkyTip") ]
+
+[node name="IndexTip" parent="FPController/RightHand/HandModel/Armature001/Skeleton" index="1"]
+transform = Transform( 0.319407, 0.669965, 0.670169, 0.0359736, -0.715278, 0.697914, 0.946934, -0.19881, -0.252566, -0.0345975, -0.164767, -0.0355408 )
+
+[node name="MiddleTip" parent="FPController/RightHand/HandModel/Armature001/Skeleton" index="2"]
+transform = Transform( 0.122946, 0.650531, 0.749462, 0.0207071, -0.756708, 0.653425, 0.992197, -0.064817, -0.106505, -0.032112, -0.171612, -0.00654232 )
+
+[node name="PinkyTip" parent="FPController/RightHand/HandModel/Armature001/Skeleton" index="3"]
+transform = Transform( -0.478205, 0.749372, 0.457997, -0.115458, -0.570604, 0.813069, 0.870626, 0.335934, 0.359386, -0.027096, -0.133468, 0.0462905 )
+
+[node name="ThumbTip" parent="FPController/RightHand/HandModel/Armature001/Skeleton" index="4"]
+transform = Transform( 0.963134, -0.0284255, 0.267517, -0.268921, -0.129157, 0.954463, 0.00742059, -0.991217, -0.13204, -0.0498676, -0.112777, -0.0560918 )
+
+[connection signal="button_pressed" from="FPController/LeftHandController" to="." method="_on_left_hand_button_pressed"]
+[connection signal="button_release" from="FPController/LeftHandController" to="." method="_on_left_hand_button_release"]
+[connection signal="button_pressed" from="FPController/RightHandController" to="." method="_on_right_hand_button_pressed"]
+[connection signal="button_release" from="FPController/RightHandController" to="." method="_on_right_hand_button_release"]
+
+[editable path="FPController"]
+[editable path="FPController/LeftHand"]
+[editable path="FPController/LeftHand/HandModel"]
+[editable path="FPController/LeftHand/HandModel/Rotation_Ref/Boyfriend Hand"]
+[editable path="FPController/RightHand"]
+[editable path="FPController/RightHand/HandModel"]
+[editable path="FPController/RightHand/HandModel/Rotation_Ref/Boyfriend Hand"]

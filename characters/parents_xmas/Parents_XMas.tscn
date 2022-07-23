@@ -1,0 +1,783 @@
+[gd_scene load_steps=106 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/Wk5.glb" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/scripts/shaders/FaceOverlay.tres" type="Shader" id=2]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/dad_xmas_frame_1.png" type="Texture" id=3]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/mom_xmas_frame_1.png" type="Texture" id=4]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/anims/CharacterAnimationTree.gd" type="Script" id=5]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/Parents_XMas_Crumple.tres" type="Animation" id=6]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/mom_xmas_frame_3.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/mom_xmas_frame_4.png" type="Texture" id=8]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/dad_xmas_frame_3.png" type="Texture" id=9]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/mom_xmas_frame_2.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/dad_xmas_frame_5.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/dad_xmas_frame_4.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/mom_xmas_frame_5.png" type="Texture" id=13]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/gles2_faces/dad_xmas_frame_2.png" type="Texture" id=14]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=15]
+[ext_resource path="res://scripts/game/characters/AltAnimsCharacter.gd" type="Script" id=17]
+[ext_resource path="res://packages/fnf/characters/parents_christmas/Parents_XMas_Icon_Extended.tscn" type="PackedScene" id=18]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0.0941176, 0.0941176, 0.0941176, 1, 0.443137, 0.443137, 0.443137, 1, 0.0862745, 0.0862745, 0.0862745, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0, 0.191358, 0.506173, 0.756173, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0.2, 1, 0.360784, 0.356863, 0.356863, 1, 0.32549, 0.321569, 0.321569, 1, 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 2 )
+shader_param/min_height_x = -1.802
+shader_param/max_height_x = 3.229
+shader_param/min_height_z = -1.045
+shader_param/max_height_z = 0.761
+shader_param/img = ExtResource( 4 )
+shader_param/height_gradient_x = SubResource( 8 )
+shader_param/height_gradient_z = SubResource( 10 )
+
+[sub_resource type="PlaneMesh" id=12]
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.280864, 0.5, 0.746914, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.709804, 0.709804, 0.709804, 1, 1, 1, 1, 1, 0.709804, 0.709804, 0.709804, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.283951, 0.5, 0.731481, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.278431, 0.278431, 0.278431, 1, 0.305882, 0.305882, 0.305882, 1, 0.290196, 0.290196, 0.290196, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/min_height_x = 0.0
+shader_param/max_height_x = 1.0
+shader_param/min_height_z = 0.0
+shader_param/max_height_z = 1.0
+shader_param/img = ExtResource( 3 )
+shader_param/height_gradient_x = SubResource( 4 )
+shader_param/height_gradient_z = SubResource( 6 )
+
+[sub_resource type="PlaneMesh" id=2]
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Animation" id=81]
+resource_name = "DownFace_D"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=82]
+resource_name = "DownFace_M"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "IdleFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=83]
+resource_name = "LeftFace_D"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "LeftFace_M"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=80]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=85]
+resource_name = "RightFace_D"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "RightFace_M"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=87]
+resource_name = "UpFace_D"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=88]
+resource_name = "UpFace_M"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GLES2_Face_Dad:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:shader_param/img")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=78]
+animation = "Parents_XMas_Crumple"
+
+[sub_resource type="AnimationNodeAdd2" id=36]
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "DownFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "IdleFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "Down"
+
+[sub_resource type="AnimationNodeAdd2" id=40]
+
+[sub_resource type="AnimationNodeTimeScale" id=41]
+
+[sub_resource type="AnimationNodeBlendTree" id=42]
+graph_offset = Vector2( -684, 161.333 )
+nodes/Add2/node = SubResource( 36 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 39 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 37 )
+"nodes/Animation 2/position" = Vector2( -386.667, 200 )
+"nodes/Animation 3/node" = SubResource( 38 )
+"nodes/Animation 3/position" = Vector2( -386.667, 320 )
+nodes/FaceEnabler/node = SubResource( 40 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 41 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=43]
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "IdleFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "DownFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "Down"
+
+[sub_resource type="AnimationNodeAdd2" id=47]
+
+[sub_resource type="AnimationNodeTimeScale" id=48]
+
+[sub_resource type="AnimationNodeBlendTree" id=49]
+graph_offset = Vector2( -865.333, 186 )
+nodes/Add2/node = SubResource( 43 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 46 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 44 )
+"nodes/Animation 2/position" = Vector2( -386.667, 186.667 )
+"nodes/Animation 3/node" = SubResource( 45 )
+"nodes/Animation 3/position" = Vector2( -386.667, 306.667 )
+nodes/FaceEnabler/node = SubResource( 47 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 48 )
+nodes/TimeScale/position = Vector2( 146.667, 133.333 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=15]
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "IdleFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "IdleFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAdd2" id=19]
+
+[sub_resource type="AnimationNodeTimeScale" id=20]
+
+[sub_resource type="AnimationNodeBlendTree" id=21]
+graph_offset = Vector2( -496.984, 62.6667 )
+"nodes/Add2 2/node" = SubResource( 15 )
+"nodes/Add2 2/position" = Vector2( -200, 186.667 )
+nodes/Animation/node = SubResource( 18 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 16 )
+"nodes/Animation 2/position" = Vector2( -373.333, 186.667 )
+"nodes/Animation 3/node" = SubResource( 17 )
+"nodes/Animation 3/position" = Vector2( -373.333, 306.667 )
+nodes/FaceEnabler/node = SubResource( 19 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 20 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2 2", "TimeScale", 0, "FaceEnabler", "Add2 2", 0, "Animation 2", "Add2 2", 1, "Animation 3" ]
+
+[sub_resource type="AnimationNodeAdd2" id=50]
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "LeftFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "IdleFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAdd2" id=54]
+
+[sub_resource type="AnimationNodeTimeScale" id=55]
+
+[sub_resource type="AnimationNodeBlendTree" id=56]
+graph_offset = Vector2( -830, 190 )
+nodes/Add2/node = SubResource( 50 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 53 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 51 )
+"nodes/Animation 2/position" = Vector2( -373.333, 186.667 )
+"nodes/Animation 3/node" = SubResource( 52 )
+"nodes/Animation 3/position" = Vector2( -373.333, 306.667 )
+nodes/FaceEnabler/node = SubResource( 54 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 55 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=57]
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "IdleFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "LeftFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAdd2" id=61]
+
+[sub_resource type="AnimationNodeTimeScale" id=62]
+
+[sub_resource type="AnimationNodeBlendTree" id=63]
+graph_offset = Vector2( -878.667, 146.667 )
+nodes/Add2/node = SubResource( 57 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 60 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 58 )
+"nodes/Animation 2/position" = Vector2( -373.333, 186.667 )
+"nodes/Animation 3/node" = SubResource( 59 )
+"nodes/Animation 3/position" = Vector2( -373.333, 306.667 )
+nodes/FaceEnabler/node = SubResource( 61 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 62 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=64]
+
+[sub_resource type="AnimationNodeAnimation" id=65]
+animation = "RightFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=66]
+animation = "IdleFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=67]
+animation = "Right"
+
+[sub_resource type="AnimationNodeAdd2" id=68]
+
+[sub_resource type="AnimationNodeTimeScale" id=69]
+
+[sub_resource type="AnimationNodeBlendTree" id=70]
+graph_offset = Vector2( -810.667, 160.667 )
+nodes/Add2/node = SubResource( 64 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 67 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 65 )
+"nodes/Animation 2/position" = Vector2( -373.333, 200 )
+"nodes/Animation 3/node" = SubResource( 66 )
+"nodes/Animation 3/position" = Vector2( -373.333, 320 )
+nodes/FaceEnabler/node = SubResource( 68 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 69 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=71]
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "IdleFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "RightFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=74]
+animation = "Right"
+
+[sub_resource type="AnimationNodeAdd2" id=75]
+
+[sub_resource type="AnimationNodeTimeScale" id=76]
+
+[sub_resource type="AnimationNodeBlendTree" id=77]
+graph_offset = Vector2( -825.333, 174.333 )
+nodes/Add2/node = SubResource( 71 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 74 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 72 )
+"nodes/Animation 2/position" = Vector2( -373.333, 186.667 )
+"nodes/Animation 3/node" = SubResource( 73 )
+"nodes/Animation 3/position" = Vector2( -373.333, 306.667 )
+nodes/FaceEnabler/node = SubResource( 75 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 76 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=22]
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "UpFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "IdleFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "Up"
+
+[sub_resource type="AnimationNodeAdd2" id=26]
+
+[sub_resource type="AnimationNodeTimeScale" id=27]
+
+[sub_resource type="AnimationNodeBlendTree" id=28]
+graph_offset = Vector2( -714, 168.667 )
+nodes/Add2/node = SubResource( 22 )
+nodes/Add2/position = Vector2( -200, 200 )
+nodes/Animation/node = SubResource( 25 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 23 )
+"nodes/Animation 2/position" = Vector2( -373.333, 186.667 )
+"nodes/Animation 3/node" = SubResource( 24 )
+"nodes/Animation 3/position" = Vector2( -373.333, 306.667 )
+nodes/FaceEnabler/node = SubResource( 26 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 27 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAdd2" id=29]
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "IdleFaceD"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "UpFaceM"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "Up"
+
+[sub_resource type="AnimationNodeAdd2" id=33]
+
+[sub_resource type="AnimationNodeTimeScale" id=34]
+
+[sub_resource type="AnimationNodeBlendTree" id=35]
+graph_offset = Vector2( -818.667, 157.333 )
+nodes/Add2/node = SubResource( 29 )
+nodes/Add2/position = Vector2( -200, 186.667 )
+nodes/Animation/node = SubResource( 32 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 30 )
+"nodes/Animation 2/position" = Vector2( -373.333, 173.333 )
+"nodes/Animation 3/node" = SubResource( 31 )
+"nodes/Animation 3/position" = Vector2( -373.333, 293.333 )
+nodes/FaceEnabler/node = SubResource( 33 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 34 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Add2", "Add2", 0, "Animation 2", "Add2", 1, "Animation 3", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=13]
+states/Crumple/node = SubResource( 78 )
+states/Crumple/position = Vector2( 115.968, 58.9614 )
+states/Down_Dad/node = SubResource( 42 )
+states/Down_Dad/position = Vector2( 469.878, 57.9856 )
+states/Down_Mom/node = SubResource( 49 )
+states/Down_Mom/position = Vector2( 643.878, 57.7826 )
+states/Idle/node = SubResource( 21 )
+states/Idle/position = Vector2( 298.333, 58.3333 )
+states/Left_Dad/node = SubResource( 56 )
+states/Left_Dad/position = Vector2( 471.656, 117.29 )
+states/Left_Mom/node = SubResource( 63 )
+states/Left_Mom/position = Vector2( 642.93, 117.068 )
+states/Right_Dad/node = SubResource( 70 )
+states/Right_Dad/position = Vector2( 469.818, 178.29 )
+states/Right_Mom/node = SubResource( 77 )
+states/Right_Mom/position = Vector2( 644.263, 178.735 )
+states/Up_Dad/node = SubResource( 28 )
+states/Up_Dad/position = Vector2( 470, -1.37657 )
+states/Up_Mom/node = SubResource( 35 )
+states/Up_Mom/position = Vector2( 644.667, -1.74694 )
+start_node = "Crumple"
+graph_offset = Vector2( -181.032, -27.7099 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+
+[node name="Parents_XMas" instance=ExtResource( 1 )]
+script = ExtResource( 17 )
+anim_player_path = NodePath("AnimationTree")
+icon = ExtResource( 18 )
+suffixes = [ "_Dad", "_Mom" ]
+
+[node name="Skeleton" parent="Dad Armature" index="0"]
+bones/4/bound_children = [ NodePath("Dad_Head") ]
+bones/66/bound_children = [ NodePath("Mom_Head") ]
+
+[node name="Dad" parent="Dad Armature/Skeleton" index="0"]
+blend_shapes/eyesclose = 1.0
+blend_shapes/eyeshappy = 0.0
+blend_shapes/mouthee = 1.0
+blend_shapes/mouthopen = -1.0
+blend_shapes/mouthsad = 1.0
+blend_shapes/mouthsmile = -1.0
+
+[node name="Mom" parent="Dad Armature/Skeleton" index="3"]
+blend_shapes/eyebrowsdown = 1.0
+blend_shapes/eyebrowsforward = -1.0
+blend_shapes/eyesclose = 1.0
+blend_shapes/eyesclosehappy = 0.35227
+blend_shapes/eyeshalfclose = 1.0
+blend_shapes/eyessquint = 0.0
+blend_shapes/mouthch = 1.0
+blend_shapes/mouthopen = -1.0
+blend_shapes/mouthopeno = -1.0
+blend_shapes/mouthsmile = -1.0
+
+[node name="Dad_Head" type="BoneAttachment" parent="Dad Armature/Skeleton" index="4"]
+transform = Transform( 0.974736, -0.0365717, -0.222963, 0.0148712, 1.07986, -0.0493048, 0.223219, 0.064293, 0.974502, -8.52449, 162.407, 15.4545 )
+bone_name = "Head"
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Dad Armature/Skeleton/Dad_Head" index="0"]
+transform = Transform( 21, 3.33539e-07, -2.71176e-08, -5.68954e-08, 4.4156, -24.7277, -2.27581e-07, 29.6733, 3.67966, -0.621514, 22.1102, 2.08898 )
+remote_path = NodePath("../../Mom_Head/GLES2_Face_Mom/GLES2_Face_Dad")
+
+[node name="Mom_Head" type="BoneAttachment" parent="Dad Armature/Skeleton" index="5"]
+transform = Transform( 0.266926, 0.0174227, -0.973273, -0.0887957, 1.07163, -0.0615498, 0.959679, 0.0898078, 0.266705, 22.7982, 162.76, 58.0959 )
+bone_name = "HeadM"
+
+[node name="GLES2_Face_Mom" type="MeshInstance" parent="Dad Armature/Skeleton/Mom_Head" index="0"]
+transform = Transform( 19, 5.24521e-06, 3.57628e-07, 1.19209e-07, 0.59364, -17.989, -5.72205e-06, 16.9336, 0.630638, -0.0232277, 16.2221, 21.2482 )
+visible = false
+material_override = SubResource( 11 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="GLES2_Face_Dad" type="MeshInstance" parent="Dad Armature/Skeleton/Mom_Head/GLES2_Face_Mom" index="0"]
+transform = Transform( 0.524397, 1.36424, 0.221943, -1.0791, 0.84891, -0.0140279, -0.0392824, -0.308111, 1.37268, -2.558, -0.00178075, -0.156152 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../Dad_Head")
+material/0 = null
+
+[node name="GLES2_Face_Player" type="AnimationPlayer" parent="Dad Armature/Skeleton/Mom_Head/GLES2_Face_Mom" index="1"]
+anims/DownFace_D = SubResource( 81 )
+anims/DownFace_M = SubResource( 82 )
+anims/IdleFace = SubResource( 79 )
+anims/LeftFace_D = SubResource( 83 )
+anims/LeftFace_M = SubResource( 84 )
+anims/RESET = SubResource( 80 )
+anims/RightFace_D = SubResource( 85 )
+anims/RightFace_M = SubResource( 86 )
+anims/UpFace_D = SubResource( 87 )
+anims/UpFace_M = SubResource( 88 )
+script = ExtResource( 15 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/Parents_XMas_Crumple = ExtResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource( 13 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 14 )
+parameters/Down_Dad/Add2/add_amount = 1.0
+parameters/Down_Dad/FaceEnabler/add_amount = 1.0
+parameters/Down_Dad/TimeScale/scale = 1.0
+parameters/Down_Mom/Add2/add_amount = 1.0
+parameters/Down_Mom/FaceEnabler/add_amount = 1.0
+parameters/Down_Mom/TimeScale/scale = 1.0
+"parameters/Idle/Add2 2/add_amount" = 1.0
+parameters/Idle/FaceEnabler/add_amount = 1.0
+parameters/Idle/TimeScale/scale = 1.0
+parameters/Left_Dad/Add2/add_amount = 1.0
+parameters/Left_Dad/FaceEnabler/add_amount = 1.0
+parameters/Left_Dad/TimeScale/scale = 1.0
+parameters/Left_Mom/Add2/add_amount = 1.0
+parameters/Left_Mom/FaceEnabler/add_amount = 1.0
+parameters/Left_Mom/TimeScale/scale = 1.0
+parameters/Right_Dad/Add2/add_amount = 1.0
+parameters/Right_Dad/FaceEnabler/add_amount = 1.0
+parameters/Right_Dad/TimeScale/scale = 1.0
+parameters/Right_Mom/Add2/add_amount = 1.0
+parameters/Right_Mom/FaceEnabler/add_amount = 1.0
+parameters/Right_Mom/TimeScale/scale = 1.0
+parameters/Up_Dad/Add2/add_amount = 1.0
+parameters/Up_Dad/FaceEnabler/add_amount = 1.0
+parameters/Up_Dad/TimeScale/scale = 1.0
+parameters/Up_Mom/Add2/add_amount = 1.0
+parameters/Up_Mom/FaceEnabler/add_amount = 1.0
+parameters/Up_Mom/TimeScale/scale = 1.0
+script = ExtResource( 5 )
+gles2_face_path = NodePath("../Dad Armature/Skeleton/Mom_Head/GLES2_Face_Mom")
+gles2_face_anim_path = NodePath("../Dad Armature/Skeleton/Mom_Head/GLES2_Face_Mom/GLES2_Face_Player")
+gles2_face_to_anim_map = {
+"DownFace_D": [ "Down_Dad" ],
+"DownFace_M": [ "Down_Mom" ],
+"IdleFace": [ "Idle" ],
+"LeftFace_D": [ "Left_Dad" ],
+"LeftFace_M": [ "Left_Mom" ],
+"RightFace_D": [ "Right_Dad" ],
+"RightFace_M": [ "Right_Dad" ],
+"UpFace_D": [ "Up_Dad" ],
+"UpFace_M": [ "Up_Mom" ]
+}
+
+[node name="Camera_Point" type="Position3D" parent="." index="5"]

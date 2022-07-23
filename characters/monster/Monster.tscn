@@ -1,0 +1,367 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/monster/Monster.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game/characters/Character.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/anims/CharacterAnimationTree.gd" type="Script" id=3]
+[ext_resource path="res://packages/fnfvr/characters/monster/gles2_faces/monster_frame_2.png" type="Texture" id=4]
+[ext_resource path="res://packages/fnfvr/characters/monster/gles2_faces/monster_frame_3.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnfvr/characters/monster/gles2_faces/monster_frame_4.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnfvr/characters/monster/gles2_faces/monster_frame_5.png" type="Texture" id=7]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=8]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/characters/MonsterJitter.gd" type="Script" id=9]
+[ext_resource path="res://packages/fnf/characters/monster/Monster_Icon_Extended.tscn" type="PackedScene" id=13]
+[ext_resource path="res://packages/fnfvr/characters/monster/gles2_faces/monster_frame_1.png" type="Texture" id=15]
+[ext_resource path="res://packages/fnfvr/resources/scripts/shaders/FaceOverlay.tres" type="Shader" id=16]
+[ext_resource path="res://packages/fnfvr/characters/monster/Monster_Crumple.tres" type="Animation" id=17]
+
+[sub_resource type="Gradient" id=36]
+offsets = PoolRealArray( 0, 0.25, 0.5, 0.75, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.803922, 0.803922, 0.803922, 1, 1, 1, 1, 1, 0.803922, 0.803922, 0.803922, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=37]
+gradient = SubResource( 36 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 16 )
+shader_param/min_height_x = -1.0
+shader_param/max_height_x = 1.0
+shader_param/min_height_z = -1.0
+shader_param/max_height_z = 1.0
+shader_param/img = ExtResource( 15 )
+shader_param/height_gradient_x = SubResource( 37 )
+shader_param/height_gradient_z = SubResource( 37 )
+
+[sub_resource type="PlaneMesh" id=7]
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Animation" id=39]
+resource_name = "DownFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "IdleFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "LeftFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 15 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "RightFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "UpFace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:shader_param/img")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "Monster_Crumple"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "DownFace"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Down"
+
+[sub_resource type="AnimationNodeAdd2" id=46]
+
+[sub_resource type="AnimationNodeTimeScale" id=18]
+
+[sub_resource type="AnimationNodeBlendTree" id=19]
+graph_offset = Vector2( -398.667, 61.3333 )
+nodes/Animation/node = SubResource( 16 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 15 )
+"nodes/Animation 2/position" = Vector2( -200, 186.667 )
+nodes/FaceEnabler/node = SubResource( 46 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 106.667 )
+nodes/TimeScale/node = SubResource( 18 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "IdleFace"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAdd2" id=44]
+
+[sub_resource type="AnimationNodeTimeScale" id=13]
+
+[sub_resource type="AnimationNodeBlendTree" id=14]
+graph_offset = Vector2( -488.667, 70 )
+nodes/Animation/node = SubResource( 11 )
+nodes/Animation/position = Vector2( -186.667, 80 )
+"nodes/Animation 2/node" = SubResource( 10 )
+"nodes/Animation 2/position" = Vector2( -200, 200 )
+nodes/FaceEnabler/node = SubResource( 44 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 13 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "LeftFace"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAdd2" id=47]
+
+[sub_resource type="AnimationNodeTimeScale" id=28]
+
+[sub_resource type="AnimationNodeBlendTree" id=29]
+graph_offset = Vector2( -516.667, 51.3333 )
+nodes/Animation/node = SubResource( 26 )
+nodes/Animation/position = Vector2( -186.667, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 25 )
+"nodes/Animation 2/position" = Vector2( -200, 186.667 )
+nodes/FaceEnabler/node = SubResource( 47 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 106.667 )
+nodes/TimeScale/node = SubResource( 28 )
+nodes/TimeScale/position = Vector2( 146.667, 120 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "RightFace"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Right"
+
+[sub_resource type="AnimationNodeAdd2" id=48]
+
+[sub_resource type="AnimationNodeTimeScale" id=33]
+
+[sub_resource type="AnimationNodeBlendTree" id=34]
+graph_offset = Vector2( -539.333, 30.6667 )
+nodes/Animation/node = SubResource( 31 )
+nodes/Animation/position = Vector2( -186.667, 53.3333 )
+"nodes/Animation 2/node" = SubResource( 30 )
+"nodes/Animation 2/position" = Vector2( -200, 173.333 )
+nodes/FaceEnabler/node = SubResource( 48 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 80 )
+nodes/TimeScale/node = SubResource( 33 )
+nodes/TimeScale/position = Vector2( 146.667, 106.667 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Key005Action004"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "Monster ArmatureAction004"
+
+[sub_resource type="AnimationNodeAdd2" id=45]
+
+[sub_resource type="AnimationNodeTimeScale" id=23]
+
+[sub_resource type="AnimationNodeBlendTree" id=24]
+graph_offset = Vector2( -430.667, 44 )
+nodes/Animation/node = SubResource( 21 )
+nodes/Animation/position = Vector2( -320, 66.6667 )
+"nodes/Animation 2/node" = SubResource( 20 )
+"nodes/Animation 2/position" = Vector2( -280, 186.667 )
+nodes/FaceEnabler/node = SubResource( 45 )
+nodes/FaceEnabler/position = Vector2( -26.6667, 93.3333 )
+nodes/TimeScale/node = SubResource( 23 )
+nodes/TimeScale/position = Vector2( 146.667, 106.667 )
+node_connections = [ "output", 0, "TimeScale", "FaceEnabler", 0, "Animation", "FaceEnabler", 1, "Animation 2", "TimeScale", 0, "FaceEnabler" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/Crumple/node = SubResource( 35 )
+states/Crumple/position = Vector2( 208.667, 72.7037 )
+states/Down/node = SubResource( 19 )
+states/Down/position = Vector2( 537.889, 72.5556 )
+states/Idle/node = SubResource( 14 )
+states/Idle/position = Vector2( 375.667, 71 )
+states/Left/node = SubResource( 29 )
+states/Left/position = Vector2( 537.815, 132.333 )
+states/Right/node = SubResource( 34 )
+states/Right/position = Vector2( 538.037, 196 )
+states/Up/node = SubResource( 24 )
+states/Up/position = Vector2( 538.333, 11.6667 )
+start_node = "Crumple"
+graph_offset = Vector2( -43, -28 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="Animation" id=49]
+resource_name = "Jitter"
+length = 0.166667
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Monster Armature/Skeleton/Monster:blend_shapes/jitter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0416667, 0.0833333, 0.125 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, -1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Monster Armature/Skeleton/Monster:blend_shapes/jitter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Monster" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+anim_player_path = NodePath("AnimationTree")
+idle_frequency = 2
+icon = ExtResource( 13 )
+
+[node name="Skeleton" parent="Monster Armature" index="0"]
+bones/4/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="Monster" parent="Monster Armature/Skeleton" index="0"]
+blend_shapes/eyesbulge = -1.0
+blend_shapes/eyesclose = 1.0
+blend_shapes/facestretch2 = 0.0
+blend_shapes/mouthch = 0.0
+blend_shapes/mouthopen = -1.0
+blend_shapes/mouthwider = -1.0
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Monster Armature/Skeleton" index="2"]
+transform = Transform( 0.982319, -0.0196034, -0.186201, 0.0724804, 1.00476, 0.272802, 0.173877, -0.273124, 0.946215, 1.88744, 190.013, -13.8452 )
+bone_name = "Head"
+
+[node name="Camera" type="Camera" parent="Monster Armature/Skeleton/BoneAttachment" index="0"]
+transform = Transform( 0.999938, 0, 0, 0, 0.999107, 0.149515, 0, -0.15276, 0.977885, 2.529, 56.312, 66.03 )
+visible = false
+projection = 1
+size = 91.02
+
+[node name="GLES2_Face" type="MeshInstance" parent="Monster Armature/Skeleton/BoneAttachment" index="1"]
+transform = Transform( 42.8609, -0.496534, -3.01329, -2.99186, 13.4326, -35.4482, 1.72946, 35.5432, 13.3546, -0.345068, 46.6795, -1.54182 )
+visible = false
+material_override = SubResource( 6 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="GLES2_Face_Player" type="AnimationPlayer" parent="Monster Armature/Skeleton/BoneAttachment/GLES2_Face" index="0"]
+anims/DownFace = SubResource( 39 )
+anims/IdleFace = SubResource( 38 )
+anims/LeftFace = SubResource( 41 )
+anims/RESET = SubResource( 40 )
+anims/RightFace = SubResource( 42 )
+anims/UpFace = SubResource( 43 )
+script = ExtResource( 8 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Monster_Crumple = ExtResource( 17 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )
+parameters/Down/FaceEnabler/add_amount = 1.0
+parameters/Down/TimeScale/scale = 1.0
+parameters/Idle/FaceEnabler/add_amount = 1.0
+parameters/Idle/TimeScale/scale = 1.0
+parameters/Left/FaceEnabler/add_amount = 1.0
+parameters/Left/TimeScale/scale = 1.0
+parameters/Right/FaceEnabler/add_amount = 1.0
+parameters/Right/TimeScale/scale = 1.0
+parameters/Up/FaceEnabler/add_amount = 1.0
+parameters/Up/TimeScale/scale = 1.0
+script = ExtResource( 3 )
+gles2_face_path = NodePath("../Monster Armature/Skeleton/BoneAttachment/GLES2_Face")
+gles2_face_anim_path = NodePath("../Monster Armature/Skeleton/BoneAttachment/GLES2_Face/GLES2_Face_Player")
+
+[node name="Jitter" type="AnimationPlayer" parent="." index="3"]
+anims/Jitter = SubResource( 49 )
+anims/RESET = SubResource( 50 )
+script = ExtResource( 9 )
+
+[node name="Camera_Point" type="Position3D" parent="." index="4"]

@@ -1,0 +1,124 @@
+[gd_resource type="Resource" load_steps=26 format=2]
+
+[ext_resource path="res://scripts/resources/mod_credits/ModCredits.gd" type="Script" id=1]
+[ext_resource path="res://scripts/resources/credit_entry/CreditEntry.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/icon_vr.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/menus/credits/bk_icon_small.png" type="Texture" id=4]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/Slushy-Icon.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/finko_icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/menus/credits/dod_icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/menus/credits/icon-Pd-346.png" type="Texture" id=8]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/custom_Icons_sayge.png" type="Texture" id=9]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/jams-Icon.png" type="Texture" id=10]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/CallyBunIcon1.png" type="Texture" id=11]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/pepeu_icon.png" type="Texture" id=12]
+[ext_resource path="res://packages/fnfvr/resources/graphics/credits/Toman-Icon.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/menus/credits/unknown_credit.tres" type="Texture" id=14]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+icons = [ ExtResource( 4 ) ]
+name = "ThisIsBennyK"
+roles_or_contributions = "Lead Developer
+Lead Programmer
+UI Designer"
+links = [ "https://www.youtube.com/channel/UCu7zwXQxp4rHmGhW9Dmulkg", "https://twitter.com/thisisbennyk", "https://thisisbennyk.itch.io" ]
+link_names = [ "YouTube", "Twitter", "Itch.io" ]
+link_colors = [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+icons = [ ExtResource( 11 ) ]
+name = "VibaPop"
+roles_or_contributions = "Original FNF Models
+Animator"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+icons = [ ExtResource( 9 ) ]
+name = "Sayge3D"
+roles_or_contributions = "Modeler"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+icons = [ ExtResource( 13 ) ]
+name = "Toman800"
+roles_or_contributions = "Animator"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+icons = [ ExtResource( 5 ) ]
+name = "Slushy_Anime"
+roles_or_contributions = "Modeler"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+icons = [ ExtResource( 8 ) ]
+name = "Palladium346"
+roles_or_contributions = "Icon Creator"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+icons = [ ExtResource( 12 ) ]
+name = "Pepeu_In3D"
+roles_or_contributions = "Modeler"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+icons = [ ExtResource( 7 ) ]
+name = "DodZonedOut"
+roles_or_contributions = "Animator"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+icons = [ ExtResource( 14 ) ]
+name = "Jaiydanimate"
+roles_or_contributions = "Animator"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+icons = [ ExtResource( 6 ) ]
+name = "FinkoStinko"
+roles_or_contributions = "Artist"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+icons = [ ExtResource( 10 ) ]
+name = "Jams3D"
+roles_or_contributions = "Animator (F3 Video)"
+links = [  ]
+link_names = [  ]
+link_colors = [  ]
+
+[resource]
+script = ExtResource( 1 )
+mod_icon = ExtResource( 3 )
+mod_name = "FNFVR"
+credits = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/ChristmasMall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/characters/parents_xmas/Parents_XMas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_ChristmasMall.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/cops/Cops.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/santa/Santa.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/tree/TreeNormal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend_xmas/ChrGirlfriend.tscn" type="PackedScene" id=8]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 1 )
+
+[node name="LevelVR_ChristmasMall" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+performers = {
+"metronome": "gf",
+"opponent": "parents",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("ChrGirlfriend"),
+"parents": NodePath("Parents_XMas")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="ChristmasMall" parent="." index="0" instance=ExtResource( 2 )]
+transform = Transform( -3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 12.1698, -0.237186, -3.38297 )
+
+[node name="Parents_XMas" parent="." index="1" instance=ExtResource( 3 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+
+[node name="Cops" parent="." index="2" instance=ExtResource( 5 )]
+transform = Transform( -3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -4.05889, 0, 0.600573 )
+
+[node name="Santa" parent="." index="3" instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.45716, 0, -4.52452 )
+
+[node name="TreeNormal" parent="." index="4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.157 )
+
+[node name="ChrGirlfriend" parent="." index="5" instance=ExtResource( 8 )]
+transform = Transform( 0.00284701, 0, -0.0106252, 0, 0.011, 0, 0.0106252, 0, 0.00284701, 2.5, 0, -1.7 )
+
+[node name="Girlfriend" parent="." index="6"]
+visible = false
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 2 )

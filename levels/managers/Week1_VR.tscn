@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/LevelManagerVR.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnfvr/songs/bopeebo/bopeebo.data.tres" type="Resource" id=2]
+[ext_resource path="res://packages/fnfvr/songs/fresh/fresh.data.tres" type="Resource" id=3]
+[ext_resource path="res://packages/fnfvr/songs/dadbattle/dadbattle.data.tres" type="Resource" id=4]
+
+[node name="LevelManagerVR" type="Node"]
+script = ExtResource( 1 )
+state_stack = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+state_args = [ {
+}, {
+}, {
+} ]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/hand/FNFLeftHand.glb" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/scripts/general/anims/AnimateSkeleton.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/anims/Thumb.tres" type="Animation" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/anims/Trigger.tres" type="Animation" id=4]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/anims/Grip.tres" type="Animation" id=5]
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/hands/anims/Default.tres" type="Animation" id=6]
+[ext_resource path="res://packages/fnfvr/resources/scripts/top_level/QuestHand.gd" type="Script" id=7]
+[ext_resource path="res://packages/fnfvr/resources/models/hand/og/Boyfriend Hand.tscn" type="PackedScene" id=8]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Thumb"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Default"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Trigger"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Grip"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Trigger"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Grip"
+
+[sub_resource type="AnimationNodeBlend2" id=14]
+filter_enabled = true
+filters = [ "Armature001/Skeleton:Index_Distal_L", "Armature001/Skeleton:Index_Intermediate_L", "Armature001/Skeleton:Index_Proximal_L", "Armature001/Skeleton:Index_Tip_L", "Boyfriend Hand/Boyfriend Armature/Skeleton:Pointer.R", "Boyfriend Hand/Boyfriend Armature/Skeleton:Pointer1.R", "Boyfriend Hand/Boyfriend Armature/Skeleton:Pointer2.R" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=15]
+graph_offset = Vector2( -340.667, 131.667 )
+nodes/Animation/node = SubResource( 13 )
+nodes/Animation/position = Vector2( -53.3333, 80 )
+"nodes/Animation 2/node" = SubResource( 12 )
+"nodes/Animation 2/position" = Vector2( -80, 213.333 )
+nodes/Blend2/node = SubResource( 14 )
+nodes/Blend2/position = Vector2( 120, 93.3333 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=6]
+blend_point_0/node = SubResource( 4 )
+blend_point_0/pos = Vector2( 0, 0 )
+blend_point_1/node = SubResource( 5 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 10 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 15 )
+blend_point_3/pos = Vector2( 1, 1 )
+min_space = Vector2( 0, 0 )
+
+[sub_resource type="AnimationNodeBlend2" id=7]
+filter_enabled = true
+filters = [ "Armature001/Skeleton:Thumb_Distal_L", "Armature001/Skeleton:Thumb_Proximal_L", "Armature001/Skeleton:Thumb_Tip_L", "Boyfriend Hand/Boyfriend Armature/Skeleton:Thumb.R", "Boyfriend Hand/Boyfriend Armature/Skeleton:Thumb1.R", "Boyfriend Hand/Boyfriend Armature/Skeleton:Thumb2.R" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=8]
+graph_offset = Vector2( -204, 68 )
+nodes/Animation/node = SubResource( 11 )
+nodes/Animation/position = Vector2( -40, 226.667 )
+nodes/Fingers/node = SubResource( 6 )
+nodes/Fingers/position = Vector2( -53.3333, 53.3333 )
+nodes/Thumb/node = SubResource( 7 )
+nodes/Thumb/position = Vector2( 133.333, 133.333 )
+node_connections = [ "output", 0, "Thumb", "Thumb", 0, "Fingers", "Thumb", 1, "Animation" ]
+
+[node name="QuestHand" instance=ExtResource( 1 )]
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature001/Skeleton" index="1"]
+root_node = NodePath("../../..")
+anims/Default = ExtResource( 6 )
+anims/Grip = ExtResource( 5 )
+anims/Thumb = ExtResource( 3 )
+anims/Trigger = ExtResource( 4 )
+
+[node name="Boyfriend Hand" parent="." index="2" instance=ExtResource( 8 )]
+transform = Transform( -2.71792e-08, -0.36, 1.57361e-08, 0, 1.57361e-08, 0.36, 0.36, -2.71792e-08, 1.18804e-15, 0.288049, 0.0267793, 0.221308 )
+
+[node name="Skeleton" parent="Boyfriend Hand/Boyfriend Armature" index="0"]
+script = ExtResource( 2 )
+anim_player_path = NodePath("../../../Armature001/Skeleton/AnimationPlayer")
+anim_name = "Grip"
+track_nodepath = "Boyfriend Hand/Boyfriend Armature/Skeleton:Pinky.R"
+pose_rotation_degrees = Vector3( 0, 0, 60 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../Armature001/Skeleton/AnimationPlayer")
+active = true
+parameters/Fingers/blend_position = Vector2( 0, 0 )
+parameters/Fingers/3/Blend2/blend_amount = 1.0
+parameters/Thumb/blend_amount = 0.0
+
+[editable path="Boyfriend Hand"]

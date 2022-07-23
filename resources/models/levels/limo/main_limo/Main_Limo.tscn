@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/main_limo/betterMain_Limo.fbx" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/HenchmanCar.glb" type="PackedScene" id=2]
+
+[node name="Main_Limo" instance=ExtResource( 1 )]
+
+[node name="HenchmanCar" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( -0.014, 0, -2.11394e-09, 0, 0.014, 0, 2.11394e-09, 0, -0.014, -3.24536, 0.991113, 2.60822 )

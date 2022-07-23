@@ -1,0 +1,33 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D img;
+
+uniform sampler2D height_gradient_x : hint_black;
+uniform float min_height_x = 0.0;
+uniform float max_height_x = 1.0;
+
+uniform sampler2D height_gradient_z : hint_black;
+uniform float min_height_z = 0.0;
+uniform float max_height_z = 1.0;
+
+void vertex()
+{
+	float x_height = mix(min_height_x, max_height_x, texture(height_gradient_x, vec2(UV.x, 0.0)).r);
+	float z_height = mix(min_height_z, max_height_z, texture(height_gradient_z, vec2(UV.y, 0.0)).r);
+	float final_height = (x_height + z_height) / 2.0;
+	
+	VERTEX.y += final_height;
+}
+
+void fragment()
+{
+	vec4 final_color = texture(img, UV);
+	
+	ALBEDO = final_color.rgb;
+	ALPHA = final_color.a;
+}
+"

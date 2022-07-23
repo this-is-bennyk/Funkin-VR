@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/mod_desc/ModDescription.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+mod_name = "Friday Night Funkin' VR"
+mod_author = "FNFVR Team"
+mod_version = "8.0.0 / Benjine Edition 1.0.0"
+mod_package_name = "FNFVR_8.0.0"
+advanced_mod = true
+main_path = "res://packages/fnfvr/Main.tscn"
+description = "Ever wanted to kiss Girlfriend FNF in real life? Well, you can't. This game doesn't let you either, but it does let you experience what it's like to be Boyfriend (especially how tall he is) and defeat all who oppose his relationship with GF with THE POWER OF MUSIC!!!"

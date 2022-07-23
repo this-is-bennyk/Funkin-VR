@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/santa/santa_fixed.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game/characters/BeatNode.gd" type="Script" id=2]
+
+[node name="Santa" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+idle_anim_name = "Scared"

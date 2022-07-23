@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.s3tc.stex"
+path.etc2="res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.etc2.stex"
+path.etc="res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://packages/fnfvr/resources/models/levels/school/regular/Leaf1.png"
+dest_files=[ "res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.s3tc.stex", "res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.etc2.stex", "res://.import/Leaf1.png-b27061052565726da2d5d434b12a0b23.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

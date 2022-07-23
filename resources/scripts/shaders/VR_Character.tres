@@ -1,0 +1,59 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D base_tex : hint_albedo;
+uniform sampler2D face_texs : hint_albedo;
+
+uniform bool quest_animating = false;
+uniform bool symmetrical_face = true;
+
+uniform int frame = 0;
+uniform int rows = 1;
+uniform int cols = 1;
+
+uniform vec2 top_left = vec2(0.0);
+uniform vec2 bot_right = vec2(1.0);
+uniform vec2 base_tex_size = vec2(2048.0);
+
+void fragment()
+{
+	vec3 final_color = texture(base_tex, UV).rgb;
+	
+	if (quest_animating)
+	{
+		vec2 top_left_rel = top_left / base_tex_size;
+		vec2 bot_right_rel = bot_right / base_tex_size;
+
+		bool above_top_left = UV.x >= top_left_rel.x && UV.y >= top_left_rel.y;
+		bool below_bot_right = UV.x <= bot_right_rel.x && UV.y <= bot_right_rel.y;
+
+		if (above_top_left && below_bot_right)
+		{
+			vec2 face_pos_rel = (UV - top_left_rel) / (bot_right_rel - top_left_rel);
+			if (symmetrical_face)
+			{
+				vec2 half = (bot_right_rel - top_left_rel) * 0.5;
+				if (face_pos_rel.x > 0.5)
+					face_pos_rel.x += half.x;
+			}
+
+			int cur_row = frame / cols;
+			int cur_col = frame % cols;
+
+			vec2 face_top_left = vec2(float(cur_col) / float(cols), float(cur_row) / float(rows));
+			vec2 face_bot_right = vec2(float(cur_col + 1) / float(cols), float(cur_row + 1) / float(rows));
+
+			vec2 face_area = face_bot_right - face_top_left;
+
+			vec2 face_texs_uv = face_top_left + (face_area * face_pos_rel);
+			vec4 face_color = texture(face_texs, face_texs_uv);
+
+			final_color = mix(final_color, face_color.rgb, face_color.a);
+		}
+	}
+	ALBEDO = final_color;
+}
+"

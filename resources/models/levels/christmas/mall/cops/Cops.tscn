@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/cops/Cops.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game/characters/DoubleIdleBeatNode.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle1"
+length = 2.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Armature002Action" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle2"
+length = 2.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Bounce" ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Cops" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+anim_player_path = NodePath("AnimationPlayer2")
+first_idle = "Idle1"
+second_idle = "Idle2"
+
+[node name="AnimationPlayer" parent="." index="3"]
+playback_speed = 2.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="4"]
+anims/Idle1 = SubResource( 1 )
+anims/Idle2 = SubResource( 2 )

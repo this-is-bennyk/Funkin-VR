@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/hud/pixel/ratings.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/PopupComboVR.gd" type="Script" id=3]
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/hud/pixel/combo_nums/combo_nums.tres" type="SpriteFrames" id=4]
+
+[node name="PopupComboVR" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Rating" type="AnimatedSprite3D" parent="."]
+transform = Transform( 4.2, 0, 0, 0, 4.2, 0, 0, 0, 1, 0, 0, 0 )
+frames = ExtResource( 2 )
+
+[node name="ComboNum_Hundreds" type="AnimatedSprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 1, -1.911, -1, 0 )
+frames = ExtResource( 4 )
+
+[node name="ComboNum_Tens" type="AnimatedSprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 1, -1.481, -1, 0 )
+frames = ExtResource( 4 )
+
+[node name="ComboNum_Ones" type="AnimatedSprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 1, -1.051, -1, 0 )
+frames = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]

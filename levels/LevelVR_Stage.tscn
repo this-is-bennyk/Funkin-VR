@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/characters/daddy_dearest/Daddy_Dearest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/stage/FNFWeek1.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=2]
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 3 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+performers = {
+"metronome": "gf",
+"opponent": "dad",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"dad": NodePath("Dad"),
+"gf": NodePath("Girlfriend")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 2 )
+
+[node name="FNFWeek1" parent="." index="1" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.42367, -1.29406, -1.55575 )
+
+[node name="Dad" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+
+[node name="Camera_Point" parent="Dad" index="5"]
+transform = Transform( 0.582818, 0, -0.812603, 0, 1, 0, 0.812603, 0, 0.582818, -152.115, 173.531, 132.157 )
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 4 )
+
+[editable path="Dad"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/senpai/Senpai.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/testing/AnimTest.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+beat_node = NodePath("Senpai")
+anim = "Transform"
+
+[node name="Senpai" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82005, 3.43893 )
+current = true

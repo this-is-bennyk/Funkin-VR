@@ -1,0 +1,291 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/train_station/Train_Station.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnf/resources/sounds/train_passes.ogg" type="AudioStream" id=3]
+[ext_resource path="res://packages/fnfvr/characters/pico/Pico.tscn" type="PackedScene" id=4]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_Pico.gd" type="Script" id=5]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/train_station/week_3_panorama.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnfvr/resources/graphics/game/levels/week_3/pico_sign_duck.png" type="Texture" id=7]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=8]
+[ext_resource path="res://packages/fnfvr/resources/sounds/week_3/shooters.ogg" type="AudioStream" id=9]
+[ext_resource path="res://scripts/general/PitchScaledAudioStreamPlayer.gd" type="Script" id=10]
+
+[sub_resource type="Gradient" id=11]
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 6 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 2
+background_sky = SubResource( 5 )
+adjustment_enabled = true
+adjustment_color_correction = SubResource( 12 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "Hit_Flash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ PoolColorArray( 1, 0, 0, 1, 1, 1, 1, 1 ), PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:adjustment_saturation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ 0.01, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:environment:adjustment_contrast")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ 1.28, 1.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:adjustment_saturation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:environment:adjustment_contrast")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Train:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -13.4585, 4.66187, -63.5601 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Train2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 13.1909, 4.66187, 65.81 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Train_Pass"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Train:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -13.4585, 4.66187, -63.5601 ), Vector3( -13.459, 4.662, 210.885 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Train2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 13.1909, 4.66187, 65.81 ), Vector3( 13.191, 4.662, -208.636 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=15]
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="PlaneMesh" id=16]
+size = Vector2( 1.22, 1 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 3 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+performers = {
+"metronome": "gf",
+"opponent": "pico",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("Girlfriend"),
+"pico": NodePath("Pico")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" index="0"]
+autoplay = "RESET"
+anims/Hit_Flash = SubResource( 13 )
+anims/RESET = SubResource( 14 )
+script = ExtResource( 8 )
+
+[node name="Train_Station" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.19, -2 )
+
+[node name="Train" parent="Train_Station" index="1"]
+transform = Transform( -81.3578, 0.000951178, 0.963199, -0.000924015, -81.3629, 0.00242052, 0.938918, 0.00234867, 83.4618, -13.4585, 4.66187, -63.5601 )
+
+[node name="Train2" parent="Train_Station" index="2"]
+transform = Transform( 81.3578, -0.000951179, -0.963214, -0.000924015, -81.3629, 0.00242052, -0.938932, -0.00234867, -83.4618, 13.1909, 4.66187, 65.81 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Train_Station" index="3"]
+anims/RESET = SubResource( 8 )
+anims/Train_Pass = SubResource( 7 )
+
+[node name="Pico" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( 0.0108329, 0, 0.00191013, 0, 0.011, 0, -0.00191013, 0, 0.0108329, 0, 0, -3.5 )
+
+[node name="Warning_Sign" type="MeshInstance" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.3, -3.5 )
+material_override = SubResource( 15 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Warning_Sign" index="0"]
+anims/Flash = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+script = ExtResource( 8 )
+
+[node name="Train_Pass_Noise" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 3 )
+bus = "SFX"
+script = ExtResource( 10 )
+
+[node name="Train_Cooldown" type="Timer" parent="." index="5"]
+one_shot = true
+
+[node name="Train_Event_Timer" type="Timer" parent="." index="6"]
+one_shot = true
+
+[node name="Aim_Timer" type="Timer" parent="." index="7"]
+one_shot = true
+
+[node name="Aim_Anim_Timer" type="Timer" parent="." index="8"]
+one_shot = true
+
+[node name="Shoot_Noise" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource( 9 )
+bus = "SFX"
+script = ExtResource( 10 )
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 4 )
+
+[editable path="Train_Station"]

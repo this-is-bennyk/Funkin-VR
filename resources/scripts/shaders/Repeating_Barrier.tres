@@ -1,0 +1,22 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D tex : hint_albedo;
+
+uniform float num_repeats = 10.0;
+
+void vertex()
+{
+	if (VERTEX.y > 0.0)
+		VERTEX.y += num_repeats;
+	else
+		VERTEX.y -= num_repeats;
+}
+
+void fragment()
+{
+	ALBEDO = texture(tex, UV).rgb;
+}"

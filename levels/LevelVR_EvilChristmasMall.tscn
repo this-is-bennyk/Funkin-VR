@@ -1,0 +1,156 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/mall/ChristmasMall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/characters/monster/Monster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_002_Evil.material" type="Material" id=4]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_001_Evil.material" type="Material" id=5]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_003_Evil.material" type="Material" id=6]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_004_Evil.material" type="Material" id=7]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_005_Evil.material" type="Material" id=8]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_008_Evil.material" type="Material" id=9]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/Material_006_Evil.material" type="Material" id=10]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/christmas/evil/tree/TreeMonster.tscn" type="PackedScene" id=11]
+[ext_resource path="res://packages/fnf/resources/sounds/Lights_Turn_On.ogg" type="AudioStream" id=12]
+[ext_resource path="res://packages/fnf/resources/sounds/Lights_Shut_off.ogg" type="AudioStream" id=13]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_EvilChristmasMall.gd" type="Script" id=14]
+[ext_resource path="res://packages/fnfvr/characters/girlfriend_xmas/ChrGirlfriend.tscn" type="PackedScene" id=15]
+
+[sub_resource type="Gradient" id=4]
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Environment" id=3]
+adjustment_enabled = true
+adjustment_color_correction = SubResource( 5 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Scary"
+length = 5.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:adjustment_color_correction:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.75, 2.55 ),
+"transitions": PoolRealArray( 0, 1, 1 ),
+"update": 0,
+"values": [ PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 ), PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 1 ), PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 1.03708,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 1.37555,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 1.75 )
+}
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 1 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+script = ExtResource( 14 )
+performers = {
+"metronome": "gf",
+"opponent": "monster",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("ChrGirlfriend"),
+"monster": NodePath("Monster")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WorldEnvironment" index="0"]
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" index="1"]
+anims/RESET = SubResource( 6 )
+anims/Scary = SubResource( 7 )
+
+[node name="ChristmasMall" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( -3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 12.1698, -0.237186, -3.38297 )
+
+[node name="Plane" parent="ChristmasMall" index="0"]
+material_override = ExtResource( 5 )
+
+[node name="Plane001" parent="ChristmasMall" index="1"]
+material_override = ExtResource( 4 )
+
+[node name="Skybox" parent="ChristmasMall" index="2"]
+material_override = ExtResource( 6 )
+
+[node name="Plane003" parent="ChristmasMall" index="3"]
+material_override = ExtResource( 7 )
+
+[node name="Plane004" parent="ChristmasMall" index="4"]
+material_override = ExtResource( 8 )
+
+[node name="Snow" parent="ChristmasMall" index="5"]
+material_override = ExtResource( 9 )
+
+[node name="Snow001" parent="ChristmasMall" index="6"]
+material_override = ExtResource( 10 )
+
+[node name="Monster" parent="." index="2" instance=ExtResource( 3 )]
+transform = Transform( 0.011, 0, 0, 0, 0.011, 0, 0, 0, 0.011, 0, 0, -3.5 )
+
+[node name="TreeMonster" parent="." index="3" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0, -2.157 )
+
+[node name="ChrGirlfriend" parent="." index="4" instance=ExtResource( 15 )]
+transform = Transform( 0.00284701, 0, -0.0106252, 0, 0.011, 0, 0.0106252, 0, 0.00284701, 2.5, 0, -1.7 )
+
+[node name="Girlfriend" parent="." index="5"]
+visible = false
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 2 )
+
+[editable path="ChristmasMall"]

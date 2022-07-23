@@ -1,0 +1,232 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scenes/game/LevelVR.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/Week4Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/skybox2.png" type="Texture" id=3]
+[ext_resource path="res://packages/fnfvr/characters/mommy_mearest/Mommy_Mearest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/henchmen/Dancing_Henchman.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/main_limo/Main_Limo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/bg_limo/BG_Limo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://packages/fnfvr/resources/models/levels/limo/car/Car.tscn" type="PackedScene" id=8]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/levels/LevelVR_Limo.gd" type="Script" id=9]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=10]
+[ext_resource path="res://packages/fnf/resources/sounds/carPass1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://scripts/general/PitchScaledAudioStreamPlayer.gd" type="Script" id=12]
+
+[sub_resource type="PanoramaSky" id=3]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+background_sky_orientation = Basis( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08 )
+dof_blur_far_transition = 0.28
+dof_blur_far_amount = 0.09
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.533511, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -0.827694, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -180.88, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.65, 0.65, 0.65 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Zoom"
+length = 2.0
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.533511, -0.25, 0, 0.25, 0, -0.533511, -0.25, 0, 0.25, 0.153578, 2.21245, -0.05, -1.18384, 0.25, 0, 2.21245, -0.25, 0, 0.25, 0, -0.534, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.6, 0.95, 1.1, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -0.827694, -0.25, 0, 0.25, 0, -0.764818, -0.25, 0, 0.25, 0, -0.828, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.95, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -180.88, -0.25, 0, 0.25, 0, 180.88, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 0.95, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.65, 0.65, 0.65 ), Vector3( 0.65, 0.65, 0.65 ), Vector3( 0.65, 0.65, 0.367 ), Vector3( 0.65, 0.65, 0.367 ), Vector3( 0.65, 0.65, 0.65 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("HUD/Visible_Elements/Details_VP")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 1 )
+
+[node name="LevelVR" instance=ExtResource( 1 )]
+script = ExtResource( 9 )
+performers = {
+"metronome": "gf",
+"opponent": "mom",
+"player": "bf"
+}
+character_paths = {
+"bf": NodePath("BF_Placeholder"),
+"gf": NodePath("Girlfriend"),
+"mom": NodePath("Mom")
+}
+step_zone_paths = {
+"opponent": NodePath("Opponent_Step_Zone"),
+"player": NodePath("Player_Zone_Scaler/Player_Step_Zone")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( 4 )
+
+[node name="Week4Map" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.22677, -2.5231, 0 )
+
+[node name="Mom" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( 0.011, 0, 0, 0, 0.0109376, 0.00117043, 0, -0.00117043, 0.0109376, 0, -0.680956, -3.49762 )
+
+[node name="Main_Limo" parent="." index="3" instance=ExtResource( 6 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.64113, -2.22906, -1.3617 )
+
+[node name="BG_Limo" parent="." index="4" instance=ExtResource( 7 )]
+transform = Transform( -2.04, 0, 0, 0, 2.04, -3.08031e-07, 0, 3.08031e-07, 2.04, 4.62777, -1.25096, 0.619045 )
+
+[node name="Henchmen" type="Spatial" parent="." index="5"]
+
+[node name="Dancing_Henchman" parent="Henchmen" index="0" instance=ExtResource( 5 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 4.23651, 0, -5.67317 )
+
+[node name="Dancing_Henchman2" parent="Henchmen" index="1" instance=ExtResource( 5 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 4.23651, 0, -3.88217 )
+
+[node name="Dancing_Henchman3" parent="Henchmen" index="2" instance=ExtResource( 5 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 4.23651, 0, 1.45357 )
+
+[node name="Dancing_Henchman4" parent="Henchmen" index="3" instance=ExtResource( 5 )]
+transform = Transform( -4.80825e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80825e-10, 4.23651, 0, 3.1783 )
+
+[node name="Car" parent="." index="6" instance=ExtResource( 8 )]
+transform = Transform( -2.84124e-08, 0, 0.65, 0, 0.65, 0, -0.65, 0, -2.84124e-08, -0.533511, -0.827694, -180.88 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Car" index="1"]
+anims/RESET = SubResource( 7 )
+anims/Zoom = SubResource( 6 )
+script = ExtResource( 10 )
+
+[node name="Car_Pass_Sound" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 11 )
+volume_db = -3.098
+bus = "SFX"
+script = ExtResource( 12 )
+
+[node name="Girlfriend" parent="." index="8"]
+transform = Transform( -4.80826e-10, 0, -0.011, 0, 0.011, 0, 0.011, 0, -4.80826e-10, 4.37243, 0.0526894, -1.10803 )
+first_idle = "W4_Dance_Left"
+second_idle = "W4_Dance_Right"
+
+[node name="Girlfriend" parent="Girlfriend/Girlfriend Armature/Skeleton2" index="0"]
+blend_shapes/eyesclose = 1.0
+blend_shapes/eyesdown = -1.0
+blend_shapes/eyesleft = 0.0
+blend_shapes/eyesup = 1.0
+blend_shapes/mouthclosed = 1.0
+blend_shapes/mouthleft = 0.0
+blend_shapes/moutho = -1.0
+blend_shapes/mouthoo = 1.0
+
+[node name="BoneAttachment" parent="Girlfriend/Girlfriend Armature/Skeleton2" index="2"]
+transform = Transform( 0.225627, 0.494231, -0.839528, -0.762195, 0.596789, 0.147589, 0.574057, 0.626618, 0.522806, 8.25441, 205.135, 41.0184 )
+
+[node name="AnimationTree" parent="Girlfriend" index="3"]
+parameters/playback = SubResource( 5 )
+parameters/W4_Dance_Left/Add2/add_amount = 0
+parameters/W4_Dance_Left/FaceEnabler/add_amount = 0
+parameters/W4_Dance_Right/Add2/add_amount = 0
+parameters/W4_Dance_Right/FaceEnabler/add_amount = 0
+gles2_face_to_anim_map = {
+"CryFace": [ "Sad_Loop" ],
+"DanceFace": [ "Dance_Right", "Dance_Left", "Idle_Left", "Idle_Right", "W3_Hair_Blow_Loop", "W3_Hair_Land" ],
+"DownFace": [ "Down" ],
+"LeftFace": [ "Left" ],
+"RightFace": [ "Right" ],
+"UpFace": [ "Up" ],
+"WaveFace": [ "Cheer" ]
+}
+anim_name_remap = {
+"Sad": "Sad_Loop"
+}
+
+[node name="Details" parent="HUD/Visible_Elements" index="2"]
+material_override = SubResource( 2 )
+
+[editable path="Week4Map"]
+[editable path="Girlfriend"]

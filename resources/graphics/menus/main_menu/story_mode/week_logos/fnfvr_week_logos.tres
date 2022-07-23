@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=2]
+
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week5.png" type="Texture" id=1]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week0.png" type="Texture" id=3]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week2.png" type="Texture" id=4]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week4.png" type="Texture" id=5]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week3.png" type="Texture" id=6]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week1.png" type="Texture" id=7]
+[ext_resource path="res://packages/fnf/resources/graphics/week_logos/week6.png" type="Texture" id=8]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]

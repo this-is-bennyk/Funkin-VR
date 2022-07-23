@@ -1,0 +1,60 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/game/characters/PlayableCharacter.gd" type="Script" id=1]
+[ext_resource path="res://scenes/shared/game/icons/BF_Icon_Extended.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scripts/game/GameOverVRReqs.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Down"
+length = 0.001
+
+[sub_resource type="Animation" id=3]
+resource_name = "Down_Miss"
+length = 0.001
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.001
+
+[sub_resource type="Animation" id=4]
+resource_name = "Left"
+length = 0.001
+
+[sub_resource type="Animation" id=5]
+resource_name = "Left_Miss"
+length = 0.001
+
+[sub_resource type="Animation" id=6]
+resource_name = "Right"
+length = 0.001
+
+[sub_resource type="Animation" id=7]
+resource_name = "Right_Miss"
+length = 0.001
+
+[sub_resource type="Animation" id=8]
+resource_name = "Up"
+length = 0.001
+
+[sub_resource type="Animation" id=9]
+resource_name = "Up_Miss"
+length = 0.001
+
+[node name="BF_Placeholder" type="Spatial"]
+script = ExtResource( 1 )
+icon = ExtResource( 2 )
+death_scene_path = "res://packages/fnfvr/resources/scenes/game/game_over/GameOverVR.tscn"
+death_scene_requirements = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Down = SubResource( 2 )
+anims/Down_Miss = SubResource( 3 )
+anims/Idle = SubResource( 1 )
+anims/Left = SubResource( 4 )
+anims/Left_Miss = SubResource( 5 )
+anims/Right = SubResource( 6 )
+anims/Right_Miss = SubResource( 7 )
+anims/Up = SubResource( 8 )
+anims/Up_Miss = SubResource( 9 )
+
+[node name="Camera_Point" type="Position3D" parent="."]

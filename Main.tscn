@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://packages/fnfvr/resources/scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnfvr/resources/scenes/top_level/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://packages/fnfvr/resources/scenes/top_level/LoaderVR.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Player/FPController/ARVRCamera/Overlay_VP")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = 3
+flags_transparent = true
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_texture = SubResource( 3 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Overlay" parent="Player/FPController/ARVRCamera" index="1"]
+material_override = SubResource( 2 )
+
+[node name="HandModel" parent="Player/FPController/LeftHand" index="0"]
+invisible_if_inactive = false
+
+[node name="IndexTip" parent="Player/FPController/LeftHand/HandModel/Armature001/Skeleton" index="1"]
+transform = Transform( 0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.076153, 0.0915428, -0.715277, 0.692819, 0.0345973, 0.0355402, -0.164767 )
+
+[node name="MiddleTip" parent="Player/FPController/LeftHand/HandModel/Armature001/Skeleton" index="2"]
+transform = Transform( 0.0812012, -0.650532, -0.755125, 0.996576, 0.0648171, 0.051326, 0.0155558, -0.756708, 0.653568, 0.032112, 0.00654222, -0.171612 )
+
+[node name="PinkyTip" parent="Player/FPController/LeftHand/HandModel/Armature001/Skeleton" index="3"]
+transform = Transform( -0.244295, -0.749373, -0.615435, 0.941219, -0.335934, 0.0354295, -0.233296, -0.570604, 0.787391, 0.0270962, -0.0462907, -0.133468 )
+
+[node name="ThumbTip" parent="Player/FPController/LeftHand/HandModel/Armature001/Skeleton" index="4"]
+transform = Transform( 0.937246, 0.0284255, -0.347508, 0.0184904, 0.991216, 0.130949, 0.348179, -0.129157, 0.928487, 0.0498668, 0.0560917, -0.112777 )
+
+[node name="BoneAttachment" parent="Player/FPController/LeftHand/HandModel/Rotation_Ref/Boyfriend Hand/Boyfriend Armature/Skeleton" index="7"]
+transform = Transform( 0.0624986, -0.994455, 0.0845788, -0.00261953, 0.0845808, 0.996413, -0.998042, -0.0624959, 0.00268114, -54.7627, 66.7823, -5.99741 )
+
+[node name="HandModel" parent="Player/FPController/RightHand" index="0"]
+invisible_if_inactive = false
+
+[node name="IndexTip" parent="Player/FPController/RightHand/HandModel/Armature001/Skeleton" index="1"]
+transform = Transform( 0.319407, 0.669965, 0.670169, 0.0359736, -0.715278, 0.697914, 0.946934, -0.19881, -0.252566, -0.0345975, -0.164767, -0.0355408 )
+
+[node name="MiddleTip" parent="Player/FPController/RightHand/HandModel/Armature001/Skeleton" index="2"]
+transform = Transform( 0.122946, 0.650531, 0.749462, 0.0207071, -0.756708, 0.653425, 0.992197, -0.064817, -0.106505, -0.032112, -0.171612, -0.00654232 )
+
+[node name="PinkyTip" parent="Player/FPController/RightHand/HandModel/Armature001/Skeleton" index="3"]
+transform = Transform( -0.478205, 0.749372, 0.457997, -0.115458, -0.570604, 0.813069, 0.870626, 0.335934, 0.359386, -0.027096, -0.133468, 0.0462905 )
+
+[node name="ThumbTip" parent="Player/FPController/RightHand/HandModel/Armature001/Skeleton" index="4"]
+transform = Transform( 0.963134, -0.0284255, 0.267517, -0.268921, -0.129157, 0.954463, 0.00742059, -0.991217, -0.13204, -0.0498676, -0.112777, -0.0560918 )
+
+[node name="LoaderVR" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="initialised" from="Player/FPController" to="." method="_on_init_success" flags=7]
+
+[editable path="Player"]
+[editable path="Player/FPController"]
+[editable path="Player/FPController/LeftHand"]
+[editable path="Player/FPController/LeftHand/HandModel"]
+[editable path="Player/FPController/LeftHand/HandModel/Rotation_Ref/Boyfriend Hand"]
+[editable path="Player/FPController/RightHand"]
+[editable path="Player/FPController/RightHand/HandModel"]
+[editable path="Player/FPController/RightHand/HandModel/Rotation_Ref/Boyfriend Hand"]

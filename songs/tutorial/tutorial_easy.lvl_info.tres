@@ -1,0 +1,127 @@
+[gd_resource type="Resource" load_steps=18 format=2]
+
+[ext_resource path="res://scripts/resources/level_info/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://packages/fnf/songs/tutorial/tutorial_easy.chart.res" type="Resource" id=2]
+[ext_resource path="res://scripts/game/events/GameEventInfo.gd" type="Script" id=3]
+[ext_resource path="res://scripts/general/ResourceList.gd" type="Script" id=4]
+[ext_resource path="res://packages/fnfvr/levels/LevelVR_Tutorial.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+occurrence_time = 0.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+occurrence_time = 16.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "opponent" ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+occurrence_time = 24.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+occurrence_time = 32.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "opponent" ]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 3 )
+occurrence_time = 40.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 3 )
+occurrence_time = 48.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "opponent" ]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 3 )
+occurrence_time = 56.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 3 )
+occurrence_time = 64.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "opponent" ]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 3 )
+occurrence_time = 72.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 3 )
+occurrence_time = 80.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "opponent" ]
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 3 )
+occurrence_time = 84.0
+time_units = 0
+check_floored_time = false
+func_ref_nodepath = "."
+func_ref_property_path = ""
+func_ref_func_name = "set_cam_follow_point"
+func_ref_args = [ "player" ]
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 4 )
+list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ]
+
+[resource]
+script = ExtResource( 1 )
+chart = ExtResource( 2 )
+level = ExtResource( 5 )
+camera_pan_events = SubResource( 12 )

@@ -1,0 +1,63 @@
+[gd_resource type="Resource" load_steps=22 format=2]
+
+[ext_resource path="res://scripts/resources/song_list/SongList.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/menus/story_mode/default_difficulties.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://packages/fnfvr/songs/bopeebo/bopeebo.data.tres" type="Resource" id=3]
+[ext_resource path="res://packages/fnfvr/songs/dadbattle/dadbattle.data.tres" type="Resource" id=4]
+[ext_resource path="res://packages/fnfvr/songs/fresh/fresh.data.tres" type="Resource" id=5]
+[ext_resource path="res://packages/fnfvr/songs/tutorial/tutorial.data.tres" type="Resource" id=6]
+[ext_resource path="res://packages/fnfvr/songs/south/south.data.tres" type="Resource" id=7]
+[ext_resource path="res://packages/fnfvr/songs/monster/monster.data.tres" type="Resource" id=8]
+[ext_resource path="res://packages/fnfvr/songs/spookeez/spookeez.data.tres" type="Resource" id=9]
+[ext_resource path="res://packages/fnfvr/songs/pico/pico.data.tres" type="Resource" id=10]
+[ext_resource path="res://packages/fnfvr/songs/philly/philly.data.tres" type="Resource" id=11]
+[ext_resource path="res://packages/fnfvr/songs/blammed/blammed.data.tres" type="Resource" id=12]
+[ext_resource path="res://packages/fnfvr/songs/satin-panties/satin-panties.data.tres" type="Resource" id=13]
+[ext_resource path="res://packages/fnfvr/songs/high/high.data.tres" type="Resource" id=14]
+[ext_resource path="res://packages/fnfvr/songs/milf/milf.data.tres" type="Resource" id=15]
+[ext_resource path="res://packages/fnfvr/songs/eggnog/eggnog.data.tres" type="Resource" id=16]
+[ext_resource path="res://packages/fnfvr/songs/cocoa/cocoa.data.tres" type="Resource" id=17]
+[ext_resource path="res://packages/fnfvr/songs/winter-horrorland/winter-horrorland.data.tres" type="Resource" id=18]
+[ext_resource path="res://packages/fnfvr/songs/thorns/thorns.data.tres" type="Resource" id=19]
+[ext_resource path="res://packages/fnfvr/songs/roses/roses.data.tres" type="Resource" id=20]
+[ext_resource path="res://packages/fnfvr/songs/senpai/senpai.data.tres" type="Resource" id=21]
+
+[resource]
+script = ExtResource( 1 )
+weeks = [ {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Tutorial_VR.tscn",
+"song_datas": [ ExtResource( 6 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Tutorial"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week1_VR.tscn",
+"song_datas": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Daddy Dearest"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week2_VR.tscn",
+"song_datas": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Spooky Month"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week3_VR.tscn",
+"song_datas": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Pico"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week4_VR.tscn",
+"song_datas": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Mommy Must Murder"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week5_VR.tscn",
+"song_datas": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Red Snow"
+}, {
+"level_manager_path": "res://packages/fnfvr/levels/managers/Week6_VR.tscn",
+"song_datas": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ) ],
+"week_difficulties": ExtResource( 2 ),
+"week_name": "Hating Simulator ft. Moawling"
+} ]
+freeplay_songs = [  ]

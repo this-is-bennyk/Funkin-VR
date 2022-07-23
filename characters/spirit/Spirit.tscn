@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://packages/fnfvr/characters/spirit/Spirit.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game/characters/Character.gd" type="Script" id=2]
+[ext_resource path="res://packages/fnf/characters/spirit/Spirit_Icon_Extended.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packages/fnfvr/resources/scripts/shaders/Wave_Deform.tres" type="Shader" id=4]
+[ext_resource path="res://packages/fnfvr/characters/spirit/Spirit Texture.png" type="Texture" id=5]
+[ext_resource path="res://scripts/general/PitchScaledAnimPlayer.gd" type="Script" id=6]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/vertex_amplitude = 2.0
+shader_param/vertex_speed = 10.0
+shader_param/vertex_frequency = 20.0
+shader_param/tex_amplitude = 0.01
+shader_param/tex_speed = 2.0
+shader_param/tex = ExtResource( 5 )
+
+[node name="Spirit" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+idle_anim_name = "SpiritIdle"
+idle_frequency = 2
+direction_anims = [ "SpiritLeft", "SpiritDown", "SpiritUp", "SpiritRight" ]
+icon = ExtResource( 3 )
+
+[node name="Spirit" parent="Spirit Armature/Skeleton" index="0"]
+material_override = SubResource( 3 )
+blend_shapes/eyessad = 0.0
+blend_shapes/eyessquint = 0.0
+blend_shapes/mouthopen = 2.0
+
+[node name="AnimationPlayer" parent="." index="1"]
+script = ExtResource( 6 )
+
+[node name="Camera_Point" type="Position3D" parent="." index="2"]
