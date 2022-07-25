@@ -14,12 +14,8 @@ onready var hands = [
 onready var controller: ARVRController = get_node(controller_path)
 
 func _ready():
-	if !OS.get_name() == "Android":
-		set_process(false)
-		return
-	
 	_set_hand()
-	show()
+	_toggle_hand()
 	
 	UserData.connect("setting_set", self, "_on_setting_set")
 
@@ -38,11 +34,27 @@ func _set_thumb():
 	hand_animation_tree.set("parameters/Fingers/blend_amount", thumb_val)
 
 func _on_setting_set(setting, _variant, _category, package):
-	if setting == "hand_style" && package == "fnfvr":
+	if package != "fnfvr":
+		return
+	
+	if setting == "hand_style":
 		_set_hand()
+	elif setting == "pcvr_runtime":
+		_toggle_hand()
 
 func _set_hand():
 	var hand_idx = UserData.get_setting("hand_style", 0, "options", "fnfvr")
 	
 	for i in len(hands):
 		hands[i].visible = (i == hand_idx)
+
+func _toggle_hand():
+	var on_meta_runtime = _on_meta_runtime()
+	
+	set_process(on_meta_runtime)
+	visible = on_meta_runtime
+
+func _on_meta_runtime():
+	# PCVR Runtime 1 = Oculus
+	return OS.get_name() == "Android" || \
+		  (OS.get_name() != "Android" && UserData.get_setting("pcvr_runtime", 0, "options", "fnfvr") == 1)

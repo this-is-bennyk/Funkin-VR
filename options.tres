@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://scripts/general/ResourceList.gd" type="Script" id=1]
 [ext_resource path="res://scripts/resources/option_entries/OptionEntry.gd" type="Script" id=2]
@@ -23,6 +23,16 @@ num_range_min = 0
 num_range_max = 0
 default_option = 0
 
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+option_name = "pcvr_runtime"
+option_display_name = "PCVR Runtime"
+options = [ "SteamVR", "Oculus/Meta" ]
+num_range = false
+num_range_min = 0
+num_range_max = 0
+default_option = 0
+
 [resource]
 script = ExtResource( 1 )
-list = [ SubResource( 1 ), SubResource( 2 ) ]
+list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
